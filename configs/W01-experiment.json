@@ -1,0 +1,31 @@
+{
+  "experiment_id": "W01",
+  "status": "revision_verified",
+  "parent_experiment": "E11",
+  "train_revision": "Modified1297Values",
+  "parent_train_revision": "initial",
+  "val_revision": "initial",
+  "weight_rule": {
+    "if_any_existing_label": [
+      "Chair",
+      "Table"
+    ],
+    "selected_weight": 1.5,
+    "other_weight": 1.0
+  },
+  "verification": {
+    "method": "Native sparse edit and SDK-resolved row comparison",
+    "train_rows": 5910,
+    "selected_rows": 1297,
+    "other_rows": 4613,
+    "only_column_changed": "weight",
+    "ordered_images_and_annotations_match_parent": true,
+    "row_schema_matches_parent": true
+  },
+  "planned_training_settings": "optimizer=AdamW;lr0=0.000625;lrf=0.01;patience=8;workers=0;device=0;cos_lr=true;close_mosaic=10;mosaic=1;warmup_epochs=3;warmup_bias_lr=0;momentum=0.9;cache=false;seed=0;deterministic=true;amp=true;collection_conf=0.1;max_det=300;embeddings=off;sampling_weights=true;use_latest=false",
+  "epochs": 30,
+  "batch": 8,
+  "checkpoint_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+  "selection_condition": "Compare against completed E11 on initial validation. Use this trial if Chair and Table still lag and a human-reviewed training revision does not take priority.",
+  "sampling_note": "The plugin samples with replacement when weights are enabled. This trial measures the combined sampling change."
+}

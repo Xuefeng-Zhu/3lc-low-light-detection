@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Optional Zig adapter for the unmodified Annoy dependency.
+set -euo pipefail
+source "$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)/env.sh"
+export ZIG_GLOBAL_CACHE_DIR="$THREE_LC_ROOT/cache/zig"
+compiler_args=()
+for compiler_arg in "$@"; do
+  if [[ "$compiler_arg" != '-Wl,--exclude-libs,ALL' ]]; then
+    compiler_args+=("$compiler_arg")
+  fi
+done
+exec "$VIRTUAL_ENV/bin/python" -m ziglang c++ "${compiler_args[@]}" -fno-finite-math-only

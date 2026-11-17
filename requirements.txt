@@ -1,0 +1,3 @@
+# Main 3LC services only. The official Hub manages the competition plugin environment.
+3lc==3.4.2
+3lc-compute==1.1.0

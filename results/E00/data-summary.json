@@ -1,0 +1,265 @@
+{
+  "generated_at_utc": "2026-11-17T05:05:27+00:00",
+  "generated_at_pacific": "2026-11-16T21:05:27-08:00",
+  "scope": "Provided training and validation YOLO label files only; no images or test data opened.",
+  "source_root": "${KAGGLE_PLUGIN_ROOT}/data/exdark-low-light/v3/starter_kit",
+  "class_mapping": {
+    "0": "Bicycle",
+    "1": "Boat",
+    "2": "Bottle",
+    "3": "Bus",
+    "4": "Car",
+    "5": "Cat",
+    "6": "Chair",
+    "7": "Cup",
+    "8": "Dog",
+    "9": "Motorbike",
+    "10": "People",
+    "11": "Table"
+  },
+  "method": {
+    "image_count_basis": "One .txt label file per image; image folders were not inspected.",
+    "box_count_basis": "Nonblank five-field rows with integer class IDs 0 through 11. Coordinates are not analyzed or modified.",
+    "class_image_count_basis": "Number of label files containing at least one row of the class; categories may overlap in an image.",
+    "percentiles": "Linear interpolation at (n-1)*p/100 over per-file box counts.",
+    "digest": "SHA256 over each sorted relative label path, a NUL byte, original file bytes, then a NUL byte."
+  },
+  "splits": {
+    "train": {
+      "source_label_directory": "${KAGGLE_PLUGIN_ROOT}/data/exdark-low-light/v3/starter_kit/labels/train",
+      "label_files": 5910,
+      "total_boxes": 18959,
+      "empty_label_files": 0,
+      "boxes_per_image": {
+        "mean": 3.207953,
+        "median": 2.0,
+        "min": 1,
+        "p25": 1.0,
+        "p75": 4.0,
+        "p95": 10.0,
+        "max": 58
+      },
+      "source_labels_sha256": "60daa8885389e188881303ce74eb6fc514c5a0563b325f78b88dd56155734123",
+      "classes": [
+        {
+          "class_id": 0,
+          "name": "Bicycle",
+          "boxes": 894,
+          "images_containing_class": 600,
+          "box_share_percent": 4.7154,
+          "image_presence_percent": 10.1523
+        },
+        {
+          "class_id": 1,
+          "name": "Boat",
+          "boxes": 1111,
+          "images_containing_class": 566,
+          "box_share_percent": 5.86,
+          "image_presence_percent": 9.577
+        },
+        {
+          "class_id": 2,
+          "name": "Bottle",
+          "boxes": 1277,
+          "images_containing_class": 554,
+          "box_share_percent": 6.7356,
+          "image_presence_percent": 9.3739
+        },
+        {
+          "class_id": 3,
+          "name": "Bus",
+          "boxes": 565,
+          "images_containing_class": 462,
+          "box_share_percent": 2.9801,
+          "image_presence_percent": 7.8173
+        },
+        {
+          "class_id": 4,
+          "name": "Car",
+          "boxes": 2338,
+          "images_containing_class": 1047,
+          "box_share_percent": 12.3319,
+          "image_presence_percent": 17.7157
+        },
+        {
+          "class_id": 5,
+          "name": "Cat",
+          "boxes": 727,
+          "images_containing_class": 609,
+          "box_share_percent": 3.8346,
+          "image_presence_percent": 10.3046
+        },
+        {
+          "class_id": 6,
+          "name": "Chair",
+          "boxes": 1900,
+          "images_containing_class": 984,
+          "box_share_percent": 10.0216,
+          "image_presence_percent": 16.6497
+        },
+        {
+          "class_id": 7,
+          "name": "Cup",
+          "boxes": 1323,
+          "images_containing_class": 678,
+          "box_share_percent": 6.9782,
+          "image_presence_percent": 11.4721
+        },
+        {
+          "class_id": 8,
+          "name": "Dog",
+          "boxes": 814,
+          "images_containing_class": 693,
+          "box_share_percent": 4.2935,
+          "image_presence_percent": 11.7259
+        },
+        {
+          "class_id": 9,
+          "name": "Motorbike",
+          "boxes": 857,
+          "images_containing_class": 465,
+          "box_share_percent": 4.5203,
+          "image_presence_percent": 7.868
+        },
+        {
+          "class_id": 10,
+          "name": "People",
+          "boxes": 5966,
+          "images_containing_class": 2156,
+          "box_share_percent": 31.4679,
+          "image_presence_percent": 36.4805
+        },
+        {
+          "class_id": 11,
+          "name": "Table",
+          "boxes": 1187,
+          "images_containing_class": 799,
+          "box_share_percent": 6.2609,
+          "image_presence_percent": 13.5195
+        }
+      ],
+      "share_of_train_val_label_files_percent": 88.9658,
+      "share_of_train_val_boxes_percent": 87.4331
+    },
+    "val": {
+      "source_label_directory": "${KAGGLE_PLUGIN_ROOT}/data/exdark-low-light/v3/starter_kit/labels/val",
+      "label_files": 733,
+      "total_boxes": 2725,
+      "empty_label_files": 0,
+      "boxes_per_image": {
+        "mean": 3.717599,
+        "median": 2,
+        "min": 1,
+        "p25": 1.0,
+        "p75": 5.0,
+        "p95": 11.0,
+        "max": 42
+      },
+      "source_labels_sha256": "47d07471fdd6d441e206f5876b4f973898915efd5a03e536bbe2734542c2450b",
+      "classes": [
+        {
+          "class_id": 0,
+          "name": "Bicycle",
+          "boxes": 127,
+          "images_containing_class": 78,
+          "box_share_percent": 4.6606,
+          "image_presence_percent": 10.6412
+        },
+        {
+          "class_id": 1,
+          "name": "Boat",
+          "boxes": 156,
+          "images_containing_class": 56,
+          "box_share_percent": 5.7248,
+          "image_presence_percent": 7.6398
+        },
+        {
+          "class_id": 2,
+          "name": "Bottle",
+          "boxes": 174,
+          "images_containing_class": 83,
+          "box_share_percent": 6.3853,
+          "image_presence_percent": 11.3233
+        },
+        {
+          "class_id": 3,
+          "name": "Bus",
+          "boxes": 77,
+          "images_containing_class": 62,
+          "box_share_percent": 2.8257,
+          "image_presence_percent": 8.4584
+        },
+        {
+          "class_id": 4,
+          "name": "Car",
+          "boxes": 352,
+          "images_containing_class": 156,
+          "box_share_percent": 12.9174,
+          "image_presence_percent": 21.2824
+        },
+        {
+          "class_id": 5,
+          "name": "Cat",
+          "boxes": 91,
+          "images_containing_class": 80,
+          "box_share_percent": 3.3394,
+          "image_presence_percent": 10.9141
+        },
+        {
+          "class_id": 6,
+          "name": "Chair",
+          "boxes": 299,
+          "images_containing_class": 143,
+          "box_share_percent": 10.9725,
+          "image_presence_percent": 19.5089
+        },
+        {
+          "class_id": 7,
+          "name": "Cup",
+          "boxes": 205,
+          "images_containing_class": 88,
+          "box_share_percent": 7.5229,
+          "image_presence_percent": 12.0055
+        },
+        {
+          "class_id": 8,
+          "name": "Dog",
+          "boxes": 102,
+          "images_containing_class": 84,
+          "box_share_percent": 3.7431,
+          "image_presence_percent": 11.4598
+        },
+        {
+          "class_id": 9,
+          "name": "Motorbike",
+          "boxes": 114,
+          "images_containing_class": 64,
+          "box_share_percent": 4.1835,
+          "image_presence_percent": 8.7312
+        },
+        {
+          "class_id": 10,
+          "name": "People",
+          "boxes": 866,
+          "images_containing_class": 299,
+          "box_share_percent": 31.7798,
+          "image_presence_percent": 40.7913
+        },
+        {
+          "class_id": 11,
+          "name": "Table",
+          "boxes": 162,
+          "images_containing_class": 111,
+          "box_share_percent": 5.945,
+          "image_presence_percent": 15.1432
+        }
+      ],
+      "share_of_train_val_label_files_percent": 11.0342,
+      "share_of_train_val_boxes_percent": 12.5669
+    }
+  },
+  "train_val_totals": {
+    "label_files": 6643,
+    "boxes": 21684
+  }
+}

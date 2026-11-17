@@ -1,0 +1,37 @@
+{
+  "experiment_id": "E10",
+  "status": "running",
+  "job_id": "d49f9ba8877943f9bd70c7d0a5a7d8c4",
+  "run_name": "E10_schedule_e30_b8_w2_initial",
+  "started_at_pst": "2026-11-17T09:30:37.689644-08:00",
+  "reason": [
+    "E00 validation AP50 increased through epoch10; validation losses continued to fall.",
+    "E00 epochs10 plus close_mosaic=10 disabled mosaic at epoch 0.",
+    "Batch 8/workers 2 aim to reduce data-loading stalls."
+  ],
+  "requested_settings": "optimizer=AdamW;lr0=0.000625;lrf=0.01;patience=8;workers=2;device=0;cos_lr=true;close_mosaic=10;mosaic=1;warmup_epochs=3;momentum=0.9;cache=false;seed=0;deterministic=true;amp=true;collection_conf=0.1;max_det=300;embeddings=off;sampling_weights=false;use_latest=false",
+  "epochs": 30,
+  "batch": 8,
+  "train_revision": "initial",
+  "val_revision": "initial",
+  "checks_to_complete": [
+    "Export final After validation metrics; compare against E00 AP50=0.6330957413.",
+    "Predict with official plugin only if provenance passes; preserve the E00 artifact."
+  ],
+  "first_epoch_check": {
+    "passed": true,
+    "effective_batch": 8,
+    "training_batches": 739,
+    "native_average_epoch_seconds": 425.4,
+    "validation_map50": 0.25071,
+    "validation_map50_95": 0.12861,
+    "note": "First complete train/validation cycle only. Completed-run performance is not yet available."
+  },
+  "no_label_edits": true,
+  "kaggle_baseline_public_score": 0.56515,
+  "public_leader_at_observation": 0.87,
+  "not_a_single_factor_ablation": true,
+  "snapshot_notice": "In progress at repository preparation on 2026-11-17; only the first complete epoch is verified, with no final metrics or new Kaggle submission claimed.",
+  "official_plugin_only": true,
+  "initialization": "Fresh official SHA256-pinned yolo11n.pt; imgsz=640"
+}

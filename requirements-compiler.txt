@@ -1,0 +1,2 @@
+# Optional Linux fallback when no system C/C++ compiler is installed.
+ziglang==0.17.1

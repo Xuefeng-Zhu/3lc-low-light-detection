@@ -1,0 +1,143 @@
+{
+  "competition_url": "https://www.kaggle.com/competitions/the-3lc-low-light-detection-challenge",
+  "plugin": "kaggle-exdark",
+  "plugin_version": "1.2.15",
+  "experiment": "E00",
+  "run_name": "E00_baseline_e10_b4_initial",
+  "run_url": "${THREE_LC_ROOT}/projects/exdark-competition/runs/E00_baseline_e10_b4_initial",
+  "training": {
+    "job_id": "41d711365dd649f3b2762213f2a28450",
+    "status": "completed",
+    "started_at_pst": "2026-11-16T21:01:36.825815-08:00",
+    "finished_at_pst": "2026-11-16T23:02:38.978576-08:00",
+    "duration_minutes": 121.03587936162948,
+    "epochs_completed": 10,
+    "initial_checkpoint_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+    "best_weights_path": "${KAGGLE_PLUGIN_ROOT}/runs/E00_baseline_e10_b4_initial/weights/best.pt",
+    "best_weights_sha256": "40075ad0304e4cbe4b9c9595cefc9c7412e37563ebc162765454745655a30bf3",
+    "train_table": "${THREE_LC_ROOT}/projects/exdark-competition/datasets/exdark_train/tables/initial",
+    "validation_table": "${THREE_LC_ROOT}/projects/exdark-competition/datasets/exdark_val/tables/initial",
+    "provenance_checks": [
+      {
+        "label": "run records model == yolo11n.pt (official checkpoint)",
+        "ok": true,
+        "detail": "model='${KAGGLE_PLUGIN_ROOT}/checkpoints/yolo11n.pt'"
+      },
+      {
+        "label": "run records imgsz == 640",
+        "ok": true,
+        "detail": "imgsz=640"
+      },
+      {
+        "label": "run records pretrained == True (official init)",
+        "ok": true,
+        "detail": "pretrained=True"
+      },
+      {
+        "label": "run records the official checkpoint sha256",
+        "ok": true,
+        "detail": "checkpoint_sha256=0ebbc80d4a76..."
+      }
+    ],
+    "human_label_edits": false,
+    "requested_settings": {
+      "model": "yolo11n.pt",
+      "imgsz": 640,
+      "batch": 4,
+      "optimizer": "auto",
+      "lr0": 0.01,
+      "lrf": 0.01,
+      "patience": 100,
+      "workers": 0,
+      "device": "auto",
+      "seed": 0,
+      "deterministic": true,
+      "amp": true,
+      "collection_confidence": 0.1,
+      "max_det": 300,
+      "embeddings": false
+    },
+    "effective_device": "cuda:0",
+    "optimizer_note": "optimizer=auto selects the optimizer and overrides requested lr0; effective per-group learning rates are in epoch-results.csv."
+  },
+  "final_validation": {
+    "source": "native per_class_metrics, Training Phase=After, validation split",
+    "AP50": 0.6330957412719727,
+    "AP50_95": 0.4015127718448639,
+    "precision": 0.7045107483863831,
+    "recall": 0.5677985548973083,
+    "images": 733,
+    "instances": 2725,
+    "confidence": 0.001,
+    "max_det": 300,
+    "nms_iou": 0.7
+  },
+  "prediction": {
+    "job_id": "7800f612224c4c8aa8a49be6a193ad25",
+    "status": "completed",
+    "started_at_pst": "2026-11-16T23:03:58.715394-08:00",
+    "finished_at_pst": "2026-11-16T23:04:16.301980-08:00",
+    "duration_seconds": 17.586586475372314,
+    "source_csv": "${KAGGLE_PLUGIN_ROOT}/runs/E00_baseline_e10_b4_initial/submissions/submission_20261116_230415.csv",
+    "deliverable_csv": "results/E00/submission.csv",
+    "csv_sha256": "fddd1a496f42fd3c5480f655e045fb3c127e769a5c4534a5039bb1bd032725a8",
+    "test_table": "${THREE_LC_ROOT}/projects/exdark-competition/datasets/exdark_test/tables/initial",
+    "confidence": 0.001,
+    "imgsz": 640,
+    "max_det": 300,
+    "device": "cuda:0",
+    "rows": 715,
+    "boxes": 60538,
+    "empty_images": 0,
+    "format_checks": [
+      {
+        "label": "columns are id, image_id, prediction_string",
+        "ok": true,
+        "detail": "got ['id', 'image_id', 'prediction_string']"
+      },
+      {
+        "label": "exactly 715 rows (one per test image)",
+        "ok": true,
+        "detail": "got 715"
+      },
+      {
+        "label": "no duplicated image_id rows",
+        "ok": true,
+        "detail": "0 duplicates"
+      },
+      {
+        "label": "id column is 0..N-1 aligned to sorted image_id",
+        "ok": true,
+        "detail": "aligned"
+      },
+      {
+        "label": "all prediction_strings parse under the metric's strict rules",
+        "ok": true,
+        "detail": "60538 boxes total"
+      }
+    ]
+  },
+  "kaggle": {
+    "submitted": true,
+    "public_score": 0.56515,
+    "submission_id": null,
+    "submitted_by": "user via Kaggle web UI",
+    "submission_date_pst": "2026-11-17",
+    "source_url": "https://www.kaggle.com/competitions/the-3lc-low-light-detection-challenge/leaderboard",
+    "leader_score_at_observation": 0.87,
+    "private_score": null,
+    "submission_date_pacific": "2026-11-17",
+    "verification": "Successful submission and public score observed on the official Kaggle leaderboard; final click performed by participant."
+  },
+  "hardware": {
+    "gpu": "NVIDIA T500",
+    "vram_mib": 4096,
+    "driver": "595.99.02"
+  },
+  "path_normalization": {
+    "notice": "This repository copy normalizes local filesystem prefixes for portability; native Run records remain unchanged on the training machine.",
+    "THREE_LC_ROOT": "Local 3LC installation root; default repository/.local/three-lc",
+    "KAGGLE_PLUGIN_ROOT": "Official plugin default state directory: ~/.3lc-kaggle-plugin",
+    "repository_artifacts": "results/E00/"
+  }
+}

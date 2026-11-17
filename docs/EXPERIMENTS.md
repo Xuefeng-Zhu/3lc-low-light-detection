@@ -1,0 +1,11 @@
+# Experiment protocol
+
+E00 is the only completed experiment in this repository snapshot. It used original train and validation revisions, 10 epochs, batch 4, seed 0, and the official plugin. It achieved final validation AP50 0.633096 and Kaggle public score 0.56515. No label edits were made.
+
+The baseline's validation AP50 increased through every epoch, and its validation losses were still falling at the end. With `epochs=10` and `close_mosaic=10`, mosaic was disabled before epoch 1. E10 was launched on November 17, 2026 through the official plugin with 30 epochs, batch 8, workers 2, AdamW at lr0=0.000625, cosine scheduling and close_mosaic=10. It uses the original train and validation revisions and fresh official initialization. Its native job is `d49f9ba8877943f9bd70c7d0a5a7d8c4`; see [the settings snapshot](../configs/E10-experiment.json). This snapshot records E10 as in progress, with no completed metrics or verified effective batch. Record any GPU-memory batch fallback before interpreting the result. A combined configuration experiment does not isolate the effect of each parameter.
+
+For label-quality experiments, use the native Dashboard workflows to present model-derived candidates to the participant. The participant reviews each change and commits a descriptively named training-table revision. Preserve the original validation revision for comparable measurements. Compare otherwise identical runs before and after each batch of changes; each run still starts from the pinned official initialization.
+
+Append completed and active experiments to `experiments.csv`, including native Run URL, revisions, requested/effective settings, duration, final-checkpoint validation metrics, exact submission path and Kaggle score when measured. Leave unknown fields blank. Never equate maximum epoch AP50 with the best checkpoint's final evaluation: the installed Ultralytics version selects `best.pt` by mAP50–95.
+
+Predictions in the Dashboard were collected at confidence 0.1 for E00. Native final validation and the submitted CSV use confidence 0.001. Export max_det is 300; the competition uses its separate COCOeval AP50 specification with maxDets 100. Always label which metric and data split a score describes.

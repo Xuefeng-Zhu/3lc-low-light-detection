@@ -1,6 +1,6 @@
 {
   "experiment_id": "E10",
-  "status": "running",
+  "status": "stalled",
   "job_id": "d49f9ba8877943f9bd70c7d0a5a7d8c4",
   "run_name": "E10_schedule_e30_b8_w2_initial",
   "started_at_pst": "2026-11-17T09:30:37.689644-08:00",
@@ -31,7 +31,22 @@
   "kaggle_baseline_public_score": 0.56515,
   "public_leader_at_observation": 0.87,
   "not_a_single_factor_ablation": true,
-  "snapshot_notice": "In progress at repository preparation on 2026-11-17; only the first complete epoch is verified, with no final metrics or new Kaggle submission claimed.",
-  "official_plugin_only": true,
-  "initialization": "Fresh official SHA256-pinned yolo11n.pt; imgsz=640"
+  "optimizer_warmup_note": {
+    "E00_effective_warmup_bias_lr": 0.0,
+    "E10_default_warmup_bias_lr": 0.1,
+    "evidence": "Installed Ultralytics trainer.build_optimizer sets warmup_bias_lr=0.0 for optimizer=auto. E00 epoch1 lr/pg2=0.000208192; manual-AdamW E10 epoch1 lr/pg2=0.0669198.",
+    "interpretation": "An additional configuration difference; its final performance effect is not yet measured. Do not alter the in-progress native run."
+  },
+  "stall_observation": {
+    "observed_status": "stalled",
+    "native_job_status": "running",
+    "completed_epochs": 4,
+    "current_training_epoch": 5,
+    "current_batch": 20,
+    "batches_per_epoch": 739,
+    "last_progress_update_utc": "2026-11-17T18:02:34.772895+00:00",
+    "last_epoch_map50": 0.44835,
+    "final_checkpoint_metrics_available": false,
+    "recovery_status": "Investigating controlled cancellation and worker restart. No recovery completed yet."
+  }
 }

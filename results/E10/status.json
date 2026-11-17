@@ -1,0 +1,12 @@
+{
+  "observed_status": "stalled",
+  "native_job_status": "running",
+  "completed_epochs": 4,
+  "current_training_epoch": 5,
+  "current_batch": 20,
+  "batches_per_epoch": 739,
+  "last_progress_update_utc": "2026-11-17T18:02:34.772895+00:00",
+  "last_epoch_map50": 0.44835,
+  "final_checkpoint_metrics_available": false,
+  "recovery_status": "Investigating controlled cancellation and worker restart. No recovery completed yet."
+}

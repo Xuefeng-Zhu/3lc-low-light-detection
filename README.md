@@ -25,7 +25,7 @@ Use Python 3.11+ and a persistent machine with a supported GPU, then follow [set
 4. Generate and validate predictions with the plugin, then submit the chosen CSV on Kaggle.
 5. Compare measured validation results before spending further daily submissions.
 
-E00's validation curve was still improving at epoch 10. Its `close_mosaic=10` setting disabled mosaic from the first epoch. **E10 is in progress as of November 17, 2026**, testing a 30-epoch cosine schedule, batch 8, workers 2, and mosaic exposure from fresh official initialization. [Its settings](configs/E10-experiment.json) record the native job and original table revisions. The first complete training and validation cycle passed with an effective batch size of 8. Completed-run metrics are not yet available, and improvement has not been established. This combined experiment cannot isolate each change's effect. See [experiment protocol](docs/EXPERIMENTS.md).
+E00's validation curve was still improving at epoch 10, and its `close_mosaic=10` setting disabled mosaic from the first epoch. **E10 stalled during epoch 5 after four completed epochs** on November 17, 2026. Its last epoch mAP@0.5 was 0.44835; no final-checkpoint metrics or score improvement have been established. The trial used a 30-epoch cosine schedule, batch 8, workers 2, and mosaic from fresh official initialization. [Its settings and stall record](configs/E10-experiment.json) preserve the configuration and original revisions; [partial epoch metrics](results/E10/epoch-results.csv) remain available. Recovery is under investigation. This combined experiment cannot isolate individual changes. See [experiment protocol](docs/EXPERIMENTS.md).
 
 ## Saved evidence
 
@@ -45,6 +45,6 @@ Annotation proposals must come from our own plugin Runs or built-in 3LC tools. T
 
 ## Project export and attribution
 
-The full native `exdark-competition` project export remains a **separate local prize-deliverable artifact**. It is not included in this repository snapshot. Before the competition's prize-deliverable deadline, export the final project and complete the required approach summary with the selected Run and team details. The repository currently has no collaborator invitations configured.
+The final native `exdark-competition` project export must still be created as a **separate prize-deliverable artifact**. It is not included in this repository snapshot. Before the competition's prize-deliverable deadline, export the final project and complete the required approach summary with the selected Run and team details. The repository currently has no collaborator invitations configured.
 
 Source images derive from ExDark; acquire them through the official plugin and retain its bundled license and attribution. This repository does not redistribute raw images, model weights, or the installed 3LC/Ultralytics packages. Upstream tools retain their own licenses, including Ultralytics' AGPL-3.0/commercial terms.

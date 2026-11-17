@@ -1,6 +1,6 @@
 {
-  "observed_status": "stalled",
-  "native_job_status": "running",
+  "observed_status": "interrupted",
+  "native_job_status": "stale",
   "completed_epochs": 4,
   "current_training_epoch": 5,
   "current_batch": 20,
@@ -8,5 +8,5 @@
   "last_progress_update_utc": "2026-11-17T18:02:34.772895+00:00",
   "last_epoch_map50": 0.44835,
   "final_checkpoint_metrics_available": false,
-  "recovery_status": "Investigating controlled cancellation and worker restart. No recovery completed yet."
+  "recovery_status": "Only the Kaggle plugin worker was restarted; partial files retained. CUDA smoke check passed."
 }

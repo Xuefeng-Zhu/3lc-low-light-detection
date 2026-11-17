@@ -1,6 +1,6 @@
 {
   "experiment_id": "E10",
-  "status": "stalled",
+  "status": "interrupted",
   "job_id": "d49f9ba8877943f9bd70c7d0a5a7d8c4",
   "run_name": "E10_schedule_e30_b8_w2_initial",
   "started_at_pst": "2026-11-17T09:30:37.689644-08:00",
@@ -14,10 +14,6 @@
   "batch": 8,
   "train_revision": "initial",
   "val_revision": "initial",
-  "checks_to_complete": [
-    "Export final After validation metrics; compare against E00 AP50=0.6330957413.",
-    "Predict with official plugin only if provenance passes; preserve the E00 artifact."
-  ],
   "first_epoch_check": {
     "passed": true,
     "effective_batch": 8,
@@ -47,6 +43,23 @@
     "last_progress_update_utc": "2026-11-17T18:02:34.772895+00:00",
     "last_epoch_map50": 0.44835,
     "final_checkpoint_metrics_available": false,
-    "recovery_status": "Investigating controlled cancellation and worker restart. No recovery completed yet."
-  }
+    "recovery_status": "Targeted worker restart completed; interrupted run is retained, not resumed."
+  },
+  "native_job_status": "stale",
+  "finished_at_pst": "2026-11-17T10:30:20.334657-08:00",
+  "duration_minutes": 59.71,
+  "recovery": {
+    "user_authorized": true,
+    "method": "Supported Hub Plugins > Kaggle Competition > Restart worker",
+    "only_plugin_worker_restarted": true,
+    "old_worker_and_six_loader_children_exited": true,
+    "gpu_memory_after_stop_mib": 4,
+    "cuda_matrix_smoke_check": "passed",
+    "partial_files_retained": true,
+    "cause_not_proven": true
+  },
+  "not_completed_checks": [
+    "Export final After validation metrics; compare against E00 AP50=0.6330957413.",
+    "Predict with official plugin only if provenance passes; preserve the E00 artifact."
+  ]
 }

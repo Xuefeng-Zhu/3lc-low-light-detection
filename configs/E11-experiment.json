@@ -1,0 +1,28 @@
+{
+  "experiment_id": "E11",
+  "status": "running",
+  "parent_experiment": "E10",
+  "job_id": "aae2a083fc2745bb8c395c2533977098",
+  "worker_pid_at_start": 107916,
+  "run_name": "E11_retry_e30_b8_w0_initial",
+  "started_at_pst": "2026-11-17T10:32:54.211639-08:00",
+  "reason": [
+    "Fresh official-plugin retry after E10 stalled during epoch5.",
+    "Workers0 avoids multiprocessing-loader interactions; this is precautionary, not a proven stall fix.",
+    "Explicit warmup_bias_lr0 matches E00 auto-optimizer behavior instead of E10 manual-AdamW default0.1."
+  ],
+  "requested_settings": "optimizer=AdamW;lr0=0.000625;lrf=0.01;patience=8;workers=0;device=0;cos_lr=true;close_mosaic=10;mosaic=1;warmup_epochs=3;warmup_bias_lr=0;momentum=0.9;cache=false;seed=0;deterministic=true;amp=true;collection_conf=0.1;max_det=300;embeddings=off;sampling_weights=false;use_latest=false",
+  "epochs": 30,
+  "batch": 8,
+  "train_revision": "initial",
+  "val_revision": "initial",
+  "checkpoint_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+  "no_label_edits": true,
+  "no_resume_from_E10": true,
+  "checks_to_complete": [
+    "Verify first full training/validation cycle and effective batch.",
+    "Verify training passes the prior stall point (epoch5).",
+    "Export final checkpoint validation and compare with E00.",
+    "Require native provenance and CSV validation before another submission."
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "experiment_id": "E11",
-  "status": "running",
+  "status": "completed",
   "parent_experiment": "E10",
   "job_id": "aae2a083fc2745bb8c395c2533977098",
   "worker_pid_at_start": 107916,
@@ -19,10 +19,65 @@
   "checkpoint_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
   "no_label_edits": true,
   "no_resume_from_E10": true,
-  "checks_to_complete": [
-    "Verify first full training/validation cycle and effective batch.",
-    "Verify training passes the prior stall point (epoch5).",
-    "Export final checkpoint validation and compare with E00.",
-    "Require native provenance and CSV validation before another submission."
-  ]
+  "first_epoch_check": {
+    "passed": true,
+    "effective_batch": 8,
+    "training_batches": 739,
+    "elapsed_seconds_in_native_metrics": 484.096,
+    "validation_map50": 0.47418,
+    "validation_map50_95": 0.27404,
+    "note": "First completed epoch only. Final selected-checkpoint metrics are pending."
+  },
+  "epoch_10_comparison": {
+    "E00": {
+      "AP50": 0.63314,
+      "AP50_95": 0.40149,
+      "trainer_elapsed_seconds": 7075.46
+    },
+    "E11": {
+      "AP50": 0.57115,
+      "AP50_95": 0.34289,
+      "trainer_elapsed_seconds": 4923.73
+    },
+    "same_original_validation": true,
+    "note": "Both are epoch-history metrics. E11 is still training.",
+    "class_count_ahead_of_E00": 1,
+    "class_count_behind_E00": 11,
+    "largest_AP50_gaps_E11_minus_E00": {
+      "Bus": -0.14289,
+      "Boat": -0.1269,
+      "Table": -0.10784,
+      "Chair": -0.09098
+    },
+    "diagnostic": "The gap spans most classes, so a broad training-setting control takes priority over targeted weighting if this persists. These are intermediate scores."
+  },
+  "epoch_15_comparison": {
+    "status": "intermediate",
+    "AP50": 0.63462,
+    "AP50_95": 0.389,
+    "baseline_final_AP50": 0.6330957412719727,
+    "baseline_final_AP50_95": 0.4015127718448639,
+    "chair_AP50": 0.48193,
+    "table_AP50": 0.51929,
+    "note": "First observed E11 epoch above E00 final AP50. E11 still below E00 final AP50–95. Compare native final selected checkpoints before creating a submission."
+  },
+  "epochs_completed": 30,
+  "duration_minutes": 244.2583982507388,
+  "final_validation": {
+    "source": "Native final selected-checkpoint validation (Training Phase=After)",
+    "AP50": 0.6932783126831055,
+    "AP50_95": 0.4412660002708435,
+    "precision": 0.7655103802680969,
+    "recall": 0.6077821254730225,
+    "images": 733,
+    "instances": 2725,
+    "best_epoch": 29,
+    "AP50_at_best_epoch": 0.69338,
+    "AP50_95_at_best_epoch": 0.44128,
+    "AP50_at_last_epoch": 0.69208,
+    "AP50_95_at_last_epoch": 0.44104
+  },
+  "prediction_job_id": "d882d825cfec46b6bf8055e62371cef7",
+  "submission_csv_sha256": "733dda20df92a18713de0136952971ae02006055a751a4b072245ebb91c38f18",
+  "kaggle_status": "awaiting_participant_submit"
 }

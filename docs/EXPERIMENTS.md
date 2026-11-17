@@ -1,8 +1,12 @@
 # Experiment protocol
 
-E00 is the only completed experiment in this repository snapshot. It used original train and validation revisions, 10 epochs, batch 4, seed 0, and the official plugin. It achieved final validation AP50 0.633096 and Kaggle public score 0.56515. No label edits were made.
+E00 used original train and validation revisions, 10 epochs, batch 4, seed 0, and the official plugin. It achieved final validation AP50 0.633096 and Kaggle public score 0.56515.
 
-The baseline's validation AP50 increased through every epoch, and its validation losses were still falling at the end. With `epochs=10` and `close_mosaic=10`, mosaic was disabled before epoch 1. E10 was launched on November 17, 2026 through the official plugin with 30 epochs, batch 8, workers 2, AdamW at lr0=0.000625, cosine scheduling and close_mosaic=10. It uses the original train and validation revisions and fresh official initialization. Its native job is `d49f9ba8877943f9bd70c7d0a5a7d8c4`; see [the settings snapshot](../configs/E10-experiment.json). E10 completed four epochs at effective batch 8, then stalled during epoch 5. The targeted Kaggle worker was restarted with participant approval; native files and partial metrics remain, and E10 is interrupted rather than completed. [E11](../configs/E11-experiment.json) is the fresh retry with workers=0 and warmup_bias_lr=0.0. Its final performance and whether it avoids the stall are still unverified. A combined configuration experiment does not isolate the effect of each parameter.
+E00's `epochs=10` and `close_mosaic=10` disabled mosaic before epoch 1. E10 evaluated a 30-epoch cosine schedule with AdamW, batch 8, workers 2 and mosaic for the first 20 epochs. The run stalled during epoch 5 after four completed epochs. The participant approved restarting the Kaggle worker. [E10 settings and recovery record](../configs/E10-experiment.json)
+
+E11 retried with workers set to 0 and `warmup_bias_lr=0.0` and completed all 30 epochs. Its selected checkpoint reached 0.693278 validation AP50, with gains in all 12 classes. The changed parameters were tested together. [E11 configuration](../configs/E11-experiment.json) · [Results](../results/E11/RESULTS.md)
+
+E13 starts again from the official pretrained weights and uses the same initial train and validation revisions. It extends the cosine schedule to 50 epochs, retains early stopping after eight epochs without validation fitness improvement, and sets `close_mosaic=30` to keep mosaic active for the first 20 epochs. The longer cosine schedule changes learning rates throughout training. [E13 configuration](../configs/E13-experiment.json)
 
 For label-quality experiments, use the native Dashboard workflows to present model-derived candidates to the participant. The participant reviews each change and commits a descriptively named training-table revision. Preserve the original validation revision for comparable measurements. Compare otherwise identical runs before and after each batch of changes; each run still starts from the pinned official initialization.
 
@@ -12,7 +16,7 @@ Append completed and active experiments to `experiments.csv`, including native R
 
 Predictions in the Dashboard were collected at confidence 0.1 for E00. Native final validation and the submitted CSV use confidence 0.001. Export max_det is 300; the competition uses its separate COCOeval AP50 specification with maxDets 100. Always label which metric and data split a score describes.
 
-E00 matched 103 of 302 small validation objects and 1,134 of 1,421 large objects among its saved predictions. Medium chairs matched 35 of 87 and medium tables matched 6 of 25. Compare E11's matches on the original validation revision to see where the longer run improves detection. These rates use a one-to-one match at IoU ≥ 0.50 and collection confidence ≥ 0.10. Size is the equivalent square side after scaling to fit 640 pixels. Use the native final AP50 for checkpoint comparisons. [E00 box-size breakdown](../results/E00/validation-size-audit.csv)
+The validation size audit measures one-to-one same-class matches at IoU ≥ 0.50 and a collected confidence threshold of 0.10. Size is the equivalent square side after scaling to fit 640 pixels. E11 matched more medium and large objects, and fewer small objects, than E00. Use final native AP50 for checkpoint comparisons. [E00 box-size breakdown](../results/E00/validation-size-audit.csv) · [E11 box-size breakdown](../results/E11/validation-size-audit.csv)
 
 Run the same audit with the configured local Python and a completed native Run directory:
 

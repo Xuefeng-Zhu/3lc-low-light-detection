@@ -1,0 +1,32 @@
+{
+  "experiment_id": "W03",
+  "status": "running",
+  "primary_control": "E01",
+  "secondary_control": "W01",
+  "job_id": "3516ab7b247d4a969b42737a1a58e890",
+  "run_name": "W03_reviewed_weighted_e30_b8",
+  "started_at_pst": "2026-11-18T07:09:21.216678-08:00",
+  "epochs": 30,
+  "batch": 8,
+  "train_revision": "E01_weighted_chair_table",
+  "parent_train_revision": "E01_reviewed_chair_table",
+  "val_revision": "initial",
+  "checkpoint_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+  "requested_settings": "optimizer=AdamW;lr0=0.000625;lrf=0.01;patience=8;workers=0;device=0;cos_lr=true;close_mosaic=10;mosaic=1;warmup_epochs=3;warmup_bias_lr=0;momentum=0.9;cache=false;seed=0;deterministic=true;amp=true;collection_conf=0.1;max_det=300;embeddings=off;sampling_weights=true;use_latest=false",
+  "verification": {
+    "method": "Native sparse edits plus SDK-resolved ordered Arrow columns",
+    "weight_1_5_rows": 1299,
+    "weight_1_0_rows": 4611,
+    "image_and_bbox_columns_match_parent": true,
+    "schema_matches_parent": true,
+    "only_edited_column": "weight",
+    "effective_weight_changes_from_W01": {
+      "rows": [
+        1158,
+        1406
+      ],
+      "previous": 1.0,
+      "new": 1.5
+    }
+  }
+}

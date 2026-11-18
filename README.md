@@ -4,13 +4,13 @@ Private working repository for the [Kaggle competition](https://www.kaggle.com/c
 
 The participant submitted E00, E11, and W01 on **November 17, 2026** Pacific time. W01 reached **0.63189** and ranked **90th** on the public leaderboard when verified. [Kaggle submission history](https://www.kaggle.com/competitions/the-3lc-low-light-detection-challenge/submissions)
 
-| Result | E00 | E11 | W01 | W02 |
-| --- | ---: | ---: | ---: | ---: |
-| Completed epochs | 10 | 30 | 30 | 50 |
-| Final checkpoint validation mAP@0.5 | 0.633096 | 0.693278 | **0.696537** | 0.692656 |
-| Final checkpoint validation mAP@0.5:0.95 | 0.401513 | 0.441266 | **0.444703** | 0.439867 |
-| Kaggle public score | 0.56515 | 0.62263 | **0.63189** | — |
-| Training job duration, including final evaluation | 121.04 min | 244.26 min | 254.59 min | 387.55 min |
+| Result | E00 | E11 | W01 | W02 | E01 |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Completed epochs | 10 | 30 | 30 | 50 | 30 |
+| Final checkpoint validation mAP@0.5 | 0.633096 | 0.693278 | **0.696537** | 0.692656 | 0.696076 |
+| Final checkpoint validation mAP@0.5:0.95 | 0.401513 | 0.441266 | **0.444703** | 0.439867 | 0.444086 |
+| Kaggle public score | 0.56515 | 0.62263 | **0.63189** | — | Pending |
+| Training job duration, including final evaluation | 121.04 min | 244.26 min | 254.59 min | 387.55 min | 227.64 min |
 
 The public score covers the competition's public test subset. The private score is not available. Validation and Kaggle scores use different data and metric settings and are not interchangeable.
 
@@ -24,7 +24,7 @@ Use Python 3.11+ and a persistent machine with a supported GPU, then follow [set
 4. Generate and validate predictions with the plugin, then submit the chosen CSV on Kaggle.
 5. Compare measured validation results before spending further daily submissions.
 
-E10 stalled during epoch 5 after four completed epochs. E11 completed the 30-epoch retry with workers set to 0 and `warmup_bias_lr=0.0`. A host reboot interrupted the 50-epoch E13 experiment after 12 completed epochs. W01 increased sampling weight for images with a Chair or Table label and improved local AP50 by 0.33 percentage points. W02's 50-epoch schedule scored 0.39 percentage points below W01. E01 is now training on the participant-reviewed label revision with E11's settings. [Settings and experiment protocol](docs/EXPERIMENTS.md)
+W01 increased sampling weight for images with a Chair or Table label and improved local AP50 by 0.33 percentage points over E11. W02's 50-epoch schedule scored 0.39 percentage points below W01. E01's participant-reviewed labels improved AP50 by 0.28 percentage points over E11 with the same 30-epoch settings. W03 is testing the reviewed labels with the W01 sampling rule. [Settings and experiment protocol](docs/EXPERIMENTS.md)
 
 ## Saved evidence
 
@@ -33,7 +33,8 @@ E10 stalled during epoch 5 after four completed epochs. E11 completed the 30-epo
 - [E13 interruption record](results/E13/status.json) and [partial epoch metrics](results/E13/epoch-results.csv)
 - [W01 results](results/W01/RESULTS.md), [submitted prediction CSV](results/W01/submission.csv), [provenance](results/W01/provenance.json), and [Kaggle score evidence](results/W01/kaggle-score.jpg)
 - [W02 results](results/W02/RESULTS.md) and [training configuration](configs/W02-experiment.json)
-- [Participant-reviewed E01 revision and active comparison](configs/E01-experiment.json)
+- [Participant-reviewed E01 results](results/E01/RESULTS.md), [validated submission CSV](results/E01/submission.csv), and [provenance](results/E01/provenance.json)
+- [W03 combined training configuration](configs/W03-experiment.json)
 - [Per-class validation metrics](results/E00/final-validation-per-class.csv), [epoch metrics](results/E00/epoch-results.csv), and [native training curves](results/E00/training-curves.png)
 - [Provenance, settings and SHA256 hashes](results/E00/provenance.json)
 - [Unmodified submitted CSV](results/E00/submission.csv) and [Kaggle score evidence](results/E00/kaggle-baseline-score.jpg)

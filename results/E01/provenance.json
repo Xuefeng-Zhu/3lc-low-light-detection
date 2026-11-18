@@ -1,0 +1,100 @@
+{
+  "experiment": "E01",
+  "status": "completed",
+  "plugin_version": "1.2.15",
+  "run_url": "${THREE_LC_ROOT}/projects/exdark-competition/runs/E01_reviewed_e30_b8_w0",
+  "training": {
+    "job_id": "99df1bfdee2f46e59785d09e8ee578b6",
+    "started_at_pst": "2026-11-18T03:19:00.636741-08:00",
+    "finished_at_pst": "2026-11-18T07:06:39.252922-08:00",
+    "duration_minutes": 227.64360302289327,
+    "epochs_completed": 30,
+    "train_table": "${THREE_LC_ROOT}/projects/exdark-competition/datasets/exdark_train/tables/E01_reviewed_chair_table",
+    "validation_table": "${THREE_LC_ROOT}/projects/exdark-competition/datasets/exdark_val/tables/initial",
+    "checkpoint_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+    "best_weights_path": "${KAGGLE_PLUGIN_ROOT}/runs/E01_reviewed_e30_b8_w0/weights/best.pt",
+    "best_weights_sha256": "1fb5b00b0c05402037f5296633167244fde60f2f9e9e3249f7117c5749507e27",
+    "provenance_checks": [
+      {
+        "label": "run records model == yolo11n.pt (official checkpoint)",
+        "ok": true,
+        "detail": "model='${KAGGLE_PLUGIN_ROOT}/checkpoints/yolo11n.pt'"
+      },
+      {
+        "label": "run records imgsz == 640",
+        "ok": true,
+        "detail": "imgsz=640"
+      },
+      {
+        "label": "run records pretrained == True (official init)",
+        "ok": true,
+        "detail": "pretrained=True"
+      },
+      {
+        "label": "run records the official checkpoint sha256",
+        "ok": true,
+        "detail": "checkpoint_sha256=0ebbc80d4a76..."
+      }
+    ],
+    "participant_label_edits": true,
+    "sampling_weights": false
+  },
+  "final_validation": {
+    "source": "Native final selected-checkpoint validation (Training Phase=After)",
+    "AP50": 0.6960757970809937,
+    "AP50_95": 0.44408613443374634,
+    "precision": 0.7575830221176147,
+    "recall": 0.599035382270813,
+    "images": 733,
+    "instances": 2725,
+    "best_epoch": 29,
+    "AP50_at_best_epoch": 0.69594,
+    "AP50_95_at_best_epoch": 0.44406,
+    "AP50_by_focus_class": {
+      "Chair": 0.5736005306243896,
+      "Table": 0.5601613521575928
+    }
+  },
+  "prediction": {
+    "job_id": "5b9beb05018a4df8a396b37c02344c76",
+    "status": "completed",
+    "duration_seconds": 15.837920665740967,
+    "source_csv": "${KAGGLE_PLUGIN_ROOT}/runs/E01_reviewed_e30_b8_w0/submissions/submission_20261118_070844.csv",
+    "csv_sha256": "53592e10affcf377619de95618c9e50e7b76e9af266c00f74e9a544bb1eb1d06",
+    "test_table": "${THREE_LC_ROOT}/projects/exdark-competition/datasets/exdark_test/tables/initial",
+    "confidence": 0.001,
+    "rows": 715,
+    "boxes": 48316,
+    "format_checks": [
+      {
+        "label": "columns are id, image_id, prediction_string",
+        "ok": true,
+        "detail": "got ['id', 'image_id', 'prediction_string']"
+      },
+      {
+        "label": "exactly 715 rows (one per test image)",
+        "ok": true,
+        "detail": "got 715"
+      },
+      {
+        "label": "no duplicated image_id rows",
+        "ok": true,
+        "detail": "0 duplicates"
+      },
+      {
+        "label": "id column is 0..N-1 aligned to sorted image_id",
+        "ok": true,
+        "detail": "aligned"
+      },
+      {
+        "label": "all prediction_strings parse under the metric's strict rules",
+        "ok": true,
+        "detail": "48316 boxes total"
+      }
+    ]
+  },
+  "kaggle": {
+    "status": "awaiting_participant_submit",
+    "public_score": null
+  }
+}

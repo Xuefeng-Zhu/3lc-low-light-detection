@@ -1,6 +1,6 @@
 {
   "experiment_id": "E01",
-  "status": "running",
+  "status": "completed",
   "control_experiment": "E11",
   "source_prediction_run": "E11_retry_e30_b8_w0_initial",
   "planned_run_name": "E01_reviewed_e30_b8_w0",
@@ -51,5 +51,26 @@
   },
   "job_id": "99df1bfdee2f46e59785d09e8ee578b6",
   "run_name": "E01_reviewed_e30_b8_w0",
-  "started_at_pst": "2026-11-18T03:19:00.636741-08:00"
+  "started_at_pst": "2026-11-18T03:19:00.636741-08:00",
+  "epochs_completed": 30,
+  "duration_minutes": 227.64360302289327,
+  "final_validation": {
+    "source": "Native final selected-checkpoint validation (Training Phase=After)",
+    "AP50": 0.6960757970809937,
+    "AP50_95": 0.44408613443374634,
+    "precision": 0.7575830221176147,
+    "recall": 0.599035382270813,
+    "images": 733,
+    "instances": 2725,
+    "best_epoch": 29,
+    "AP50_at_best_epoch": 0.69594,
+    "AP50_95_at_best_epoch": 0.44406,
+    "AP50_by_focus_class": {
+      "Chair": 0.5736005306243896,
+      "Table": 0.5601613521575928
+    }
+  },
+  "prediction_job_id": "5b9beb05018a4df8a396b37c02344c76",
+  "submission_csv_sha256": "53592e10affcf377619de95618c9e50e7b76e9af266c00f74e9a544bb1eb1d06",
+  "kaggle_status": "awaiting_participant_submit"
 }

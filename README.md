@@ -35,6 +35,7 @@ E10 stalled during epoch 5 after four completed epochs. E11 completed the 30-epo
 - [E13 interruption record](results/E13/status.json) and [partial epoch metrics](results/E13/epoch-results.csv)
 - [W01 results](results/W01/RESULTS.md), [submitted prediction CSV](results/W01/submission.csv), [provenance](results/W01/provenance.json), and [Kaggle score evidence](results/W01/kaggle-score.jpg)
 - [W02 training configuration](configs/W02-experiment.json)
+- [Participant-reviewed E01 revision and planned comparison](configs/E01-experiment.json)
 - [Per-class validation metrics](results/E00/final-validation-per-class.csv), [epoch metrics](results/E00/epoch-results.csv), and [native training curves](results/E00/training-curves.png)
 - [Provenance, settings and SHA256 hashes](results/E00/provenance.json)
 - [Unmodified submitted CSV](results/E00/submission.csv) and [Kaggle score evidence](results/E00/kaggle-baseline-score.jpg)
@@ -46,7 +47,7 @@ Filesystem prefixes in the repository's metadata copies are normalized to `${THR
 
 All experiments use YOLOv11n, 640-pixel images, and the official SHA256-pinned COCO initialization. Each run starts from that checkpoint again. Training and prediction use the official plugin; no ensembles, test-time augmentation, external data, or automated pseudo-labeling are used.
 
-Annotation proposals must come from our own plugin Runs or built-in 3LC tools. The participant must visually review and accept label edits in the Dashboard; external AI must not generate annotations or substitute for that review. No labels were edited for E00. [Rules](https://www.kaggle.com/competitions/the-3lc-low-light-detection-challenge/rules) · [Host clarification](https://www.kaggle.com/competitions/the-3lc-low-light-detection-challenge/discussion/744551)
+Annotation proposals come from our own plugin Runs and built-in 3LC tools. The participant visually reviews and accepts changes in the Dashboard. E01 is the first participant-saved label revision in this project. [Rules](https://www.kaggle.com/competitions/the-3lc-low-light-detection-challenge/rules) · [Host clarification](https://www.kaggle.com/competitions/the-3lc-low-light-detection-challenge/discussion/744551)
 
 ## Project export and attribution
 

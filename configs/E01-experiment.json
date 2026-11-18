@@ -1,0 +1,52 @@
+{
+  "experiment_id": "E01",
+  "status": "revision_verified",
+  "control_experiment": "E11",
+  "source_prediction_run": "E11_retry_e30_b8_w0_initial",
+  "planned_run_name": "E01_reviewed_e30_b8_w0",
+  "train_revision": "E01_reviewed_chair_table",
+  "parent_train_revision": "initial",
+  "val_revision": "initial",
+  "epochs": 30,
+  "batch": 8,
+  "requested_settings": "optimizer=AdamW;lr0=0.000625;lrf=0.01;patience=8;workers=0;device=0;cos_lr=true;close_mosaic=10;mosaic=1;warmup_epochs=3;warmup_bias_lr=0;momentum=0.9;cache=false;seed=0;deterministic=true;amp=true;collection_conf=0.1;max_det=300;embeddings=off;sampling_weights=false;use_latest=false",
+  "checkpoint_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+  "training_changes_from_E11": [
+    "Use the participant-saved training label revision."
+  ],
+  "verification": {
+    "train_revision": "exdark_train/E01_reviewed_chair_table",
+    "parent_revision": "exdark_train/initial",
+    "source_prediction_run": "E11_retry_e30_b8_w0_initial",
+    "train_rows": 5910,
+    "edited_rows": 14,
+    "pure_box_additions": {
+      "Chair": 7,
+      "Table": 6
+    },
+    "replacement": {
+      "example_id": 5580,
+      "old_class": "People",
+      "new_class": "Table",
+      "box_iou": 0.9520674764487661
+    },
+    "total_boxes_before": 18959,
+    "total_boxes_after": 18972,
+    "unchanged_fields": [
+      "ordered image references",
+      "effective sample weights",
+      "row schema"
+    ],
+    "validation_revision": "exdark_val/initial",
+    "test_revision": "exdark_test/initial",
+    "native_prediction_match": {
+      "matched_edits": 14,
+      "confidence_display_range": [
+        0.8137,
+        0.9029
+      ]
+    },
+    "scope": "Numerical comparison of stored native revisions. The participant determines the correctness of each label."
+  },
+  "launch_status": "Waiting for the active W02 training job to finish."
+}

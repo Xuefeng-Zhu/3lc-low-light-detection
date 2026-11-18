@@ -1,0 +1,55 @@
+{
+  "experiment_id": "E03",
+  "status": "running",
+  "control_experiment": "E01",
+  "source_prediction_run": "E01_reviewed_e30_b8_w0",
+  "planned_run_name": "E03_chair_boxes_e30_b8_w0",
+  "train_revision": "E03_reviewed_chair_boxes",
+  "parent_train_revision": "E01_reviewed_chair_table",
+  "val_revision": "initial",
+  "epochs": 30,
+  "batch": 8,
+  "checkpoint_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+  "requested_settings": "optimizer=AdamW;lr0=0.000625;lrf=0.01;patience=8;workers=0;device=0;cos_lr=true;close_mosaic=10;mosaic=1;warmup_epochs=3;warmup_bias_lr=0;momentum=0.9;cache=false;seed=0;deterministic=true;amp=true;collection_conf=0.1;max_det=300;embeddings=off;sampling_weights=false;use_latest=false",
+  "hypothesis": "Measure the effect of participant-reviewed Chair box geometry edits with E01 training settings.",
+  "verification": {
+    "method": "Native sparse edit inspection and 3LC SDK comparison of all resolved rows",
+    "train_rows": 5910,
+    "edited_column": "bbs",
+    "edited_rows": 3,
+    "geometry_edits": [
+      {
+        "example_id": 3216,
+        "class": "Chair",
+        "iou_with_parent_box": 0.8143859263
+      },
+      {
+        "example_id": 5749,
+        "class": "Chair",
+        "iou_with_parent_box": 0.9165845256
+      },
+      {
+        "example_id": 5870,
+        "class": "Chair",
+        "iou_with_parent_box": 0.7488802078
+      }
+    ],
+    "added_boxes": 0,
+    "removed_boxes": 0,
+    "relabelled_boxes": 0,
+    "ordered_image_references_match": true,
+    "ordered_weights_match": true,
+    "schema_matches": true,
+    "effective_weight": 1.0,
+    "native_bbox_group_origin": "Changed from unset to (0, 0) in the three edited rows. Image dimensions match the parent.",
+    "validation_revision": "exdark_val/initial",
+    "test_revision": "exdark_test/initial"
+  },
+  "run_name": "E03_chair_boxes_e30_b8_w0",
+  "job_id": "4daabd38319b46d5b36fcdb837519d3c",
+  "started_at_pst": "2026-11-18T14:58:48.289667-08:00",
+  "verified_parameter_changes_from_E01": [
+    "run_name",
+    "train_table_url"
+  ]
+}

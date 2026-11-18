@@ -1,0 +1,58 @@
+{
+  "experiment": "W02",
+  "status": "completed",
+  "run_url": "${THREE_LC_ROOT}/projects/exdark-competition/runs/W02_weighted_e50_b8_w0",
+  "job_id": "1ffbdf97c681482f9db9eaca8b72522b",
+  "training": {
+    "plugin_version": "1.2.15",
+    "started_at_pst": "2026-11-17T20:50:42.604656-08:00",
+    "finished_at_pst": "2026-11-18T03:18:15.476591-08:00",
+    "duration_minutes": 387.5478655775388,
+    "epochs_completed": 50,
+    "train_table": "${THREE_LC_ROOT}/projects/exdark-competition/datasets/exdark_train/tables/Modified1297Values",
+    "validation_table": "${THREE_LC_ROOT}/projects/exdark-competition/datasets/exdark_val/tables/initial",
+    "sampling_weights": true,
+    "checkpoint_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+    "checkpoint_path": "${KAGGLE_PLUGIN_ROOT}/runs/W02_weighted_e50_b8_w0/weights/best.pt",
+    "trained_checkpoint_sha256": "31d8bf14a62098dd4354fec6cfe6542cd4b5dcedb174e00c6d19b7b0cb110506",
+    "provenance_checks": [
+      {
+        "label": "run records model == yolo11n.pt (official checkpoint)",
+        "ok": true,
+        "detail": "model='${KAGGLE_PLUGIN_ROOT}/checkpoints/yolo11n.pt'"
+      },
+      {
+        "label": "run records imgsz == 640",
+        "ok": true,
+        "detail": "imgsz=640"
+      },
+      {
+        "label": "run records pretrained == True (official init)",
+        "ok": true,
+        "detail": "pretrained=True"
+      },
+      {
+        "label": "run records the official checkpoint sha256",
+        "ok": true,
+        "detail": "checkpoint_sha256=0ebbc80d4a76..."
+      }
+    ]
+  },
+  "final_validation": {
+    "source": "Native final best-checkpoint validation (Training Phase=After)",
+    "AP50": 0.6926555037498474,
+    "AP50_95": 0.4398670196533203,
+    "precision": 0.7665814757347107,
+    "recall": 0.5986408591270447,
+    "images": 733,
+    "instances": 2725,
+    "selected_epoch": 50,
+    "maximum_epoch_AP50": 0.69329,
+    "maximum_AP50_epoch": 45
+  },
+  "kaggle": {
+    "status": "no_submission",
+    "submitted": false,
+    "reason": "W01 retained the higher measured local AP50 and AP50–95."
+  }
+}

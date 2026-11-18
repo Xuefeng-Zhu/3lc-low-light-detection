@@ -1,6 +1,6 @@
 {
   "experiment_id": "W02",
-  "status": "running",
+  "status": "completed",
   "parent_experiment": "W01",
   "job_id": "1ffbdf97c681482f9db9eaca8b72522b",
   "run_name": "W02_weighted_e50_b8_w0",
@@ -11,5 +11,20 @@
   "val_revision": "initial",
   "checkpoint_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
   "requested_settings": "optimizer=AdamW;lr0=0.000625;lrf=0.01;patience=8;workers=0;device=0;cos_lr=true;close_mosaic=30;mosaic=1;warmup_epochs=3;warmup_bias_lr=0;momentum=0.9;cache=false;seed=0;deterministic=true;amp=true;collection_conf=0.1;max_det=300;embeddings=off;sampling_weights=true;use_latest=false",
-  "reason": "W01 slightly improved E11, including Chair and Table, and reached its best validation checkpoint at the 30-epoch cap. W02 tests the longer cosine schedule with the same weighted revision and 20 initial mosaic epochs."
+  "reason": "W01 slightly improved E11, including Chair and Table, and reached its best validation checkpoint at the 30-epoch cap. W02 tests the longer cosine schedule with the same weighted revision and 20 initial mosaic epochs.",
+  "epochs_completed": 50,
+  "duration_minutes": 387.5478655775388,
+  "final_validation": {
+    "source": "Native final best-checkpoint validation (Training Phase=After)",
+    "AP50": 0.6926555037498474,
+    "AP50_95": 0.4398670196533203,
+    "precision": 0.7665814757347107,
+    "recall": 0.5986408591270447,
+    "images": 733,
+    "instances": 2725,
+    "selected_epoch": 50,
+    "maximum_epoch_AP50": 0.69329,
+    "maximum_AP50_epoch": 45
+  },
+  "kaggle_status": "no_submission"
 }

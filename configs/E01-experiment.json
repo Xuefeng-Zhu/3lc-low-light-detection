@@ -1,6 +1,6 @@
 {
   "experiment_id": "E01",
-  "status": "revision_verified",
+  "status": "running",
   "control_experiment": "E11",
   "source_prediction_run": "E11_retry_e30_b8_w0_initial",
   "planned_run_name": "E01_reviewed_e30_b8_w0",
@@ -28,7 +28,8 @@
       "example_id": 5580,
       "old_class": "People",
       "new_class": "Table",
-      "box_iou": 0.9520674764487661
+      "box_iou": 0.9520674764487661,
+      "participant_confirmed_after_recheck": true
     },
     "total_boxes_before": 18959,
     "total_boxes_after": 18972,
@@ -48,5 +49,7 @@
     },
     "scope": "Numerical comparison of stored native revisions. The participant determines the correctness of each label."
   },
-  "launch_status": "Waiting for the active W02 training job to finish."
+  "job_id": "99df1bfdee2f46e59785d09e8ee578b6",
+  "run_name": "E01_reviewed_e30_b8_w0",
+  "started_at_pst": "2026-11-18T03:19:00.636741-08:00"
 }

@@ -1,0 +1,20 @@
+{
+  "native_job_status": "stale",
+  "cause": "Host reboot near 16:29 local time; native worker did not survive the reboot.",
+  "reboot_cause": null,
+  "native_message": "Interrupted: the compute service restarted while this job was running.",
+  "epochs_completed": 12,
+  "incomplete_epoch": 13,
+  "last_batch": 59,
+  "batches_per_epoch": 739,
+  "best_epoch": 12,
+  "best_epoch_AP50": 0.58645,
+  "best_epoch_AP50_95": 0.35497,
+  "last_completed_epoch_trainer_seconds": 6264.98,
+  "checkpoint_sha256_by_name": {
+    "best.pt": "d73552b3332d27750501b68d7632c22cd3bf9b9fe6e5d6d1aa759908b0533c95",
+    "last.pt": "d73552b3332d27750501b68d7632c22cd3bf9b9fe6e5d6d1aa759908b0533c95"
+  },
+  "final_checkpoint_evaluation": null,
+  "competition_plugin_resume_supported": false
+}

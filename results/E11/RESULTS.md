@@ -19,4 +19,4 @@ All 12 classes gained AP50. Chair and Table remained the lowest at 0.55170 and 0
 | Medium | 642 / 1,002 | 678 / 1,002 |
 | Large | 1,134 / 1,421 | 1,170 / 1,421 |
 
-The official plugin exported [submission.csv](submission.csv) at confidence 0.001 from the saved checkpoint. It contains 715 rows and 49,334 boxes and passed all five format checks. Participant submission and the Kaggle public score are pending.
+The official plugin exported [submission.csv](submission.csv) at confidence 0.001 from the saved checkpoint. It contains 715 rows and 49,334 boxes and passed all five format checks. The participant submitted it on November 17, 2026. Kaggle returned **0.62263** public AP50, up **0.05748** from E00, and displayed public rank **106** when verified. [Kaggle score evidence](kaggle-score.jpg)

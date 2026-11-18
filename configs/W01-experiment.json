@@ -1,6 +1,6 @@
 {
   "experiment_id": "W01",
-  "status": "revision_verified",
+  "status": "running",
   "parent_experiment": "E11",
   "train_revision": "Modified1297Values",
   "parent_train_revision": "initial",
@@ -27,5 +27,8 @@
   "batch": 8,
   "checkpoint_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
   "selection_condition": "Compare against completed E11 on initial validation. Use this trial if Chair and Table still lag and a human-reviewed training revision does not take priority.",
-  "sampling_note": "The plugin samples with replacement when weights are enabled. This trial measures the combined sampling change."
+  "sampling_note": "The plugin samples with replacement when weights are enabled. This trial measures the combined sampling change.",
+  "job_id": "a22f9452552344a8a114bff4384e8e15",
+  "run_name": "W01_chair_table_e30_b8_w0",
+  "started_at_pst": "2026-11-17T16:33:40.820036-08:00"
 }

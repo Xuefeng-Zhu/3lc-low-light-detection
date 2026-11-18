@@ -1,6 +1,6 @@
 {
   "experiment_id": "E13",
-  "status": "running",
+  "status": "interrupted",
   "parent_experiment": "E11",
   "job_id": "978f05ce833a4469b4fbd9b2d7d1f00e",
   "run_name": "E13_long_e50_b8_w0_initial",
@@ -15,5 +15,25 @@
     "E11 improved through epoch 29 and had one full epoch without improvement before its 30-epoch limit.",
     "Keep mosaic enabled for the first 20 epochs, as in E11.",
     "Set a 50-epoch cosine schedule with patience 8 and the same official starting weights and original tables."
-  ]
+  ],
+  "interruption": {
+    "native_job_status": "stale",
+    "cause": "Host reboot near 16:29 local time; native worker did not survive the reboot.",
+    "reboot_cause": null,
+    "native_message": "Interrupted: the compute service restarted while this job was running.",
+    "epochs_completed": 12,
+    "incomplete_epoch": 13,
+    "last_batch": 59,
+    "batches_per_epoch": 739,
+    "best_epoch": 12,
+    "best_epoch_AP50": 0.58645,
+    "best_epoch_AP50_95": 0.35497,
+    "last_completed_epoch_trainer_seconds": 6264.98,
+    "checkpoint_sha256_by_name": {
+      "best.pt": "d73552b3332d27750501b68d7632c22cd3bf9b9fe6e5d6d1aa759908b0533c95",
+      "last.pt": "d73552b3332d27750501b68d7632c22cd3bf9b9fe6e5d6d1aa759908b0533c95"
+    },
+    "final_checkpoint_evaluation": null,
+    "competition_plugin_resume_supported": false
+  }
 }

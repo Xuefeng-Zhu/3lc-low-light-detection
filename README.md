@@ -2,14 +2,14 @@
 
 Private working repository for the [Kaggle competition](https://www.kaggle.com/competitions/the-3lc-low-light-detection-challenge). The objective is to improve the measured score within the competition rules; no top-rank result is claimed.
 
-E00 and E11 trained on the original labels using an NVIDIA T500 GPU. The participant submitted E00 on **November 17, 2026**. E11 is ready for participant submission and E13 is training.
+E00 and E11 trained on the original labels using an NVIDIA T500 GPU. The participant submitted both runs on **November 17, 2026**. E11 reached **0.62263** and ranked **106th** on the public leaderboard when verified. [Kaggle submission history](https://www.kaggle.com/competitions/the-3lc-low-light-detection-challenge/submissions)
 
 | Result | E00 | E11 |
 | --- | ---: | ---: |
 | Completed epochs | 10 | 30 |
 | Final checkpoint validation mAP@0.5 | 0.633096 | **0.693278** |
 | Final checkpoint validation mAP@0.5:0.95 | 0.401513 | **0.441266** |
-| Kaggle public score | **0.56515** | Pending |
+| Kaggle public score | 0.56515 | **0.62263** |
 | Validation / test images | 733 / 715 | 733 / 715 |
 | Training job duration, including final evaluation | 121.04 minutes | 244.26 minutes |
 | Official provenance / CSV checks | 4/4 and 5/5 | 4/4 and 5/5 |
@@ -26,13 +26,14 @@ Use Python 3.11+ and a persistent machine with a supported GPU, then follow [set
 4. Generate and validate predictions with the plugin, then submit the chosen CSV on Kaggle.
 5. Compare measured validation results before spending further daily submissions.
 
-E10 stalled during epoch 5 after four completed epochs. E11 completed the 30-epoch retry with workers set to 0 and `warmup_bias_lr=0.0`. Both validation metrics peaked at epoch 29. E13 uses a 50-epoch cosine schedule with eight-epoch early stopping and the same 20 initial mosaic epochs as E11. [Settings and experiment protocol](docs/EXPERIMENTS.md)
+E10 stalled during epoch 5 after four completed epochs. E11 completed the 30-epoch retry with workers set to 0 and `warmup_bias_lr=0.0`. Both validation metrics peaked at epoch 29. A host reboot interrupted the 50-epoch E13 experiment after 12 completed epochs. W01 is training with the E11 settings and increased sampling weight for images with a Chair or Table label. [Settings and experiment protocol](docs/EXPERIMENTS.md)
 
 ## Saved evidence
 
 - [Baseline results](results/E00/RESULTS.md)
-- [E11 results and audit](results/E11/RESULTS.md), [validated prediction CSV](results/E11/submission.csv), and [provenance](results/E11/provenance.json)
-- [E13 training configuration](configs/E13-experiment.json)
+- [E11 results and audit](results/E11/RESULTS.md), [submitted prediction CSV](results/E11/submission.csv), [provenance](results/E11/provenance.json), and [Kaggle score evidence](results/E11/kaggle-score.jpg)
+- [E13 interruption record](results/E13/status.json) and [partial epoch metrics](results/E13/epoch-results.csv)
+- [W01 training configuration](configs/W01-experiment.json)
 - [Per-class validation metrics](results/E00/final-validation-per-class.csv), [epoch metrics](results/E00/epoch-results.csv), and [native training curves](results/E00/training-curves.png)
 - [Provenance, settings and SHA256 hashes](results/E00/provenance.json)
 - [Unmodified submitted CSV](results/E00/submission.csv) and [Kaggle score evidence](results/E00/kaggle-baseline-score.jpg)

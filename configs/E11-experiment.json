@@ -79,5 +79,6 @@
   },
   "prediction_job_id": "d882d825cfec46b6bf8055e62371cef7",
   "submission_csv_sha256": "733dda20df92a18713de0136952971ae02006055a751a4b072245ebb91c38f18",
-  "kaggle_status": "awaiting_participant_submit"
+  "kaggle_status": "completed",
+  "kaggle_public_score": 0.62263
 }

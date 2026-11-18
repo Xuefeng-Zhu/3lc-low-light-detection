@@ -94,7 +94,13 @@
     ]
   },
   "kaggle": {
-    "status": "awaiting_participant_submit",
-    "public_score": null
+    "status": "completed",
+    "submitted_by": "participant via Kaggle web UI",
+    "verified_at_pst": "2026-11-18T10:51-08:00",
+    "public_score": 0.63733,
+    "public_rank_at_observation": 82,
+    "private_score": null,
+    "submission_description": "E01 | Official 3LC YOLOv11n | 30 epochs | participant-reviewed training labels",
+    "source_url": "https://www.kaggle.com/competitions/the-3lc-low-light-detection-challenge/submissions"
   }
 }

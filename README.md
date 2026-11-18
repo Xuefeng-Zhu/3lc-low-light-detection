@@ -2,14 +2,14 @@
 
 Private working repository for the [Kaggle competition](https://www.kaggle.com/competitions/the-3lc-low-light-detection-challenge). The objective is to improve the measured score within the competition rules; no top-rank result is claimed.
 
-E00 and E11 trained on the original labels using an NVIDIA T500 GPU. The participant submitted both runs on **November 17, 2026**. E11 reached **0.62263** and ranked **106th** on the public leaderboard when verified. [Kaggle submission history](https://www.kaggle.com/competitions/the-3lc-low-light-detection-challenge/submissions)
+The participant submitted E00, E11, and W01 on **November 17, 2026** Pacific time. W01 reached **0.63189** and ranked **90th** on the public leaderboard when verified. [Kaggle submission history](https://www.kaggle.com/competitions/the-3lc-low-light-detection-challenge/submissions)
 
 | Result | E00 | E11 | W01 |
 | --- | ---: | ---: | ---: |
 | Completed epochs | 10 | 30 | 30 |
 | Final checkpoint validation mAP@0.5 | 0.633096 | 0.693278 | **0.696537** |
 | Final checkpoint validation mAP@0.5:0.95 | 0.401513 | 0.441266 | **0.444703** |
-| Kaggle public score | 0.56515 | **0.62263** | Pending |
+| Kaggle public score | 0.56515 | 0.62263 | **0.63189** |
 | Validation / test images | 733 / 715 | 733 / 715 | 733 / 715 |
 | Training job duration, including final evaluation | 121.04 minutes | 244.26 minutes | 254.59 minutes |
 | Official provenance / CSV checks | 4/4 and 5/5 | 4/4 and 5/5 | 4/4 and 5/5 |
@@ -33,7 +33,7 @@ E10 stalled during epoch 5 after four completed epochs. E11 completed the 30-epo
 - [Baseline results](results/E00/RESULTS.md)
 - [E11 results and audit](results/E11/RESULTS.md), [submitted prediction CSV](results/E11/submission.csv), [provenance](results/E11/provenance.json), and [Kaggle score evidence](results/E11/kaggle-score.jpg)
 - [E13 interruption record](results/E13/status.json) and [partial epoch metrics](results/E13/epoch-results.csv)
-- [W01 results](results/W01/RESULTS.md), [validated prediction CSV](results/W01/submission.csv), and [provenance](results/W01/provenance.json)
+- [W01 results](results/W01/RESULTS.md), [submitted prediction CSV](results/W01/submission.csv), [provenance](results/W01/provenance.json), and [Kaggle score evidence](results/W01/kaggle-score.jpg)
 - [W02 training configuration](configs/W02-experiment.json)
 - [Per-class validation metrics](results/E00/final-validation-per-class.csv), [epoch metrics](results/E00/epoch-results.csv), and [native training curves](results/E00/training-curves.png)
 - [Provenance, settings and SHA256 hashes](results/E00/provenance.json)

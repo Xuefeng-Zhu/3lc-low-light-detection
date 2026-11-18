@@ -15,4 +15,4 @@ The comparison uses the same 733 validation images and 2,725 ground-truth boxes.
 
 The last training epoch reached 0.69639 AP50 and 0.44439 AP50–95. The table above gives the separate final evaluation of its saved checkpoint. [Epoch metrics](epoch-results.csv) · [Native curves](training-curves.png)
 
-The official plugin exported [submission.csv](submission.csv) at confidence 0.001. It contains 715 rows and 47,878 predicted boxes and passed all five format checks. The participant's final submission action and the public score are pending.
+The official plugin exported [submission.csv](submission.csv) at confidence 0.001. It contains 715 rows and 47,878 predicted boxes and passed all five format checks. The participant submitted it on November 17, 2026 Pacific time. Kaggle returned **0.63189** public AP50, up **0.00926** from E11, and displayed rank **90** when verified. [Kaggle score evidence](kaggle-score.jpg)

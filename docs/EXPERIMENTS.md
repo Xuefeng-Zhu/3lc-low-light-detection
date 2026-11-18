@@ -12,6 +12,8 @@ For label-quality experiments, use the native Dashboard workflows to present mod
 
 W01 uses `exdark_train/Modified1297Values`, which sets Weight to 1.5 for exactly 1,297 training images with a supplied Chair or Table label. The other 4,613 have weight 1.0. The SDK verified all rows, schema, image references, and boxes against `initial`. W01 selected that exact revision and `exdark_val/initial` with **Use latest revision** off and **Use sampling weights** on. This activates sampling with replacement. Compare overall and per-class AP50 against E11, the matched training configuration. [W01 configuration](../configs/W01-experiment.json)
 
+W01 finished with 0.696537 validation AP50, up 0.003259 from E11. Chair gained 0.017199 and Table gained 0.005687. Its best checkpoint occurred at the 30-epoch limit, so W02 uses the same weighted revision and extends the cosine schedule to 50 epochs. Both runs use mosaic for the first 20 epochs and a patience of eight. [W01 results](../results/W01/RESULTS.md) · [W02 configuration](../configs/W02-experiment.json)
+
 Append completed and active experiments to `experiments.csv`, including native Run URL, revisions, requested/effective settings, duration, final-checkpoint validation metrics, exact submission path and Kaggle score when measured. Leave unknown fields blank. Never equate maximum epoch AP50 with the best checkpoint's final evaluation: the installed Ultralytics version selects `best.pt` by mAP50–95.
 
 Predictions in the Dashboard were collected at confidence 0.1 for E00. Native final validation and the submitted CSV use confidence 0.001. Export max_det is 300; the competition uses its separate COCOeval AP50 specification with maxDets 100. Always label which metric and data split a score describes.

@@ -1,6 +1,6 @@
 {
   "experiment_id": "W01",
-  "status": "running",
+  "status": "completed",
   "parent_experiment": "E11",
   "train_revision": "Modified1297Values",
   "parent_train_revision": "initial",
@@ -30,5 +30,26 @@
   "sampling_note": "The plugin samples with replacement when weights are enabled. This trial measures the combined sampling change.",
   "job_id": "a22f9452552344a8a114bff4384e8e15",
   "run_name": "W01_chair_table_e30_b8_w0",
-  "started_at_pst": "2026-11-17T16:33:40.820036-08:00"
+  "started_at_pst": "2026-11-17T16:33:40.820036-08:00",
+  "epochs_completed": 30,
+  "duration_minutes": 254.5928513288498,
+  "final_validation": {
+    "source": "Native final selected-checkpoint validation (Training Phase=After)",
+    "AP50": 0.6965368986129761,
+    "AP50_95": 0.4447026550769806,
+    "precision": 0.7763150334358215,
+    "recall": 0.6078411340713501,
+    "images": 733,
+    "instances": 2725,
+    "best_epoch": 30,
+    "AP50_at_best_epoch": 0.69639,
+    "AP50_95_at_best_epoch": 0.44439,
+    "AP50_by_target_class": {
+      "Chair": 0.5688950419425964,
+      "Table": 0.5807438492774963
+    }
+  },
+  "submission_csv_sha256": "cbc6c310790840519e2d500ff64f1a5faa6751018a02905cd110b6c7a8382e3a",
+  "prediction_job_id": "a32bde2524524c3a915cc85ac45ddcfe",
+  "kaggle_status": "awaiting_participant_submit"
 }

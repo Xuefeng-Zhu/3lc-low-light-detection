@@ -1,0 +1,30 @@
+{
+  "experiment_id": "S01",
+  "status": "running",
+  "control_experiment": "E01",
+  "job_id": "7cd57eab1f044f2db643da1d53c9d168",
+  "run_name": "S01_scale020_e30_b8_w0",
+  "started_at_pst": "2026-11-18T10:57:26.202143-08:00",
+  "train_revision": "E01_reviewed_chair_table",
+  "val_revision": "initial",
+  "epochs": "30",
+  "batch": "8",
+  "checkpoint_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+  "requested_settings": "optimizer=AdamW;lr0=0.000625;lrf=0.01;patience=8;workers=0;device=0;cos_lr=true;close_mosaic=10;mosaic=1;warmup_epochs=3;warmup_bias_lr=0;momentum=0.9;cache=false;seed=0;deterministic=true;amp=true;collection_conf=0.1;max_det=300;embeddings=off;sampling_weights=false;use_latest=false;scale=0.20",
+  "change": {
+    "parameter": "scale",
+    "control": 0.5,
+    "trial": 0.2
+  },
+  "hypothesis": "Narrowing random affine scaling may reduce loss of small-object detail at the fixed 640-pixel input size.",
+  "reference": {
+    "validation_AP50": 0.6960757970809937,
+    "validation_AP50_95": 0.44408613443374634,
+    "small_same_class_matches": 94,
+    "small_ground_truth_instances": 302,
+    "native_collection_confidence": 0.1,
+    "audit_match_iou": 0.5,
+    "kaggle_public_AP50": 0.63733
+  },
+  "verification": "Compared every native job parameter with E01. Only the run name and the appended scale argument differ."
+}

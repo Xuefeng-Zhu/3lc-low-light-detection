@@ -18,6 +18,10 @@ W01 finished with 0.696537 validation AP50, up 0.003259 from E11. Chair gained 0
 
 W03 applies W01's Weight rule to E01's reviewed labels through a new native child revision. The 3LC SDK confirmed the original order, image references, box records and schema across all 5,910 rows. The new revision assigns 1.5 to 1,299 Chair or Table images and keeps the effective 1.0 default on the other 4,611. E01 is the control for the effect of weighting reviewed labels. [W03 configuration](../configs/W03-experiment.json)
 
+W03 reached 0.699040 validation AP50, 0.30 percentage points above E01. Validation AP50–95 fell by 0.33 percentage points. Table AP50 rose by 2.71 percentage points and Chair AP50 fell by 0.61 percentage points relative to E01. The plugin exported 715 predictions and passed all five CSV checks. [W03 results](../results/W03/RESULTS.md)
+
+S01 uses E01 as the control because E01 has the highest measured public AP50. Scale is the sole training parameter change. It narrows random affine scaling from 0.50–1.50× to 0.80–1.20× to test whether the model retains more small-object detail at 640 pixels. E01 matched 94 of 302 small validation objects at confidence 0.10 and IoU ≥ 0.50. Compare final AP50 and the same size audit once S01 finishes. [S01 configuration](../configs/S01-experiment.json)
+
 Append completed and active experiments to `experiments.csv`, including native Run URL, revisions, requested/effective settings, duration, final-checkpoint validation metrics, exact submission path and Kaggle score when measured. Leave unknown fields blank. Never equate maximum epoch AP50 with the best checkpoint's final evaluation: the installed Ultralytics version selects `best.pt` by mAP50–95.
 
 Predictions in the Dashboard were collected at confidence 0.1 for E00. Native final validation and the submitted CSV use confidence 0.001. Export max_det is 300; the competition uses its separate COCOeval AP50 specification with maxDets 100. Always label which metric and data split a score describes.

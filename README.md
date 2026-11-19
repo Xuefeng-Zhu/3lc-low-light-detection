@@ -14,6 +14,8 @@ E01 is the project's best Kaggle submission at **0.63733 public AP50**. It ranke
 
 The public score covers the competition's public test subset. The private score is not available. Validation and Kaggle scores use different data and metric settings and are not interchangeable.
 
+R01 used a disjoint 293-image holdout derived from the original validation set. On the common holdout, COCO AP50 at saved confidence ≥ 0.10 was **0.622201** for R01, **0.614679** for E04, and **0.624649** for E01. R01's 715-row prediction file passed the plugin's five format checks. [R01 results](results/R01/RESULTS.md)
+
 ## Reproduce the workflow
 
 Use Python 3.11+ and a persistent machine with a supported GPU, then follow [setup](docs/SETUP.md). The scripts start the two local 3LC services; training and prediction happen through the **official Kaggle Competition plugin in 3LC Hub**. The plugin downloads the starter kit and its pinned initial checkpoint. There is no separate training or prediction implementation in this repository.
@@ -40,7 +42,8 @@ W01 increased sampling weight for images with a Chair or Table label and improve
 - [H01 brightness augmentation results](results/H01/RESULTS.md) and [configuration](configs/H01-experiment.json)
 - [W04 small-object sampling results](results/W04/RESULTS.md) and [configuration](configs/W04-experiment.json)
 - [E04 Table addition results](results/E04/RESULTS.md) and [participant revision audit](configs/E04-experiment.json)
-- [R01 re-split configuration](configs/R01-experiment.json), [split manifest](results/R01/split-manifest.json), and [common-holdout reference scores](results/R01/reference-scores.json)
+- [R01 re-split configuration](configs/R01-experiment.json), [split manifest](results/R01/split-manifest.json), and [validated prediction CSV](results/R01/submission.csv)
+- [B01 box regression configuration](configs/B01-experiment.json)
 - [Per-class validation metrics](results/E00/final-validation-per-class.csv), [epoch metrics](results/E00/epoch-results.csv), and [native training curves](results/E00/training-curves.png)
 - [Provenance, settings and SHA256 hashes](results/E00/provenance.json)
 - [Unmodified submitted CSV](results/E00/submission.csv) and [Kaggle score evidence](results/E00/kaggle-baseline-score.jpg)

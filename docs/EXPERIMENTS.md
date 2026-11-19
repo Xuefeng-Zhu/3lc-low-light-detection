@@ -22,9 +22,20 @@ W03 applies W01's Weight rule to E01's reviewed labels through a new native chil
 
 W03 reached 0.699040 validation AP50, 0.30 percentage points above E01. Validation AP50–95 fell by 0.33 percentage points. Table AP50 rose by 2.71 percentage points and Chair AP50 fell by 0.61 percentage points relative to E01. The plugin exported 715 predictions and passed all five CSV checks. [W03 results](../results/W03/RESULTS.md)
 
+W04 derives from W03's exact training revision. It multiplies each weight by 1.25 if the image has at least one supplied box whose equivalent square side is below 32 pixels when the image is fitted to 640 pixels. The 3LC SDK verified 549 weight edits and identical image and annotation columns across all 5,910 rows. Expected sampling share across the affected rows increases from 9.45% to 11.54%. The competition host permits changes to the Weight column in this workflow. [W04 revision and settings](../configs/W04-experiment.json) · [Host clarification](https://www.kaggle.com/competitions/the-3lc-low-light-detection-challenge/discussion/744551)
+
+With the project environment and 3LC SDK 3.4.2, prepare the same native weight revision. Omit `--apply` to preview the counts. The command verifies an existing revision of the same name against the expected edits.
+
+```bash
+source scripts/env.sh
+"$VIRTUAL_ENV/bin/python" -B scripts/create_small_box_weight_revision.py \
+    "$TLC_PROJECT_ROOT_URL/exdark-competition/datasets/exdark_train/tables/E01_weighted_chair_table" \
+    W04_weighted_small_objects --apply
+```
+
 S01 uses E01 as the control because E01 has the highest measured public AP50. The sole training parameter change narrows random affine scaling from 0.50–1.50× to 0.80–1.20×. S01 matched 103 of 302 small validation objects at confidence 0.10 and IoU ≥ 0.50, up from 94 for E01. It matched fewer medium and large objects. Final validation AP50 fell by 1.26 percentage points to 0.683487. [S01 configuration](../configs/S01-experiment.json) · [Results](../results/S01/RESULTS.md)
 
-H01 keeps E01's data and training settings and changes `hsv_v` from 0.40 to 0.20. The trial tests whether milder brightness perturbations preserve low-light detail. Compare final validation AP50 and the same size audit. [H01 configuration](../configs/H01-experiment.json)
+H01 kept E01's data and training settings and changed `hsv_v` from 0.40 to 0.20. Final validation AP50 fell by 0.45 percentage points to 0.691531. Its small-object matches fell from 94 to 91 of 302 at confidence 0.10 and IoU ≥ 0.50. [H01 configuration](../configs/H01-experiment.json) · [Results](../results/H01/RESULTS.md)
 
 Append completed and active experiments to `experiments.csv`, including native Run URL, revisions, requested/effective settings, duration, final-checkpoint validation metrics, exact submission path and Kaggle score when measured. Leave unknown fields blank. Never equate maximum epoch AP50 with the best checkpoint's final evaluation: the installed Ultralytics version selects `best.pt` by mAP50–95.
 

@@ -1,0 +1,45 @@
+{
+  "experiment_id": "W04",
+  "status": "running",
+  "control_experiment": "W03",
+  "planned_run_name": "W04_small_objects_e30_b8_w0",
+  "train_revision": "W04_weighted_small_objects",
+  "parent_train_revision": "E01_weighted_chair_table",
+  "val_revision": "initial",
+  "epochs": 30,
+  "batch": 8,
+  "checkpoint_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+  "requested_settings": "optimizer=AdamW;lr0=0.000625;lrf=0.01;patience=8;workers=0;device=0;cos_lr=true;close_mosaic=10;mosaic=1;warmup_epochs=3;warmup_bias_lr=0;momentum=0.9;cache=false;seed=0;deterministic=true;amp=true;collection_conf=0.1;max_det=300;embeddings=off;sampling_weights=true;use_latest=false",
+  "change": {
+    "column": "weight",
+    "rule": "Multiply the W03 weight by 1.25 if any supplied box has an equivalent square side strictly below 32 pixels after the image is fit to 640 pixels."
+  },
+  "verification": {
+    "method": "Native 3LC SDK sparse weight edit and exact comparison of all resolved rows",
+    "sdk_version": "3.4.2",
+    "train_rows": 5910,
+    "changed_rows": 549,
+    "effective_weight_counts": {
+      "1.0": 4204,
+      "1.25": 407,
+      "1.5": 1157,
+      "1.875": 142
+    },
+    "ordered_images_and_annotations_match_parent": true,
+    "schema_matches_parent": true,
+    "only_edited_column": "weight"
+  },
+  "sampling_estimate": {
+    "eligible_draw_share_before": 0.09451939934446223,
+    "eligible_draw_share_after": 0.11542184823888599,
+    "small_boxes_per_draw_before": 0.212135,
+    "small_boxes_per_draw_after": 0.259048
+  },
+  "job_id": "cf43700d34a14ec389e4fe44898731d9",
+  "run_name": "W04_small_objects_e30_b8_w0",
+  "started_at_pst": "2026-11-18T22:44:08.650218-08:00",
+  "verified_parameter_changes_from_W03": [
+    "run_name",
+    "train_table_url"
+  ]
+}

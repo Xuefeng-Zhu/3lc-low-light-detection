@@ -1,6 +1,6 @@
 {
   "experiment_id": "H01",
-  "status": "running",
+  "status": "completed",
   "control_experiment": "E01",
   "job_id": "4358c48f39eb492997a448506bb38994",
   "run_name": "H01_hsvv020_e30_b8_w0",
@@ -25,5 +25,24 @@
     "native_collection_confidence": 0.1,
     "audit_match_iou": 0.5
   },
-  "verification": "Compared all native job parameters with E01. Only the run name and the appended hsv_v argument differ."
+  "verification": "Compared all native job parameters with E01. Only the run name and the appended hsv_v argument differ.",
+  "epochs_completed": 30,
+  "duration_minutes": 229.28983181715012,
+  "final_validation": {
+    "source": "Native final selected-checkpoint validation (Training Phase=After)",
+    "AP50": 0.6915308833122253,
+    "AP50_95": 0.4432699978351593,
+    "precision": 0.7084211111068726,
+    "recall": 0.6298601627349854,
+    "images": 733,
+    "instances": 2725,
+    "best_epoch": 28,
+    "AP50_at_best_epoch": 0.6916,
+    "AP50_95_at_best_epoch": 0.44326,
+    "AP50_by_focus_class": {
+      "Chair": 0.5535844564437866,
+      "Table": 0.5280756950378418
+    }
+  },
+  "kaggle_status": "not_submitted"
 }

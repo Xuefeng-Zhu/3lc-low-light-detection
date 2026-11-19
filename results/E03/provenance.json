@@ -1,0 +1,62 @@
+{
+  "experiment": "E03",
+  "status": "completed",
+  "plugin_version": "1.2.15",
+  "run_url": "${THREE_LC_ROOT}/projects/exdark-competition/runs/E03_chair_boxes_e30_b8_w0",
+  "training": {
+    "job_id": "4daabd38319b46d5b36fcdb837519d3c",
+    "started_at_pst": "2026-11-18T14:58:48.289667-08:00",
+    "finished_at_pst": "2026-11-18T18:51:08.541054-08:00",
+    "duration_minutes": 232.3375231107076,
+    "epochs_completed": 30,
+    "train_table": "${THREE_LC_ROOT}/projects/exdark-competition/datasets/exdark_train/tables/E03_reviewed_chair_boxes",
+    "validation_table": "${THREE_LC_ROOT}/projects/exdark-competition/datasets/exdark_val/tables/initial",
+    "checkpoint_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+    "best_weights_path": "${KAGGLE_PLUGIN_ROOT}/runs/E03_chair_boxes_e30_b8_w0/weights/best.pt",
+    "best_weights_sha256": "a6a30caf15736b932641127b33f95fa0d9027274a02169dc8a755ed9087c4843",
+    "provenance_checks": [
+      {
+        "label": "run records model == yolo11n.pt (official checkpoint)",
+        "ok": true,
+        "detail": "model='${KAGGLE_PLUGIN_ROOT}/checkpoints/yolo11n.pt'"
+      },
+      {
+        "label": "run records imgsz == 640",
+        "ok": true,
+        "detail": "imgsz=640"
+      },
+      {
+        "label": "run records pretrained == True (official init)",
+        "ok": true,
+        "detail": "pretrained=True"
+      },
+      {
+        "label": "run records the official checkpoint sha256",
+        "ok": true,
+        "detail": "checkpoint_sha256=0ebbc80d4a76..."
+      }
+    ],
+    "participant_label_edits": true,
+    "sampling_weights": false
+  },
+  "final_validation": {
+    "source": "Native final selected-checkpoint validation (Training Phase=After)",
+    "AP50": 0.6959161758422852,
+    "AP50_95": 0.44384875893592834,
+    "precision": 0.7432753443717957,
+    "recall": 0.6236512660980225,
+    "images": 733,
+    "instances": 2725,
+    "best_epoch": 30,
+    "AP50_at_best_epoch": 0.696,
+    "AP50_95_at_best_epoch": 0.44457,
+    "AP50_by_focus_class": {
+      "Chair": 0.5418002009391785,
+      "Table": 0.5827106237411499
+    }
+  },
+  "kaggle": {
+    "status": "not_submitted",
+    "public_score": null
+  }
+}

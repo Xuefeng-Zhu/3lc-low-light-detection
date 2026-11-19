@@ -4,13 +4,13 @@ Private working repository for the [Kaggle competition](https://www.kaggle.com/c
 
 E01 is the project's best Kaggle submission at **0.63733 public AP50**. It ranked **82nd** when verified on November 18, 2026 Pacific time. [Kaggle submission history](https://www.kaggle.com/competitions/the-3lc-low-light-detection-challenge/submissions)
 
-| Result | E00 | E11 | W01 | W02 | E01 | W03 | S01 |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Completed epochs | 10 | 30 | 30 | 50 | 30 | 30 | 30 |
-| Final checkpoint validation mAP@0.5 | 0.633096 | 0.693278 | 0.696537 | 0.692656 | 0.696076 | **0.699040** | 0.683487 |
-| Final checkpoint validation mAP@0.5:0.95 | 0.401513 | 0.441266 | **0.444703** | 0.439867 | 0.444086 | 0.440814 | 0.430991 |
-| Kaggle public score | 0.56515 | 0.62263 | 0.63189 | — | **0.63733** | Pending | — |
-| Training job duration, including final evaluation | 121.04 min | 244.26 min | 254.59 min | 387.55 min | 227.64 min | 226.34 min | 240.90 min |
+| Result | E00 | E11 | W01 | W02 | E01 | W03 | S01 | E03 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Completed epochs | 10 | 30 | 30 | 50 | 30 | 30 | 30 | 30 |
+| Final checkpoint validation mAP@0.5 | 0.633096 | 0.693278 | 0.696537 | 0.692656 | 0.696076 | **0.699040** | 0.683487 | 0.695916 |
+| Final checkpoint validation mAP@0.5:0.95 | 0.401513 | 0.441266 | **0.444703** | 0.439867 | 0.444086 | 0.440814 | 0.430991 | 0.443849 |
+| Kaggle public score | 0.56515 | 0.62263 | 0.63189 | — | **0.63733** | Pending | — | — |
+| Training job duration, including final evaluation | 121.04 min | 244.26 min | 254.59 min | 387.55 min | 227.64 min | 226.34 min | 240.90 min | 232.34 min |
 
 The public score covers the competition's public test subset. The private score is not available. Validation and Kaggle scores use different data and metric settings and are not interchangeable.
 
@@ -36,7 +36,8 @@ W01 increased sampling weight for images with a Chair or Table label and improve
 - [Participant-reviewed E01 results](results/E01/RESULTS.md), [submitted prediction CSV](results/E01/submission.csv), [provenance](results/E01/provenance.json), and [Kaggle score evidence](results/E01/kaggle-score.jpg)
 - [W03 combined training results](results/W03/RESULTS.md) and [validated prediction CSV](results/W03/submission.csv)
 - [S01 narrower-scale training results](results/S01/RESULTS.md) and [configuration](configs/S01-experiment.json)
-- [E03 participant-reviewed Chair geometry experiment](configs/E03-experiment.json)
+- [E03 Chair geometry results](results/E03/RESULTS.md) and [participant revision audit](configs/E03-experiment.json)
+- [H01 brightness augmentation configuration](configs/H01-experiment.json)
 - [Per-class validation metrics](results/E00/final-validation-per-class.csv), [epoch metrics](results/E00/epoch-results.csv), and [native training curves](results/E00/training-curves.png)
 - [Provenance, settings and SHA256 hashes](results/E00/provenance.json)
 - [Unmodified submitted CSV](results/E00/submission.csv) and [Kaggle score evidence](results/E00/kaggle-baseline-score.jpg)

@@ -1,0 +1,29 @@
+{
+  "experiment_id": "M01",
+  "status": "running",
+  "control_experiment": "E01",
+  "job_id": "75e7e861ccfb4c6c87ad90be0fc48200",
+  "run_name": "M01_mosaic050_e30_b8_w0",
+  "started_at_pst": "2026-11-19T14:05:52.021142-08:00",
+  "train_revision": "E01_reviewed_chair_table",
+  "val_revision": "initial",
+  "epochs": 30,
+  "batch": 8,
+  "checkpoint_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+  "requested_settings": "optimizer=AdamW;lr0=0.000625;lrf=0.01;patience=8;workers=0;device=0;cos_lr=true;close_mosaic=10;mosaic=0.5;warmup_epochs=3;warmup_bias_lr=0;momentum=0.9;cache=false;seed=0;deterministic=true;amp=true;collection_conf=0.1;max_det=300;embeddings=off;sampling_weights=false;use_latest=false",
+  "change": {
+    "parameter": "mosaic",
+    "control": 1.0,
+    "trial": 0.5,
+    "active_epochs": 20
+  },
+  "hypothesis": "Increase ordinary full-image training exposure while retaining some mosaic augmentation.",
+  "reference": {
+    "validation_AP50": 0.6960757970809937,
+    "validation_AP50_95": 0.44408613443374634,
+    "common_holdout_COCO_AP50": 0.6246494472957067,
+    "small_objects_without_saved_prediction_at_IoU_0_30": 171,
+    "of_those_small_objects_more_than_16px_from_edge": 150
+  },
+  "verification": "Full native job parameter comparison found only the run name and the mosaic probability."
+}

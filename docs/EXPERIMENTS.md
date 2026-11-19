@@ -47,7 +47,9 @@ R01 uses a re-split of the supplied data under the competition rules. It retains
 
 On the common 293-image holdout, E01 scored 0.624649, R01 scored 0.622201, E03 scored 0.621273, W03 scored 0.616526, and E04 scored 0.614679 using COCO AP50 on saved predictions at confidence ≥ 0.10 and maxDets 100. The earlier models selected their checkpoints using the full original validation table, which includes these images. R01's separate native AP50 was 0.676654 on the 293 images. The plugin exported and checked all 715 test predictions. [R01 results](../results/R01/RESULTS.md)
 
-B01 uses the same original split and participant-reviewed label revision as E01. Its only training change increases the box regression loss gain from 7.5 to 9.0. In E01's saved validation predictions, 104 otherwise unmatched objects had a same-class candidate with IoU from 0.30 up to 0.50. B01 tests whether the higher gain helps convert such localization errors into correct matches. [B01 configuration](../configs/B01-experiment.json) · [Ultralytics loss implementation](https://docs.ultralytics.com/reference/utils/loss/)
+B01 used the same original split and participant-reviewed label revision as E01. It increased the box regression loss gain from 7.5 to 9.0. At IoU 0.75 it matched more small and medium objects. Native validation AP50 fell by 0.35 percentage points, and common-holdout COCO AP50 fell by 1.94 percentage points. [B01 results](../results/B01/RESULTS.md) · [Ultralytics loss implementation](https://docs.ultralytics.com/reference/utils/loss/)
+
+M01 uses E01's split and lowers mosaic probability from 1.0 to 0.5 in the first 20 epochs. Mosaic remains disabled for the final 10 epochs through `close_mosaic=10`. In the reference E01 predictions, 150 of 171 small objects with no saved prediction overlapping at IoU ≥ 0.30 were more than 16 pixels from the image border. M01 tests more exposure to ordinary single-image layouts. [M01 configuration](../configs/M01-experiment.json)
 
 ```bash
 source scripts/env.sh

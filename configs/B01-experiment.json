@@ -1,6 +1,6 @@
 {
   "experiment_id": "B01",
-  "status": "running",
+  "status": "completed",
   "control_experiment": "E01",
   "job_id": "35847ae1a7a242c19dc414f910a606b3",
   "run_name": "B01_box900_e30_b8_w0",
@@ -23,5 +23,37 @@
     "same_class_saved_predictions_in_IoU_0_30_to_under_0_50_for_unmatched_gt": 104,
     "native_collection_confidence": 0.1
   },
-  "verification": "Full native job parameter comparison found only the run name and the appended box argument."
+  "verification": "Full native job parameter comparison found only the run name and the appended box argument.",
+  "epochs_completed": 30,
+  "duration_minutes": 229.10580721696218,
+  "final_validation": {
+    "source": "Native final selected-checkpoint validation (Training Phase=After)",
+    "AP50": 0.6925448775291443,
+    "AP50_95": 0.4436670243740082,
+    "precision": 0.752544641494751,
+    "recall": 0.603628396987915,
+    "images": 733,
+    "instances": 2725,
+    "best_epoch": 29,
+    "AP50_at_best_epoch": 0.69279,
+    "AP50_95_at_best_epoch": 0.4435,
+    "AP50_by_focus_class": {
+      "Chair": 0.5546755790710449,
+      "Table": 0.5677422285079956
+    }
+  },
+  "common_holdout": {
+    "metric": "COCO AP50 at saved confidence >= 0.10 and maxDets=100",
+    "holdout": "R01_holdout",
+    "images": 293,
+    "instances": 1207,
+    "E01_AP50": 0.6246494472957067,
+    "B01_AP50": 0.6052526356983127,
+    "delta_vs_E01": -0.019396811597394037,
+    "E01_Chair_AP50": 0.5393490708621465,
+    "B01_Chair_AP50": 0.5417077525095862,
+    "E01_Table_AP50": 0.5300184766174597,
+    "B01_Table_AP50": 0.5016388335878952
+  },
+  "kaggle_status": "not_submitted"
 }

@@ -1,0 +1,52 @@
+{
+  "experiment_id": "E04",
+  "status": "running",
+  "control_experiment": "E03",
+  "source_prediction_run": "E03_chair_boxes_e30_b8_w0",
+  "planned_run_name": "E04_missing_chair_table_e30_b8_w0",
+  "train_revision": "E04_reviewed_missing_chair_table",
+  "parent_train_revision": "E03_reviewed_chair_boxes",
+  "val_revision": "initial",
+  "epochs": 30,
+  "batch": 8,
+  "checkpoint_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+  "requested_settings": "optimizer=AdamW;lr0=0.000625;lrf=0.01;patience=8;workers=0;device=0;cos_lr=true;close_mosaic=10;mosaic=1;warmup_epochs=3;warmup_bias_lr=0;momentum=0.9;cache=false;seed=0;deterministic=true;amp=true;collection_conf=0.1;max_det=300;embeddings=off;sampling_weights=false;use_latest=false",
+  "hypothesis": "Measure the effect of two participant-reviewed Table additions using the exact E03 training settings.",
+  "verification": {
+    "method": "Native sparse edit inspection, SDK comparison of all resolved rows, and exact native prediction matching",
+    "train_rows": 5910,
+    "edited_column": "bbs",
+    "edited_rows": 2,
+    "added_boxes": [
+      {
+        "example_id": 3740,
+        "class": "Table",
+        "native_prediction_confidence": 0.8228096962
+      },
+      {
+        "example_id": 3914,
+        "class": "Table",
+        "native_prediction_confidence": 0.9079057574
+      }
+    ],
+    "removed_boxes": 0,
+    "adjusted_boxes": 0,
+    "relabelled_boxes": 0,
+    "total_boxes_before": 18972,
+    "total_boxes_after": 18974,
+    "ordered_images_and_weights_match": true,
+    "schema_matches": true,
+    "existing_boxes_match_in_order": true,
+    "effective_weight": 1.0,
+    "native_bbox_group_origin": "Changed from unset to (0, 0) in the two edited rows. Image dimensions match the parent.",
+    "validation_revision": "exdark_val/initial",
+    "test_revision": "exdark_test/initial"
+  },
+  "job_id": "49d4cac2ec9f442e93cb18f96cb4b81c",
+  "run_name": "E04_missing_chair_table_e30_b8_w0",
+  "started_at_pst": "2026-11-19T02:38:55.769103-08:00",
+  "verified_parameter_changes_from_E03": [
+    "run_name",
+    "train_table_url"
+  ]
+}

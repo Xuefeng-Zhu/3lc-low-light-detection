@@ -94,8 +94,12 @@
     ]
   },
   "kaggle": {
-    "status": "awaiting_participant_submit",
-    "public_score": null,
-    "daily_quota_unavailable_until_pst": "2026-11-18T16:00-08:00"
+    "status": "completed",
+    "public_score": 0.62555,
+    "daily_quota_unavailable_until_pst": "2026-11-18T16:00-08:00",
+    "submitted_by": "participant via Kaggle web UI",
+    "private_score": null,
+    "submission_description": "W03 | Official 3LC YOLOv11n | 30 epochs | participant-reviewed labels and Chair/Table sampling",
+    "source_url": "https://www.kaggle.com/competitions/the-3lc-low-light-detection-challenge/submissions"
   }
 }

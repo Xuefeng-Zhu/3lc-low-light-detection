@@ -49,6 +49,7 @@
   },
   "prediction_job_id": "bb9fe82dd0b24998993896c43b8fde64",
   "submission_csv_sha256": "b27b6340fd9a9095752762bc36e47f933a74d3ef104cc6bb17265d1bbb265e54",
-  "kaggle_status": "awaiting_participant_submit",
-  "kaggle_daily_quota_unavailable_until_pst": "2026-11-18T16:00-08:00"
+  "kaggle_status": "completed",
+  "kaggle_daily_quota_unavailable_until_pst": "2026-11-18T16:00-08:00",
+  "kaggle_public_score": 0.62555
 }

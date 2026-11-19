@@ -15,4 +15,4 @@ All three runs evaluated the same 733 validation images and 2,725 boxes. At conf
 
 Epoch 30 reached 0.69940 mAP@0.5 and 0.44097 mAP@0.5:0.95 in the training history. [Epoch metrics](epoch-results.csv) · [Native curves](training-curves.png)
 
-The official plugin exported [submission.csv](submission.csv) at confidence 0.001. It contains 715 rows and 49,418 predicted boxes and passed all five format checks. Kaggle scoring is pending participant submission. The daily submission quota was unavailable until 4:00 p.m. PST on November 18, 2026.
+The official plugin exported [submission.csv](submission.csv) at confidence 0.001. It contains 715 rows and 49,418 predicted boxes and passed all five format checks. The participant submitted it and Kaggle marked it Complete at **0.62555** public AP50. E01 remains the project's best verified public submission at **0.63733**, ahead by **0.01178**, with public rank **82** at verification. [Kaggle score evidence](kaggle-score.jpg)

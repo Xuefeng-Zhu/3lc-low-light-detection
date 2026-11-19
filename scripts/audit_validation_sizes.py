@@ -44,6 +44,12 @@ def load_validation(run_dir):
     (val_file,) = val_dir.glob("*.parquet")
     truth = pq.read_table(val_file, columns=["bbs"])["bbs"].to_pylist()
 
+    if len(truth) != 733:
+        raise ValueError("Unexpected number of validation rows.")
+    return truth, load_saved_validation_predictions(run_dir, run, val_dir, len(truth))
+
+
+def load_saved_validation_predictions(run_dir, run, val_dir, row_count):
     candidates = []
     for entry in run["metrics"]:
         if entry["stream_name"] != "default_stream":
@@ -62,9 +68,9 @@ def load_validation(run_dir):
     if len(candidates) != 1:
         raise ValueError(f"Expected one final validation prediction table, found {len(candidates)}.")
     (predictions,) = candidates
-    if len(truth) != 733 or sorted(row["example_id"] for row in predictions) != list(range(733)):
+    if sorted(row["example_id"] for row in predictions) != list(range(row_count)):
         raise ValueError("Predictions must reference each validation row exactly once.")
-    return truth, predictions
+    return predictions
 
 
 def unpack_boxes(group):

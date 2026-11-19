@@ -1,0 +1,47 @@
+{
+  "experiment_id": "R01",
+  "status": "ready",
+  "control_experiment": "E04",
+  "secondary_reference": "E01",
+  "planned_run_name": "R01_rebalanced_e30_b8_w0",
+  "train_revision": "R01_rebalanced_train",
+  "val_revision": "R01_holdout",
+  "parent_train_revision": "E04_reviewed_missing_chair_table",
+  "source_val_revision": "initial",
+  "epochs": 30,
+  "batch": 8,
+  "checkpoint_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+  "requested_settings": "optimizer=AdamW;lr0=0.000625;lrf=0.01;patience=8;workers=0;device=0;cos_lr=true;close_mosaic=10;mosaic=1;warmup_epochs=3;warmup_bias_lr=0;momentum=0.9;cache=false;seed=0;deterministic=true;amp=true;collection_conf=0.1;max_det=300;embeddings=off;sampling_weights=false;use_latest=false",
+  "hypothesis": "Replacing training rows without supplied small boxes with original validation donors adds diverse labeled examples within the fixed train row ceiling.",
+  "split_manifest": "results/R01/split-manifest.json",
+  "reference_scores": "results/R01/reference-scores.json",
+  "verification": {
+    "method": "Native lineage, SDK-resolved order and annotations, original train/validation SHA256 disjointness and official Train table verification",
+    "split_counts": {
+      "original_train_rows": 5910,
+      "original_val_rows": 733,
+      "train_retained_rows": 5470,
+      "donor_rows": 440,
+      "rebalanced_train_rows": 5910,
+      "holdout_rows": 293,
+      "reviewed_train_rows_retained": 19,
+      "small_train_rows_retained": 549,
+      "small_original_val_rows": 131,
+      "small_donor_rows": 79,
+      "small_holdout_rows": 52
+    },
+    "small_detection_boxes_before": 1243,
+    "small_detection_boxes_after": 1422,
+    "common_holdout_boxes": 1207,
+    "common_holdout_small_boxes": 123,
+    "common_holdout_contains_all_classes": true,
+    "train_validation_split_sha256_collisions": 0,
+    "equal_effective_weight": 1.0,
+    "test_revision": "exdark_test/initial"
+  },
+  "comparison": {
+    "metric": "COCO AP50 at saved confidence >= 0.10 and maxDets=100",
+    "native_metric_limit": "Native full-validation AP50 and native cut-down-holdout AP50 use different populations.",
+    "checkpoint_selection": "Previous checkpoints were selected on full original validation, including the 293 common images. R01 uses the 293-row holdout for checkpoint selection."
+  }
+}

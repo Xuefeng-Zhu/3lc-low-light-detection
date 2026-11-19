@@ -43,6 +43,22 @@ S01 uses E01 as the control because E01 has the highest measured public AP50. Th
 
 H01 kept E01's data and training settings and changed `hsv_v` from 0.40 to 0.20. Final validation AP50 fell by 0.45 percentage points to 0.691531. Its small-object matches fell from 94 to 91 of 302 at confidence 0.10 and IoU ≥ 0.50. [H01 configuration](../configs/H01-experiment.json) · [Results](../results/H01/RESULTS.md)
 
+R01 uses a re-split of the supplied data under the competition rules. It retains 5,470 E04 training rows and imports 440 exact rows from the original validation table through native 3LC lineage. All 19 participant-edited images and 549 E04 images with a small box were retained. The 440 added images contain 179 small boxes. The remaining 293 original validation images form a disjoint holdout with 1,207 boxes across all 12 classes. The official Train UI verified both new table revisions. [Split manifest](../results/R01/split-manifest.json) · [R01 configuration](../configs/R01-experiment.json) · [Competition rules](https://www.kaggle.com/competitions/the-3lc-low-light-detection-challenge/rules)
+
+On the common 293-image holdout, E01 scored 0.624649, E03 scored 0.621273, and W03 scored 0.616526 using COCO AP50 on saved predictions at confidence ≥ 0.10 and maxDets 100. The existing models selected their checkpoints using the full original validation table, which includes these images. Compare R01 on the same holdout after training. [Reference scores](../results/R01/reference-scores.json)
+
+```bash
+source scripts/env.sh
+"$VIRTUAL_ENV/bin/python" -B scripts/create_resplit_revisions.py \
+    "$TLC_PROJECT_ROOT_URL/exdark-competition" --apply \
+    --manifest results/R01/split-manifest.json
+"$VIRTUAL_ENV/bin/python" -B scripts/evaluate_common_holdout.py \
+    "$TLC_PROJECT_ROOT_URL/exdark-competition/datasets/exdark_val/tables/initial" \
+    "$TLC_PROJECT_ROOT_URL/exdark-competition/datasets/exdark_val/tables/R01_holdout" \
+    "$TLC_PROJECT_ROOT_URL/exdark-competition/runs/E01_reviewed_e30_b8_w0" \
+    "$TLC_PROJECT_ROOT_URL/exdark-competition/runs/W03_reviewed_weighted_e30_b8"
+```
+
 Append completed and active experiments to `experiments.csv`, including native Run URL, revisions, requested/effective settings, duration, final-checkpoint validation metrics, exact submission path and Kaggle score when measured. Leave unknown fields blank. Never equate maximum epoch AP50 with the best checkpoint's final evaluation: the installed Ultralytics version selects `best.pt` by mAP50–95.
 
 Predictions in the Dashboard were collected at confidence 0.1 for E00. Native final validation and the submitted CSV use confidence 0.001. Export max_det is 300; the competition uses its separate COCOeval AP50 specification with maxDets 100. Always label which metric and data split a score describes.

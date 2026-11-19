@@ -1,0 +1,272 @@
+{
+  "run": "E01_reviewed_e30_b8_w0",
+  "metric": "COCO AP50 at saved confidence >= 0.10 and maxDets=100",
+  "images": 733,
+  "ground_truth_boxes": 2725,
+  "object_counts": {
+    "unmatched": {
+      "total": 770,
+      "by_size": {
+        "under_32": 208,
+        "32_to_under_96": 312,
+        "96_or_larger": 250
+      },
+      "by_class": {
+        "Bicycle": 28,
+        "Boat": 35,
+        "Bottle": 58,
+        "Bus": 13,
+        "Car": 97,
+        "Cat": 11,
+        "Chair": 112,
+        "Cup": 59,
+        "Dog": 20,
+        "Motorbike": 39,
+        "People": 247,
+        "Table": 51
+      }
+    },
+    "correct_class": {
+      "total": 69,
+      "by_size": {
+        "under_32": 8,
+        "32_to_under_96": 21,
+        "96_or_larger": 40
+      },
+      "by_class": {
+        "Bicycle": 6,
+        "Boat": 0,
+        "Bottle": 6,
+        "Bus": 3,
+        "Car": 3,
+        "Cat": 4,
+        "Chair": 11,
+        "Cup": 3,
+        "Dog": 10,
+        "Motorbike": 12,
+        "People": 8,
+        "Table": 3
+      }
+    },
+    "correct_box": {
+      "total": 100,
+      "by_size": {
+        "under_32": 19,
+        "32_to_under_96": 42,
+        "96_or_larger": 39
+      },
+      "by_class": {
+        "Bicycle": 2,
+        "Boat": 9,
+        "Bottle": 6,
+        "Bus": 0,
+        "Car": 12,
+        "Cat": 0,
+        "Chair": 8,
+        "Cup": 7,
+        "Dog": 6,
+        "Motorbike": 2,
+        "People": 42,
+        "Table": 6
+      }
+    },
+    "correct_class_and_box": {
+      "total": 164,
+      "by_size": {
+        "under_32": 27,
+        "32_to_under_96": 62,
+        "96_or_larger": 75
+      },
+      "by_class": {
+        "Bicycle": 7,
+        "Boat": 9,
+        "Bottle": 12,
+        "Bus": 3,
+        "Car": 15,
+        "Cat": 4,
+        "Chair": 18,
+        "Cup": 10,
+        "Dog": 15,
+        "Motorbike": 14,
+        "People": 48,
+        "Table": 9
+      }
+    },
+    "no_saved_candidate": {
+      "total": 533,
+      "by_size": {
+        "under_32": 171,
+        "32_to_under_96": 225,
+        "96_or_larger": 137
+      },
+      "by_class": {
+        "Bicycle": 18,
+        "Boat": 24,
+        "Bottle": 39,
+        "Bus": 9,
+        "Car": 77,
+        "Cat": 6,
+        "Chair": 69,
+        "Cup": 47,
+        "Dog": 4,
+        "Motorbike": 19,
+        "People": 186,
+        "Table": 35
+      }
+    }
+  },
+  "scenarios": {
+    "baseline": {
+      "predictions": 4050,
+      "AP50": 0.6510518489016136,
+      "AP50_difference": 0.0,
+      "AP50_difference_by_class": {
+        "Bicycle": 0.0,
+        "Boat": 0.0,
+        "Bottle": 0.0,
+        "Bus": 0.0,
+        "Car": 0.0,
+        "Cat": 0.0,
+        "Chair": 0.0,
+        "Cup": 0.0,
+        "Dog": 0.0,
+        "Motorbike": 0.0,
+        "People": 0.0,
+        "Table": 0.0
+      }
+    },
+    "correct_class": {
+      "predictions": 4050,
+      "AP50": 0.6897188671811765,
+      "AP50_difference": 0.03866701827956287,
+      "AP50_difference_by_class": {
+        "Bicycle": 0.040400353293435276,
+        "Boat": 1.661792989493538e-05,
+        "Bottle": 0.03222622693650279,
+        "Bus": 0.03348219656052642,
+        "Car": 0.00935120263350131,
+        "Cat": 0.06652048693393708,
+        "Chair": 0.04286827413013938,
+        "Cup": 0.017774262417081466,
+        "Dog": 0.1003678718942499,
+        "Motorbike": 0.08809006641224515,
+        "People": 0.012316225593137609,
+        "Table": 0.02059043462010446
+      }
+    },
+    "correct_box": {
+      "predictions": 4050,
+      "AP50": 0.6809522488858738,
+      "AP50_difference": 0.029900399984260195,
+      "AP50_difference_by_class": {
+        "Bicycle": 0.022290220594678,
+        "Boat": 0.06642333732301597,
+        "Bottle": 0.034530288985265,
+        "Bus": 0.0,
+        "Car": 0.03104572122314242,
+        "Cat": 0.0,
+        "Chair": 0.024175434212524438,
+        "Cup": 0.020506858705316544,
+        "Dog": 0.07296414837755638,
+        "Motorbike": 0.012304148855347363,
+        "People": 0.047643700073289,
+        "Table": 0.02692094146098789
+      }
+    },
+    "correct_class_and_box": {
+      "predictions": 4050,
+      "AP50": 0.7182158565156928,
+      "AP50_difference": 0.06716400761407915,
+      "AP50_difference_by_class": {
+        "Bicycle": 0.05702226482338191,
+        "Boat": 0.06646091254362896,
+        "Bottle": 0.06202930139978158,
+        "Bus": 0.03348219656052642,
+        "Car": 0.040483529884085656,
+        "Cat": 0.06652048693393708,
+        "Chair": 0.06312393491435997,
+        "Cup": 0.04208392353893442,
+        "Dog": 0.1674184185312415,
+        "Motorbike": 0.10184993619190019,
+        "People": 0.05749152127187529,
+        "Table": 0.04800166477529977
+      }
+    },
+    "add_missing_at_0.10": {
+      "predictions": 4583,
+      "AP50": 0.7409284961143848,
+      "AP50_difference": 0.08987664721277122,
+      "AP50_difference_by_class": {
+        "Bicycle": 0.08157858039325072,
+        "Boat": 0.07288746222825504,
+        "Bottle": 0.12864319586889883,
+        "Bus": 0.08030803080308035,
+        "Car": 0.1266086273829623,
+        "Cat": 0.04008800880088015,
+        "Chair": 0.1146690697450713,
+        "Cup": 0.10293418548282451,
+        "Dog": 0.02169388913413639,
+        "Motorbike": 0.08426935130487856,
+        "People": 0.12347150623264169,
+        "Table": 0.10136785917637592
+      }
+    },
+    "add_missing_at_0.50": {
+      "predictions": 4583,
+      "AP50": 0.8092383510429314,
+      "AP50_difference": 0.1581865021413178,
+      "AP50_difference_by_class": {
+        "Bicycle": 0.13087821975035785,
+        "Boat": 0.1509890496076376,
+        "Bottle": 0.2167694462705667,
+        "Bus": 0.10278390492985712,
+        "Car": 0.2109276435699735,
+        "Cat": 0.05774354210318389,
+        "Chair": 0.2178854983714713,
+        "Cup": 0.20367676801217538,
+        "Dog": 0.03685970227246449,
+        "Motorbike": 0.16504748218771437,
+        "People": 0.20846171891967524,
+        "Table": 0.19621504970073578
+      }
+    },
+    "add_missing_at_1.00": {
+      "predictions": 4583,
+      "AP50": 0.8326497807470002,
+      "AP50_difference": 0.18159793184538664,
+      "AP50_difference_by_class": {
+        "Bicycle": 0.15493811937215607,
+        "Boat": 0.1668854568285687,
+        "Bottle": 0.23523146501744208,
+        "Bus": 0.11137013212741109,
+        "Car": 0.2269226643628205,
+        "Cat": 0.0754344345819038,
+        "Chair": 0.2506997159619707,
+        "Cup": 0.2561840361329957,
+        "Dog": 0.043871306412617384,
+        "Motorbike": 0.17366308058965974,
+        "People": 0.2281402179737726,
+        "Table": 0.25583455278332223
+      }
+    },
+    "remove_unmatched_predictions": {
+      "predictions": 1955,
+      "AP50": 0.7351485148514851,
+      "AP50_difference": 0.08409666594987153,
+      "AP50_difference_by_class": {
+        "Bicycle": 0.07231989232756009,
+        "Boat": 0.10927119610662062,
+        "Bottle": 0.04654322463709937,
+        "Bus": 0.013224357639267104,
+        "Car": 0.047306084895926026,
+        "Cat": 0.11050379483522232,
+        "Chair": 0.09454706614250519,
+        "Cup": 0.11829616342181815,
+        "Dog": 0.10417314619939955,
+        "Motorbike": 0.05137612412198256,
+        "People": 0.0805382706154778,
+        "Table": 0.16106067045558103
+      }
+    }
+  }
+}

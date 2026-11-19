@@ -1,6 +1,6 @@
 {
   "experiment_id": "R01",
-  "status": "ready",
+  "status": "running",
   "control_experiment": "E04",
   "secondary_reference": "E01",
   "planned_run_name": "R01_rebalanced_e30_b8_w0",
@@ -42,6 +42,15 @@
   "comparison": {
     "metric": "COCO AP50 at saved confidence >= 0.10 and maxDets=100",
     "native_metric_limit": "Native full-validation AP50 and native cut-down-holdout AP50 use different populations.",
-    "checkpoint_selection": "Previous checkpoints were selected on full original validation, including the 293 common images. R01 uses the 293-row holdout for checkpoint selection."
-  }
+    "checkpoint_selection": "Previous checkpoints were selected on full original validation, including the 293 common images. R01 uses the 293-row holdout for checkpoint selection.",
+    "E04_common_holdout_AP50": 0.6146785712483176
+  },
+  "job_id": "919d6136fddc47b0abc55a0fe9047efb",
+  "run_name": "R01_rebalanced_e30_b8_w0",
+  "started_at_pst": "2026-11-19T06:30:15.679302-08:00",
+  "verified_parameter_changes_from_E04": [
+    "run_name",
+    "train_table_url",
+    "val_table_url"
+  ]
 }

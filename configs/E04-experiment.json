@@ -1,6 +1,6 @@
 {
   "experiment_id": "E04",
-  "status": "running",
+  "status": "completed",
   "control_experiment": "E03",
   "source_prediction_run": "E03_chair_boxes_e30_b8_w0",
   "planned_run_name": "E04_missing_chair_table_e30_b8_w0",
@@ -48,5 +48,24 @@
   "verified_parameter_changes_from_E03": [
     "run_name",
     "train_table_url"
-  ]
+  ],
+  "epochs_completed": 30,
+  "duration_minutes": 230.8099161863327,
+  "final_validation": {
+    "source": "Native final selected-checkpoint validation (Training Phase=After)",
+    "AP50": 0.6903431415557861,
+    "AP50_95": 0.4402683675289154,
+    "precision": 0.7376242280006409,
+    "recall": 0.6141583323478699,
+    "images": 733,
+    "instances": 2725,
+    "best_epoch": 28,
+    "AP50_at_best_epoch": 0.69028,
+    "AP50_95_at_best_epoch": 0.44011,
+    "AP50_by_focus_class": {
+      "Chair": 0.567427396774292,
+      "Table": 0.5428022146224976
+    }
+  },
+  "kaggle_status": "not_submitted"
 }

@@ -34,5 +34,13 @@
   },
   "prediction_job_id": "a602eb4566bf489eb6eb051a27c38859",
   "submission_csv_sha256": "5e9b67e4b30cf1a0bef5b667295d3870d2dd04d09d96164ce3f27027db22fee3",
-  "kaggle_status": "awaiting_participant_submit"
+  "kaggle_status": "completed",
+  "kaggle": {
+    "status": "complete",
+    "public_ap50": 0.63453,
+    "observed_date_pst": "2026-11-19",
+    "E01_public_ap50": 0.63733,
+    "delta_vs_E01": -0.0028,
+    "evidence": "results/L01/kaggle-score.jpg"
+  }
 }

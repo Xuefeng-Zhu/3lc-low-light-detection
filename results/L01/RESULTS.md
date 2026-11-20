@@ -19,4 +19,4 @@ On the matched 293-image COCO holdout, L01 reached **0.618771 AP50** versus **0.
 
 On all 733 original validation images, COCO AP50 rose from 0.651052 to 0.655107. On the other 440 images, it rose from 0.671228 to 0.682150. [COCO cohort scores](cohort-scores.json)
 
-The official plugin exported [submission.csv](submission.csv) at confidence 0.001. It contains 715 rows and 48,542 predicted boxes. All five native format checks passed. Kaggle scoring is awaiting participant submission.
+The official plugin exported at confidence 0.001. The file contains 715 rows and 48,542 predicted boxes and passed all five format checks. The participant submitted on November 19, 2026. Kaggle returned **0.63453** public AP50, 0.28 percentage points below E01 at the same inference threshold. [Official CSV](submission.csv) · [Kaggle score](kaggle-score.jpg)

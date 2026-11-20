@@ -122,7 +122,11 @@
     ]
   },
   "kaggle": {
-    "status": "awaiting_participant_submit",
-    "public_score": null
+    "status": "complete",
+    "public_ap50": 0.63453,
+    "observed_date_pst": "2026-11-19",
+    "E01_public_ap50": 0.63733,
+    "delta_vs_E01": -0.0028,
+    "evidence": "kaggle-score.jpg"
   }
 }

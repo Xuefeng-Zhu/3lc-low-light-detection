@@ -13,6 +13,8 @@ E03 used a child of E01's training table with three participant-reviewed Chair b
 
 Both runs evaluated the same 733 images and 2,725 ground-truth boxes. At confidence 0.10 and IoU 0.50, matches went from 94 to 105 of 302 small boxes, 690 to 683 of 1,002 medium boxes, and 1,171 to 1,156 of 1,421 large boxes. [Per-class metrics](final-validation-per-class.csv) · [Size audit](validation-size-audit.csv)
 
+Scoring E03's saved predictions with COCO AP50 at confidence 0.10 and maxDets 100 gives **0.64718** on the original 733 validation images and **0.62127** on the 293-image subset used to compare R01. E06 scores higher on both cohorts at 0.64945 and 0.62713. The 293 images are included in the 733. Both cohorts were part of native checkpoint selection. [Full validation scores](full-validation-coco-scores.json) · [Subset scores](common-holdout-scores.json) · [E06 comparison](../E06/RESULTS.md)
+
 In the training history, mAP@0.5 peaked at 0.69701 in epoch 27, and mAP@0.5:0.95 peaked at 0.44457 in epoch 30. [Epoch metrics](epoch-results.csv) · [Native curves](training-curves.png)
 
 No Kaggle prediction or submission was made.

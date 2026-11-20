@@ -1,0 +1,40 @@
+{
+  "metric": "COCO AP50 at saved confidence >= 0.10 and maxDets=100",
+  "holdout": "initial",
+  "images": 733,
+  "annotations": {
+    "Bicycle": 127,
+    "Boat": 156,
+    "Bottle": 174,
+    "Bus": 77,
+    "Car": 352,
+    "Cat": 91,
+    "Chair": 299,
+    "Cup": 205,
+    "Dog": 102,
+    "Motorbike": 114,
+    "People": 866,
+    "Table": 162
+  },
+  "results": [
+    {
+      "run": "E03_chair_boxes_e30_b8_w0",
+      "AP50": 0.6471774101484864,
+      "AP50_by_class": {
+        "Bicycle": 0.7041843518045937,
+        "Boat": 0.6425231762740733,
+        "Bottle": 0.6158195105524398,
+        "Bus": 0.7927921278667548,
+        "Car": 0.6654587509115938,
+        "Cat": 0.7491376459632065,
+        "Chair": 0.4940406905478318,
+        "Cup": 0.6016796073920968,
+        "Dog": 0.7207362108242168,
+        "Motorbike": 0.5938964287183357,
+        "People": 0.6409530210202778,
+        "Table": 0.544907399906416
+      },
+      "predictions": 4136
+    }
+  ]
+}

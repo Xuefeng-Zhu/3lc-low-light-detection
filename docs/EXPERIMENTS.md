@@ -98,3 +98,5 @@ source scripts/env.sh
 "$VIRTUAL_ENV/bin/python" -B scripts/audit_validation_confidence.py \
     "$TLC_PROJECT_ROOT_URL/exdark-competition/runs/<completed-run-with-collection-floor-0.001>"
 ```
+
+Use `evaluate_common_holdout.py --confidence 0.001` to score those same saved boxes with COCO AP50. The requested cutoff must be at or above each supplied run's collection floor. Keep the shared 0.10 cutoff when comparing with older runs that collected at 0.10.

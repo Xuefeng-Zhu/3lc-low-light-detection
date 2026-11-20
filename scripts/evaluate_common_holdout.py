@@ -70,12 +70,15 @@ def holdout_reference(initial_dir, holdout_dir):
     }
 
 
-def run_detections(run_dir, image_ids, images):
+def run_detections(run_dir, image_ids, images, *, confidence=0.10):
     run = metadata(run_dir)
     params = run["constants"]["parameters"]
-    collection_floor = params["3LC/conf_thres"]
-    if (run["status"], params["imgsz"], params["3LC/max_det"]) != (1, 640, 300) or not 0 <= collection_floor <= 0.1:
-        raise ValueError(f"{run_dir.name} must be complete with 640px, collection confidence ≤0.10 and max detections 300")
+    collection_floor = float(np.float32(params["3LC/conf_thres"]))
+    cutoff = float(np.float32(confidence))
+    if (run["status"], params["imgsz"], params["3LC/max_det"]) != (1, 640, 300):
+        raise ValueError(f"{run_dir.name} must be complete with 640 px and max detections 300")
+    if not 0 <= collection_floor <= cutoff <= 1:
+        raise ValueError(f"{run_dir.name} must collect predictions at confidence ≤{confidence:g}")
     training_dir = (run_dir / params["3LC/train_url"]).resolve()
     training = tlc.Table.from_url(str(training_dir))
     if image_ids.keys() & set(image_paths(training, training_dir)):
@@ -98,10 +101,10 @@ def run_detections(run_dir, image_ids, images):
             raise ValueError("Prediction and annotation image dimensions differ")
         boxes, labels, _, info = unpack_boxes(predicted)
         scores = info.get("confidence") or []
-        if not all(collection_floor - 1e-6 <= score <= 1 for score in scores):
+        if not all(collection_floor <= score <= 1 for score in scores):
             raise ValueError("Invalid or mismatched saved prediction confidence")
         for bbox, label, score in zip(coco_boxes(boxes), labels.tolist(), scores, strict=True):
-            if score < 0.10 - 1e-6:
+            if score < cutoff:
                 continue
             detections.append({
                 "image_id": image_id, "category_id": label + 1, "score": score, "bbox": bbox,
@@ -137,17 +140,24 @@ def main():
     parser.add_argument("initial", type=Path, help="Original validation table")
     parser.add_argument("holdout", type=Path, help="Subset of the original validation table")
     parser.add_argument("runs", type=Path, nargs="+", help="Completed native Run directories")
+    parser.add_argument(
+        "--confidence", type=float, default=0.10,
+        help="Prediction confidence cutoff, at or above every run's collection floor",
+    )
     args = parser.parse_args()
+    if not 0 <= args.confidence <= 1:
+        parser.error("Confidence must be finite and in [0, 1].")
     image_ids, support, reference = holdout_reference(args.initial.resolve(), args.holdout.resolve())
     results = []
     for run_dir in args.runs:
-        detections = run_detections(run_dir.resolve(), image_ids, reference["images"])
+        detections = run_detections(run_dir.resolve(), image_ids, reference["images"], confidence=args.confidence)
         ap50, by_class = score(reference, detections)
         results.append({
             "run": run_dir.name, "AP50": ap50, "AP50_by_class": by_class, "predictions": len(detections),
         })
+    confidence_label = "0.10" if args.confidence == 0.10 else f"{args.confidence:g}"
     print(json.dumps({
-        "metric": "COCO AP50 at saved confidence >= 0.10 and maxDets=100",
+        "metric": f"COCO AP50 at saved confidence >= {confidence_label} and maxDets=100",
         "holdout": args.holdout.name,
         "images": len(image_ids),
         "annotations": {name: support[index] for index, name in enumerate(CLASSES[:-1])},

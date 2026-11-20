@@ -1,6 +1,6 @@
 {
   "experiment_id": "M01",
-  "status": "running",
+  "status": "completed",
   "control_experiment": "E01",
   "job_id": "75e7e861ccfb4c6c87ad90be0fc48200",
   "run_name": "M01_mosaic050_e30_b8_w0",
@@ -25,5 +25,14 @@
     "small_objects_without_saved_prediction_at_IoU_0_30": 171,
     "of_those_small_objects_more_than_16px_from_edge": 150
   },
-  "verification": "Full native job parameter comparison found only the run name and the mosaic probability."
+  "verification": "Full native job parameter comparison found only the run name and the mosaic probability.",
+  "finished_at_pst": "2026-11-19T17:52:31.088777-08:00",
+  "duration_minutes": 226.65112725098928,
+  "result": {
+    "selected_epoch": 28,
+    "validation_AP50": 0.6938457489013672,
+    "validation_AP50_95": 0.44293132424354553,
+    "common_holdout_COCO_AP50": 0.6142758498916947,
+    "kaggle_prediction_generated": false
+  }
 }

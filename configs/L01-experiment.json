@@ -1,0 +1,26 @@
+{
+  "experiment_id": "L01",
+  "status": "running",
+  "control_experiment": "E01",
+  "job_id": "1c4790fae5b64872b4652a4e8233b8ca",
+  "run_name": "L01_lr0p00045_e30_b8_w0",
+  "started_at_pst": "2026-11-19T17:54:57.280084-08:00",
+  "train_revision": "E01_reviewed_chair_table",
+  "val_revision": "initial",
+  "epochs": 30,
+  "batch": 8,
+  "checkpoint_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+  "requested_settings": "optimizer=AdamW;lr0=0.00045;lrf=0.01;patience=8;workers=0;device=0;cos_lr=true;close_mosaic=10;mosaic=1.0;warmup_epochs=3;warmup_bias_lr=0;momentum=0.9;cache=false;seed=0;deterministic=true;amp=true;collection_conf=0.1;max_det=300;embeddings=off;sampling_weights=false;use_latest=false",
+  "change": {
+    "parameter": "lr0",
+    "control": 0.000625,
+    "trial": 0.00045
+  },
+  "hypothesis": "Reduce the initial AdamW rate to test the sensitivity of the same 30-epoch cosine schedule.",
+  "reference": {
+    "validation_AP50": 0.6960757970809937,
+    "validation_AP50_95": 0.44408613443374634,
+    "common_holdout_COCO_AP50": 0.6246494472957067
+  },
+  "verification": "Full native job parameter comparison found only the run name and the initial learning rate."
+}

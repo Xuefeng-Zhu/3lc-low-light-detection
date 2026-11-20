@@ -1,0 +1,77 @@
+{
+  "experiment": "M01",
+  "status": "completed",
+  "plugin_version": "1.2.15",
+  "run_url": "${THREE_LC_ROOT}/projects/exdark-competition/runs/M01_mosaic050_e30_b8_w0",
+  "training": {
+    "job_id": "75e7e861ccfb4c6c87ad90be0fc48200",
+    "started_at_pst": "2026-11-19T14:05:52.021142-08:00",
+    "finished_at_pst": "2026-11-19T17:52:31.088777-08:00",
+    "duration_minutes": 226.65112725098928,
+    "epochs_completed": 30,
+    "train_table": "${THREE_LC_ROOT}/projects/exdark-competition/datasets/exdark_train/tables/E01_reviewed_chair_table",
+    "validation_table": "${THREE_LC_ROOT}/projects/exdark-competition/datasets/exdark_val/tables/initial",
+    "checkpoint_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+    "best_weights_path": "${KAGGLE_PLUGIN_ROOT}/runs/M01_mosaic050_e30_b8_w0/weights/best.pt",
+    "best_weights_sha256": "a4027f625f8c109f0731f0131e2a635b9ef5b2d622f5996d5fd360f5028e5fa7",
+    "provenance_checks": [
+      {
+        "label": "run records model == yolo11n.pt (official checkpoint)",
+        "ok": true,
+        "detail": "model='${KAGGLE_PLUGIN_ROOT}/checkpoints/yolo11n.pt'"
+      },
+      {
+        "label": "run records imgsz == 640",
+        "ok": true,
+        "detail": "imgsz=640"
+      },
+      {
+        "label": "run records pretrained == True (official init)",
+        "ok": true,
+        "detail": "pretrained=True"
+      },
+      {
+        "label": "run records the official checkpoint sha256",
+        "ok": true,
+        "detail": "checkpoint_sha256=0ebbc80d4a76..."
+      }
+    ],
+    "participant_label_edits": true,
+    "sampling_weights": false,
+    "mosaic": 0.5,
+    "close_mosaic": 10
+  },
+  "final_validation": {
+    "source": "Native final selected-checkpoint validation (Training Phase=After)",
+    "AP50": 0.6938457489013672,
+    "AP50_95": 0.44293132424354553,
+    "precision": 0.733047366142273,
+    "recall": 0.6121054887771606,
+    "images": 733,
+    "instances": 2725,
+    "best_epoch": 28,
+    "AP50_at_best_epoch": 0.69399,
+    "AP50_95_at_best_epoch": 0.44305,
+    "AP50_by_focus_class": {
+      "Chair": 0.5570093989372253,
+      "Table": 0.5549162030220032
+    }
+  },
+  "common_holdout": {
+    "metric": "COCO AP50 at saved confidence >= 0.10 and maxDets=100",
+    "holdout": "R01_holdout",
+    "images": 293,
+    "instances": 1207,
+    "E01_AP50": 0.6246494472957067,
+    "M01_AP50": 0.6142758498916947,
+    "delta_vs_E01": -0.010373597404012003,
+    "E01_Chair_AP50": 0.5393490708621465,
+    "M01_Chair_AP50": 0.5105216174420083,
+    "E01_Table_AP50": 0.5300184766174597,
+    "M01_Table_AP50": 0.4832714201277773
+  },
+  "kaggle": {
+    "status": "not_submitted",
+    "public_score": null
+  }
+}

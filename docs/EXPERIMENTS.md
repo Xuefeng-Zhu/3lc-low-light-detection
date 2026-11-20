@@ -53,7 +53,11 @@ Resampling the same images for each model in 2,000 paired bootstrap draws gave a
 
 B01 used the same original split and participant-reviewed label revision as E01. It increased the box regression loss gain from 7.5 to 9.0. At IoU 0.75 it matched more small and medium objects. Native validation AP50 fell by 0.35 percentage points, and common-holdout COCO AP50 fell by 1.94 percentage points. [B01 results](../results/B01/RESULTS.md) · [Ultralytics loss implementation](https://docs.ultralytics.com/reference/utils/loss/)
 
-M01 uses E01's split and lowers mosaic probability from 1.0 to 0.5 in the first 20 epochs. Mosaic remains disabled for the final 10 epochs through `close_mosaic=10`. In the reference E01 predictions, 150 of 171 small objects with no saved prediction overlapping at IoU ≥ 0.30 were more than 16 pixels from the image border. M01 tests more exposure to ordinary single-image layouts. [M01 configuration](../configs/M01-experiment.json)
+M01 used E01's split and lowered mosaic probability from 1.0 to 0.5 in the first 20 epochs. Mosaic was disabled for the final 10 epochs through `close_mosaic=10`. M01 reached 0.693846 native AP50 and 0.614276 common-holdout COCO AP50, 0.22 and 1.04 percentage points below E01, respectively. Small matches rose from 94 to 101 of 302. [M01 results](../results/M01/RESULTS.md) · [Configuration](../configs/M01-experiment.json)
+
+E01-LC uses the same trained E01 checkpoint and official test table. The sole inference change lowers the confidence threshold from 0.001 to 0.0001. The native export passed all five format checks. Every original detection is byte-identical at the start of its row, and 114,512 predictions were appended. Fifteen appended predictions tie the lowest original score after six-decimal rounding. Leaderboard impact awaits the participant's submission. [Export audit](../results/E01/low-threshold-prediction.json) · [Numerical comparison](../scripts/compare_submission_exports.py)
+
+L01 lowers the E01 initial AdamW learning rate from 0.000625 to 0.00045. The native job confirms that the remaining training settings and dataset revisions match E01. The W01 and W02 histories show sensitivity to different cosine schedules on the same weighted data. L01 isolates the initial rate on the 30-epoch schedule. [L01 configuration](../configs/L01-experiment.json) · [W01 epoch history](../results/W01/epoch-results.csv) · [W02 epoch history](../results/W02/epoch-results.csv)
 
 ```bash
 source scripts/env.sh

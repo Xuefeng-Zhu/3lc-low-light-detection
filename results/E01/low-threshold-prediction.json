@@ -1,0 +1,52 @@
+{
+  "experiment": "E01-LC",
+  "status": "awaiting_participant_submission",
+  "prediction_job_id": "c7499a7412294d5b896d93e61b8e520e",
+  "trained_job_id": "99df1bfdee2f46e59785d09e8ee578b6",
+  "trained_run_name": "E01_reviewed_e30_b8_w0",
+  "plugin_version": "1.2.15",
+  "test_revision": "exdark_test/initial",
+  "threshold_original": 0.001,
+  "threshold_trial": 0.0001,
+  "artifact_native_filename": "submission_20261119_175317.csv",
+  "artifact_sha256": "b9d9a15f3466fc59131fa6313514c8263a1de9a210552630eea3f15897ca5258",
+  "format_checks": [
+    {
+      "label": "columns are id, image_id, prediction_string",
+      "ok": true
+    },
+    {
+      "label": "exactly 715 rows (one per test image)",
+      "ok": true
+    },
+    {
+      "label": "no duplicated image_id rows",
+      "ok": true
+    },
+    {
+      "label": "id column is 0..N-1 aligned to sorted image_id",
+      "ok": true
+    },
+    {
+      "label": "all prediction_strings parse under the metric's strict rules",
+      "ok": true
+    }
+  ],
+  "numerical_comparison": {
+    "images": 715,
+    "old_predictions": 48316,
+    "new_predictions": 162828,
+    "image_rows_with_changed_existing_predictions": 0,
+    "appended_predictions_in_unchanged_rows": 114512,
+    "lowest_original_score": 0.001,
+    "highest_appended_score": 0.001,
+    "appended_predictions_at_lowest_original_score": 15,
+    "appended_predictions_above_lowest_original_score": 0,
+    "strict_low_score_extension": false
+  },
+  "score_tie_counts": {
+    "original_at_minimum": 8,
+    "additional_in_same_categories": 8
+  },
+  "public_ap50": null
+}

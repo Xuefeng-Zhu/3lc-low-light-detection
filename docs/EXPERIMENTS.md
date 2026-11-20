@@ -65,7 +65,9 @@ C01 changed the E01 CutMix probability from 0 to 0.10 during the first 20 epochs
 
 E06 is a participant-saved child of E01. It adds seven boxes on seven training rows, with two Bottle, two Cup, and one each of Chair, Motorbike, and Table. The official SDK verified all 5,910 ordered images, weights, and schema, along with exact native E01 candidate matches. At the same optimization settings, E06 reached 0.693486 native AP50 and 0.649446 full-validation COCO AP50 at the shared 0.10 cutoff. Its saved predictions also supported a within-run sweep. At 0.001, 222 of 302 small boxes matched at IoU ≥0.50, up from 96 at 0.10. [Revision audit](../results/E06/verification.json) · [E06 results](../results/E06/RESULTS.md)
 
-C02 uses C01's original reviewed E01 training labels and increases CutMix probability from 0.10 to 0.20 during the first 20 epochs. It collects saved boxes at confidence 0.001 for the same diagnostic. [C02 configuration](../configs/C02-experiment.json)
+C02 used C01's reviewed E01 labels and increased CutMix probability from 0.10 to 0.20 during the first 20 epochs. Native AP50 fell from 0.704608 to 0.695730. Common 293-image COCO AP50 fell from 0.631170 to 0.616634 and full 733-image COCO AP50 fell from 0.656948 to 0.650345. The cutoff sweep recovered 117 small-box matches at 0.001 relative to 0.10 on the same C02 predictions. [C02 results](../results/C02/RESULTS.md) · [Confidence sweep](../results/C02/validation-confidence-audit.csv)
+
+D01 uses C01's CutMix probability of 0.10 and increases the classification loss weight from 0.50 to 0.65. The 0.001 collection floor provides the same within-run confidence sweep. The comparison tests whether useful detections rank higher at the same optimization schedule and validation split. [D01 configuration](../configs/D01-experiment.json)
 
 ```bash
 source scripts/env.sh

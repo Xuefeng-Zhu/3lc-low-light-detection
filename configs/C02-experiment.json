@@ -1,6 +1,6 @@
 {
   "experiment_id": "C02",
-  "status": "running",
+  "status": "completed",
   "control_experiment": "C01",
   "secondary_reference": "E01",
   "job_id": "614eaae8b2804dbbbb1471755ca2946a",
@@ -31,5 +31,15 @@
     "run_name",
     "extra_args",
     "conf_thres"
-  ]
+  ],
+  "finished_at_pst": "2026-11-20T09:30:30.516682-08:00",
+  "duration_minutes": 235.12754825353622,
+  "result": {
+    "selected_epoch": 30,
+    "validation_AP50": 0.6957299113273621,
+    "validation_AP50_95": 0.4413462281227112,
+    "common_holdout_COCO_AP50": 0.6166344106045633,
+    "full_validation_COCO_AP50": 0.6503450945658775,
+    "kaggle_prediction_generated": false
+  }
 }

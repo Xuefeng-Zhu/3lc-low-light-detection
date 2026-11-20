@@ -1,0 +1,34 @@
+{
+  "experiment_id": "N01",
+  "status": "running",
+  "control_experiment": "C01",
+  "job_id": "4dcceb8e7841408ba4383b0d4e981a92",
+  "run_name": "N01_nbs32_cutmix010_e30_b8_w0",
+  "started_at_pst": "2026-11-20T13:24:18.606091-08:00",
+  "train_revision": "E01_reviewed_chair_table",
+  "val_revision": "initial",
+  "epochs": 30,
+  "batch": 8,
+  "imgsz": 640,
+  "checkpoint_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+  "requested_settings": "optimizer=AdamW;lr0=0.000625;lrf=0.01;patience=8;workers=0;device=0;cos_lr=true;close_mosaic=10;mosaic=1.0;warmup_epochs=3.0;warmup_bias_lr=0.0;momentum=0.9;cache=false;seed=0;deterministic=true;amp=true;collection_conf=0.001;max_det=300;embeddings=off;sampling_weights=false;use_latest=false;cutmix=0.10;nbs=32",
+  "change": {
+    "parameter": "nbs",
+    "control": 64,
+    "trial": 32
+  },
+  "hypothesis": "Test whether more optimizer updates at the same actual batch size improve ranked detections. Each post-warmup optimizer step accumulates four microbatches in N01 and eight in C01.",
+  "collection_confidence_scope": "Post-NMS saved predictions for diagnostics. Native validation settings are comparable to C01.",
+  "reference": {
+    "selected_epoch": 28,
+    "validation_AP50": 0.7046083211898804,
+    "validation_AP50_95": 0.4509185254573822,
+    "common_holdout_COCO_AP50": 0.6311696685798924,
+    "full_validation_COCO_AP50": 0.6569479434564114
+  },
+  "native_job_differences_from_C01": [
+    "run_name",
+    "extra_args",
+    "conf_thres"
+  ]
+}

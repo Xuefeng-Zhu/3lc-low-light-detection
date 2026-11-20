@@ -1,0 +1,124 @@
+{
+  "experiment": "C01",
+  "status": "completed",
+  "plugin_version": "1.2.15",
+  "run_url": "${THREE_LC_ROOT}/projects/exdark-competition/runs/C01_cutmix010_e30_b8_w0",
+  "training": {
+    "job_id": "15412742954e46c9ae830360fec94116",
+    "started_at_pst": "2026-11-19T21:47:02.141702-08:00",
+    "finished_at_pst": "2026-11-20T01:42:42.620507-08:00",
+    "duration_minutes": 235.67464673916498,
+    "epochs_completed": 30,
+    "train_table": "${THREE_LC_ROOT}/projects/exdark-competition/datasets/exdark_train/tables/E01_reviewed_chair_table",
+    "validation_table": "${THREE_LC_ROOT}/projects/exdark-competition/datasets/exdark_val/tables/initial",
+    "checkpoint_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+    "best_weights_path": "${KAGGLE_PLUGIN_ROOT}/runs/C01_cutmix010_e30_b8_w0/weights/best.pt",
+    "best_weights_sha256": "c189e73b8e8177eaf9fa1eca588a3116f821af313bbde535c5fd9caeeb3212c7",
+    "provenance_checks": [
+      {
+        "label": "run records model == yolo11n.pt (official checkpoint)",
+        "ok": true,
+        "detail": "model='${KAGGLE_PLUGIN_ROOT}/checkpoints/yolo11n.pt'"
+      },
+      {
+        "label": "run records imgsz == 640",
+        "ok": true,
+        "detail": "imgsz=640"
+      },
+      {
+        "label": "run records pretrained == True (official init)",
+        "ok": true,
+        "detail": "pretrained=True"
+      },
+      {
+        "label": "run records the official checkpoint sha256",
+        "ok": true,
+        "detail": "checkpoint_sha256=0ebbc80d4a76..."
+      }
+    ],
+    "participant_label_edits": true,
+    "sampling_weights": false,
+    "cutmix": 0.1,
+    "close_mosaic": 10
+  },
+  "final_validation": {
+    "source": "Native final selected-checkpoint validation (Training Phase=After)",
+    "AP50": 0.7046083211898804,
+    "AP50_95": 0.4509185254573822,
+    "precision": 0.794588029384613,
+    "recall": 0.6079533100128174,
+    "images": 733,
+    "instances": 2725,
+    "best_epoch": 28,
+    "AP50_at_best_epoch": 0.70462,
+    "AP50_95_at_best_epoch": 0.45066,
+    "AP50_by_focus_class": {
+      "Chair": 0.5705711245536804,
+      "Table": 0.5734776258468628
+    }
+  },
+  "common_holdout": {
+    "metric": "COCO AP50 at saved confidence >= 0.10 and maxDets=100",
+    "holdout": "R01_holdout",
+    "images": 293,
+    "instances": 1207,
+    "E01_AP50": 0.6246494472957067,
+    "C01_AP50": 0.6311696685798924,
+    "delta_vs_E01": 0.006520221284185723,
+    "E01_Chair_AP50": 0.5393490708621465,
+    "C01_Chair_AP50": 0.5295406324187965,
+    "E01_Table_AP50": 0.5300184766174597,
+    "C01_Table_AP50": 0.5470441322607265
+  },
+  "cohort_comparisons": {
+    "full_original_validation": {
+      "images": 733,
+      "E01_AP50": 0.6510518489016136,
+      "C01_AP50": 0.6569479434564114,
+      "delta_vs_E01": 0.005896094554797782
+    }
+  },
+  "prediction": {
+    "job_id": "0ba1640c759442a7a3460668e695a275",
+    "status": "completed",
+    "duration_seconds": 18.912909030914307,
+    "source_csv": "${KAGGLE_PLUGIN_ROOT}/runs/C01_cutmix010_e30_b8_w0/submissions/submission_20261120_014412.csv",
+    "csv_sha256": "1edfa8dccd6c22ccb7fbdace365dbbaf0a35d7cbfe1cd92eaee964154e33be04",
+    "test_table": "${THREE_LC_ROOT}/projects/exdark-competition/datasets/exdark_test/tables/initial",
+    "confidence": 0.0001,
+    "rows": 715,
+    "boxes": 159923,
+    "format_checks": [
+      {
+        "label": "columns are id, image_id, prediction_string",
+        "ok": true,
+        "detail": "got ['id', 'image_id', 'prediction_string']"
+      },
+      {
+        "label": "exactly 715 rows (one per test image)",
+        "ok": true,
+        "detail": "got 715"
+      },
+      {
+        "label": "no duplicated image_id rows",
+        "ok": true,
+        "detail": "0 duplicates"
+      },
+      {
+        "label": "id column is 0..N-1 aligned to sorted image_id",
+        "ok": true,
+        "detail": "aligned"
+      },
+      {
+        "label": "all prediction_strings parse under the metric's strict rules",
+        "ok": true,
+        "detail": "159923 boxes total"
+      }
+    ]
+  },
+  "kaggle": {
+    "status": "awaiting_participant_submit",
+    "public_score": null,
+    "submission_blocker": "daily quota reset"
+  }
+}

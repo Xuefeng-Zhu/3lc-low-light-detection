@@ -1,0 +1,132 @@
+{
+  "status": "verified",
+  "revision": "datasets/exdark_train/tables/E06_reviewed_consensus_labels",
+  "parent_revision": "datasets/exdark_train/tables/E01_reviewed_chair_table",
+  "native_revision_sha256": "eea19e855a0a94e18fa6059d2834e22658043fe9b67dade7ac1487fd459dcb05",
+  "verification_method": "Official 3LC SDK ordered resolved columns, native sparse lineage, and numerical comparison of saved training After predictions",
+  "training_rows": 5910,
+  "image_references_and_order_unchanged": true,
+  "stored_weights_unchanged": true,
+  "effective_weight": 1.0,
+  "schema_unchanged": true,
+  "sparse_edited_columns": [
+    "bbs"
+  ],
+  "review_manifest_candidate_count": 17,
+  "changed_example_ids": [
+    1178,
+    1349,
+    3275,
+    3568,
+    3931,
+    4877,
+    5748
+  ],
+  "unselected_candidate_ids": [
+    1122,
+    1302,
+    1337,
+    3141,
+    3293,
+    3569,
+    3829,
+    4245,
+    5621,
+    5802
+  ],
+  "box_counts_before_after": [
+    18972,
+    18979
+  ],
+  "added_boxes_by_class": {
+    "Bottle": 2,
+    "Chair": 1,
+    "Cup": 2,
+    "Motorbike": 1,
+    "Table": 1
+  },
+  "existing_boxes_removed_or_altered": [],
+  "bounding_box_group_origins_materialized_to_zero": [
+    1178,
+    1349,
+    3275,
+    3568,
+    3931,
+    4877,
+    5748
+  ],
+  "other_group_field_changes": [],
+  "accepted_additions": [
+    {
+      "example_id": 1178,
+      "class": "Bottle",
+      "exact_e01_after_match": true,
+      "e01_confidence": 0.7994906306266785,
+      "l01_confidence": 0.8911094665527344,
+      "cross_model_iou": 0.9134049617475717,
+      "max_any_class_existing_iou": 0.0
+    },
+    {
+      "example_id": 1349,
+      "class": "Bottle",
+      "exact_e01_after_match": true,
+      "e01_confidence": 0.7841638326644897,
+      "l01_confidence": 0.8337610363960266,
+      "cross_model_iou": 0.9161383030587201,
+      "max_any_class_existing_iou": 0.04744228079058608
+    },
+    {
+      "example_id": 3275,
+      "class": "Table",
+      "exact_e01_after_match": true,
+      "e01_confidence": 0.7672793865203857,
+      "l01_confidence": 0.8631455898284912,
+      "cross_model_iou": 0.9664129689021597,
+      "max_any_class_existing_iou": 0.03275704556551782
+    },
+    {
+      "example_id": 3568,
+      "class": "Cup",
+      "exact_e01_after_match": true,
+      "e01_confidence": 0.7982893586158752,
+      "l01_confidence": 0.7870947122573853,
+      "cross_model_iou": 0.9613683160108847,
+      "max_any_class_existing_iou": 0.0
+    },
+    {
+      "example_id": 3931,
+      "class": "Cup",
+      "exact_e01_after_match": true,
+      "e01_confidence": 0.7793704867362976,
+      "l01_confidence": 0.875990629196167,
+      "cross_model_iou": 0.9336785388474617,
+      "max_any_class_existing_iou": 0.0
+    },
+    {
+      "example_id": 4877,
+      "class": "Motorbike",
+      "exact_e01_after_match": true,
+      "e01_confidence": 0.725256621837616,
+      "l01_confidence": 0.839505136013031,
+      "cross_model_iou": 0.9255383156969625,
+      "max_any_class_existing_iou": 0.0
+    },
+    {
+      "example_id": 5748,
+      "class": "Chair",
+      "exact_e01_after_match": true,
+      "e01_confidence": 0.8184431195259094,
+      "l01_confidence": 0.854712963104248,
+      "cross_model_iou": 0.9449958333555074,
+      "max_any_class_existing_iou": 0.04404514010332958
+    }
+  ],
+  "native_training_after_prediction_tables": [
+    "runs/E01_reviewed_e30_b8_w0/metrics_0031",
+    "runs/L01_lr0p00045_e30_b8_w0/metrics_0031"
+  ],
+  "validation_revision": "datasets/exdark_val/tables/initial",
+  "test_revision": "datasets/exdark_test/tables/initial",
+  "anomalies": [],
+  "scope": "Numerical audit. Semantic correctness is determined by the participant."
+}

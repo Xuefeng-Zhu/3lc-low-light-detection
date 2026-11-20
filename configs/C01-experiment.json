@@ -1,6 +1,6 @@
 {
   "experiment_id": "C01",
-  "status": "running",
+  "status": "completed",
   "control_experiment": "E01",
   "job_id": "15412742954e46c9ae830360fec94116",
   "run_name": "C01_cutmix010_e30_b8_w0",
@@ -23,5 +23,19 @@
     "validation_AP50_95": 0.44408613443374634,
     "common_holdout_COCO_AP50": 0.6246494472957067
   },
-  "verification": "Full native job parameter comparison found only the run name and the added CutMix argument."
+  "verification": "Full native job parameter comparison found only the run name and the added CutMix argument.",
+  "finished_at_pst": "2026-11-20T01:42:42.620507-08:00",
+  "duration_minutes": 235.67464673916498,
+  "result": {
+    "selected_epoch": 28,
+    "validation_AP50": 0.7046083211898804,
+    "validation_AP50_95": 0.4509185254573822,
+    "common_holdout_COCO_AP50": 0.6311696685798924,
+    "full_validation_COCO_AP50": 0.6569479434564114
+  },
+  "prediction_job_id": "0ba1640c759442a7a3460668e695a275",
+  "prediction_confidence": 0.0001,
+  "submission_csv_sha256": "1edfa8dccd6c22ccb7fbdace365dbbaf0a35d7cbfe1cd92eaee964154e33be04",
+  "kaggle_status": "awaiting_daily_quota_reset",
+  "next_submission_window_pst": "2026-11-20T16:00:00-08:00"
 }

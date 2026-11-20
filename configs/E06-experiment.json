@@ -1,0 +1,37 @@
+{
+  "experiment_id": "E06",
+  "status": "running",
+  "control_experiment": "E01",
+  "public_comparison": "E01-LC",
+  "run_name": "E06_consensus_e30_b8_w0",
+  "train_revision": "E06_reviewed_consensus_labels",
+  "val_revision": "initial",
+  "parent_train_revision": "E01_reviewed_chair_table",
+  "epochs": 30,
+  "batch": 8,
+  "checkpoint_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+  "requested_settings": "optimizer=AdamW;lr0=0.000625;lrf=0.01;patience=8;workers=0;device=0;cos_lr=true;close_mosaic=10;mosaic=1.0;warmup_epochs=3;warmup_bias_lr=0;momentum=0.9;cache=false;seed=0;deterministic=true;amp=true;collection_conf=0.001;max_det=300;embeddings=off;sampling_weights=false;use_latest=false",
+  "train_box_additions": {
+    "Bottle": 2,
+    "Chair": 1,
+    "Cup": 2,
+    "Motorbike": 1,
+    "Table": 1
+  },
+  "native_revision_sha256": "eea19e855a0a94e18fa6059d2834e22658043fe9b67dade7ac1487fd459dcb05",
+  "training_run_changes": {
+    "train_revision": "E06_reviewed_consensus_labels",
+    "collection_confidence": 0.001
+  },
+  "collection_confidence_scope": "Filter saved validation and training predictions after native NMS. Native model validation and optimization settings match E01.",
+  "matched_cohort_confidence": 0.1,
+  "planned_test_inference_confidence": 0.0001,
+  "verification_path": "results/E06/verification.json",
+  "job_id": "abeb6fbc0f82412ba18975841834dff4",
+  "started_at_pst": "2026-11-20T01:44:54.566952-08:00",
+  "native_job_differences_from_E01": [
+    "run_name",
+    "train_table_url",
+    "conf_thres"
+  ]
+}

@@ -92,7 +92,7 @@ def load_saved_validation_predictions(run_dir, run, val_dir, row_count):
     return predictions
 
 
-def unpack_boxes(group):
+def unpack_boxes(group, *, allow_zero_area=False):
     instances = group["instances"] or []
     info = group["instances_additional_data"] or {}
     labels = np.array(info.get("label") or [], dtype=int)
@@ -105,9 +105,15 @@ def unpack_boxes(group):
         dtype=float,
     ).reshape(-1, 4)
     lengths = boxes[:, 2:] - boxes[:, :2]
-    if not np.isfinite(boxes).all() or not (lengths > 0).all():
+    areas = lengths.prod(axis=1)
+    if (
+        not np.isfinite(boxes).all()
+        or not np.isfinite(areas).all()
+        or (lengths < 0).any()
+        or (not allow_zero_area and (areas == 0).any())
+    ):
         raise ValueError("Nonfinite or invalid box coordinates.")
-    return boxes, labels, lengths.prod(axis=1), info
+    return boxes, labels, areas, info
 
 
 def validation_geometry(expected, proposed):
@@ -115,7 +121,7 @@ def validation_geometry(expected, proposed):
     if not (dimensions > 0).all() or not np.allclose(dimensions, [proposed["x_max"], proposed["y_max"]]):
         raise ValueError("Validation and prediction image dimensions disagree.")
     boxes, labels, areas, _ = unpack_boxes(expected)
-    candidates, categories, predicted_areas, info = unpack_boxes(proposed)
+    candidates, categories, predicted_areas, info = unpack_boxes(proposed, allow_zero_area=True)
     bands = np.digitize(np.sqrt(areas) * 640 / dimensions.max(), (32, 96))
     predicted_bands = np.digitize(np.sqrt(predicted_areas) * 640 / dimensions.max(), (32, 96))
     sides = np.minimum(boxes[:, None, 2:], candidates[None, :, 2:]) - np.maximum(
@@ -123,7 +129,7 @@ def validation_geometry(expected, proposed):
     )
     intersection = np.maximum(sides, 0).prod(axis=2)
     overlaps = intersection / (areas[:, None] + predicted_areas[None, :] - intersection)
-    return labels, bands, categories, predicted_bands, info.get("confidence") or [], overlaps
+    return labels, bands, categories, predicted_bands, info.get("confidence") or [], overlaps, predicted_areas == 0
 
 
 def claim_matches(labels, categories, scores, overlaps):
@@ -141,7 +147,7 @@ def count_matches(truth, predictions):
     for row in predictions:
         expected = truth[row["example_id"]]
         proposed = row["bbs_predicted"]
-        labels, bands, categories, _, confidence, overlaps = validation_geometry(expected, proposed)
+        labels, bands, categories, _, confidence, overlaps, _ = validation_geometry(expected, proposed)
         scores = np.array(confidence, dtype=float)
         if len(scores) != len(categories) or not ((scores >= 0.1 - 1e-6) & (scores <= 1)).all():
             raise ValueError("Missing or invalid prediction confidences.")

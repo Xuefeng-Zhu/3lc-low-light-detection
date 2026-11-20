@@ -1,0 +1,40 @@
+{
+  "metric": "COCO AP50 at saved confidence >= 0.001 and maxDets=100",
+  "holdout": "initial",
+  "images": 733,
+  "annotations": {
+    "Bicycle": 127,
+    "Boat": 156,
+    "Bottle": 174,
+    "Bus": 77,
+    "Car": 352,
+    "Cat": 91,
+    "Chair": 299,
+    "Cup": 205,
+    "Dog": 102,
+    "Motorbike": 114,
+    "People": 866,
+    "Table": 162
+  },
+  "results": [
+    {
+      "run": "E06_consensus_e30_b8_w0",
+      "AP50": 0.6915476584839728,
+      "AP50_by_class": {
+        "Bicycle": 0.7486099778721622,
+        "Boat": 0.6808959866518741,
+        "Bottle": 0.669823607847669,
+        "Bus": 0.8270515672784761,
+        "Car": 0.7083823019984654,
+        "Cat": 0.8153652243832655,
+        "Chair": 0.54931090302496,
+        "Cup": 0.6389691310385796,
+        "Dog": 0.756405011259346,
+        "Motorbike": 0.665345684748757,
+        "People": 0.695390947431417,
+        "Table": 0.5430215582727014
+      },
+      "predictions": 61859
+    }
+  ]
+}

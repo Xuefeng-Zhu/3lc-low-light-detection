@@ -4,6 +4,7 @@
 Output CSV to stdout. Match and coverage metrics count ground-truth boxes by
 their class and size. Retained detections use predicted class and size.
 Cap counts describe the saved rows before applying the sweep cutoffs.
+Zero-area prediction counts are reported globally at each cutoff.
 """
 
 import argparse
@@ -30,7 +31,7 @@ def count_cutoffs(truth, predictions, cutoffs, collection_floor, native_cap, col
     cap_rows = Counter()
     for row in predictions:
         expected = truth[row["example_id"]]
-        labels, bands, categories, predicted_bands, confidence, overlaps = validation_geometry(
+        labels, bands, categories, predicted_bands, confidence, overlaps, zero_area = validation_geometry(
             expected, row["bbs_predicted"]
         )
         scores = np.asarray(confidence, dtype=np.float32)
@@ -49,6 +50,7 @@ def count_cutoffs(truth, predictions, cutoffs, collection_floor, native_cap, col
             if index == 0:
                 high_matches, high_coverage = matches, coverage
             counts = sweep[index]
+            counts["retained_zero_area"] += np.count_nonzero(retained & zero_area)
             for name, classes, size_bands in (
                 ("retained", categories[retained], predicted_bands[retained]),
                 ("matches", labels[matches], bands[matches]),
@@ -93,7 +95,7 @@ def main():
         "confidence", "reference_confidence", "class", "size_band_px", "ground_truth",
         "retained_detections", "same_class_matched_iou50", "any_class_overlap_iou30",
         "recovered_same_class_matches", "recovered_any_class_overlaps",
-        "saved_rows_at_native_cap", "saved_rows_at_collection_cap",
+        "saved_rows_at_native_cap", "saved_rows_at_collection_cap", "retained_zero_area",
     ])
     for cutoff, counts in zip(thresholds, sweep):
         for category, name in enumerate(CLASSES):
@@ -109,6 +111,7 @@ def main():
                     )),
                     cap_rows["native"] if all_rows else "",
                     cap_rows["collection"] if all_rows else "",
+                    counts["retained_zero_area"] if all_rows else "",
                 ])
 
 

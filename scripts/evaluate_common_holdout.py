@@ -99,7 +99,8 @@ def run_detections(run_dir, image_ids, images, *, confidence=0.10):
         predicted = row["bbs_predicted"]
         if (predicted["x_max"], predicted["y_max"]) != (expected["width"], expected["height"]):
             raise ValueError("Prediction and annotation image dimensions differ")
-        boxes, labels, _, info = unpack_boxes(predicted)
+        # Keep native clipped detections in the ranked COCO input as false positives.
+        boxes, labels, _, info = unpack_boxes(predicted, allow_zero_area=True)
         scores = info.get("confidence") or []
         if not all(collection_floor <= score <= 1 for score in scores):
             raise ValueError("Invalid or mismatched saved prediction confidence")

@@ -1,6 +1,6 @@
 {
   "experiment_id": "E06",
-  "status": "running",
+  "status": "completed",
   "control_experiment": "E01",
   "public_comparison": "E01-LC",
   "run_name": "E06_consensus_e30_b8_w0",
@@ -33,5 +33,15 @@
     "run_name",
     "train_table_url",
     "conf_thres"
-  ]
+  ],
+  "finished_at_pst": "2026-11-20T05:33:31.076995-08:00",
+  "duration_minutes": 228.60850071112316,
+  "result": {
+    "selected_epoch": 28,
+    "validation_AP50": 0.693485677242279,
+    "validation_AP50_95": 0.4409940242767334,
+    "common_holdout_COCO_AP50": 0.6271313677457495,
+    "full_validation_COCO_AP50": 0.6494458569461673,
+    "kaggle_prediction_generated": false
+  }
 }

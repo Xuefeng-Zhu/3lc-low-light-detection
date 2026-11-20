@@ -28,4 +28,8 @@ The selected checkpoint reached **0.676654 AP50** and **0.427170 AP50–95** on 
 
 In the training history, AP50 peaked at 0.67744 in epoch 29. AP50–95 peaked at 0.42682 in epoch 30. [Epoch metrics](epoch-results.csv) · [Native curves](training-curves.png)
 
-The official plugin exported [submission.csv](submission.csv) from the selected checkpoint at confidence 0.001. It contains 715 rows and 49,462 predicted boxes. All five native format checks passed. Kaggle scoring is pending participant submission.
+The official plugin exported the selected checkpoint's predictions at confidence 0.001. The CSV contains 715 rows and 49,462 predicted boxes and passed all five format checks. [Official CSV](submission.csv)
+
+## Kaggle public score
+
+R01 scored **0.61772**, 1.96 percentage points below E01's **0.63733**. On the shared validation images, R01 matched one more small object, three fewer medium objects, and seven fewer large objects than E01. Its largest per-class AP50 declines were Motorbike (−3.47 points), Dog (−3.32), Bottle (−3.00), and Table (−2.51). Kaggle publishes the aggregate score, so class-level causes of the public decrease remain unknown. [Official score](kaggle-score.jpg) · [Matched validation scores](common-holdout-scores.json)

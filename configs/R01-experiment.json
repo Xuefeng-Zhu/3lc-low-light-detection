@@ -83,7 +83,16 @@
     "R01_delta_vs_E04": 0.007522056975544422
   },
   "common_holdout_scores": "results/R01/common-holdout-scores.json",
-  "kaggle_status": "awaiting_participant_submit",
+  "kaggle_status": "completed",
   "prediction_job_id": "124740f45b1343138a46802f3fb4da5e",
-  "submission_csv_sha256": "262bb54035fe47e42f57d8ac1bb6f9a431cc9e9852f077eab96b3924e54709ad"
+  "submission_csv_sha256": "262bb54035fe47e42f57d8ac1bb6f9a431cc9e9852f077eab96b3924e54709ad",
+  "kaggle": {
+    "status": "complete",
+    "public_ap50": 0.61772,
+    "E01_public_ap50": 0.63733,
+    "delta_vs_E01": -0.01961,
+    "observed_date_pst": "2026-11-19",
+    "description": "R01 | Official 3LC YOLOv11n | 30 epochs | Traceable supplied train/val re-split",
+    "evidence": "results/R01/kaggle-score.jpg"
+  }
 }

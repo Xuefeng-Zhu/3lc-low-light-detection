@@ -42,7 +42,7 @@ W01 increased sampling weight for images with a Chair or Table label and improve
 - [H01 brightness augmentation results](results/H01/RESULTS.md) and [configuration](configs/H01-experiment.json)
 - [W04 small-object sampling results](results/W04/RESULTS.md) and [configuration](configs/W04-experiment.json)
 - [E04 Table addition results](results/E04/RESULTS.md) and [participant revision audit](configs/E04-experiment.json)
-- [R01 re-split configuration](configs/R01-experiment.json), [split manifest](results/R01/split-manifest.json), and [validated prediction CSV](results/R01/submission.csv)
+- [R01 re-split results](results/R01/RESULTS.md), [split manifest](results/R01/split-manifest.json), and [Kaggle score](results/R01/kaggle-score.jpg)
 - [B01 box regression results](results/B01/RESULTS.md) and [configuration](configs/B01-experiment.json)
 - [M01 partial-mosaic results](results/M01/RESULTS.md) and [configuration](configs/M01-experiment.json)
 - [E01-LC prediction export audit](results/E01/low-threshold-prediction.json)

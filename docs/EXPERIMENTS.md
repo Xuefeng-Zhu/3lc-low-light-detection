@@ -88,3 +88,11 @@ source scripts/env.sh
 "$VIRTUAL_ENV/bin/python" -B scripts/audit_validation_sizes.py \
     "$TLC_PROJECT_ROOT_URL/exdark-competition/runs/E00_baseline_e10_b4_initial"
 ```
+
+To diagnose misses at the saved confidence floor, set the official Train **Conf threshold** to 0.001 for a new run. The plugin applies this setting when collecting boxes after non-maximum suppression. Native AP and checkpoint selection use the validator's own predictions. Leave the detector's Extra Args confidence and detection cap fixed. The audit compares the 0.10 cutoff with lower cutoffs on the same saved rows and counts new same-class matches and nearby predictions by class and size. Detections removed before collection are outside the sweep. [Confidence audit](../scripts/audit_validation_confidence.py)
+
+```bash
+source scripts/env.sh
+"$VIRTUAL_ENV/bin/python" -B scripts/audit_validation_confidence.py \
+    "$TLC_PROJECT_ROOT_URL/exdark-competition/runs/<completed-run-with-collection-floor-0.001>"
+```

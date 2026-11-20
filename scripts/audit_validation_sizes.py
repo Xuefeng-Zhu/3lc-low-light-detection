@@ -26,14 +26,26 @@ def metadata(directory):
     return json.loads((directory / "object.3lc.json").read_text())
 
 
-def load_validation(run_dir):
+def load_validation(run_dir, minimum_confidence=0.1, *, require_original=False):
+    """Read saved rows with the legacy size-audit checks or confidence-sweep checks."""
     run = metadata(run_dir)
     if run["status"] != 1:
         raise ValueError("Only completed Runs have final validation metrics.")
     parameters = run["constants"]["parameters"]
-    if parameters["imgsz"] != 640 or parameters["3LC/conf_thres"] != 0.1:
-        raise ValueError("Comparable audits require 640 px and collection confidence 0.10.")
+    collection_floor = parameters["3LC/conf_thres"]
+    if parameters["imgsz"] != 640:
+        raise ValueError("Comparable audits require a 640 px training resolution.")
+    if require_original:
+        if not 0 <= collection_floor <= 1 or np.float32(collection_floor) > np.float32(minimum_confidence):
+            raise ValueError(f"Collection floor {collection_floor} does not cover cutoff {minimum_confidence}.")
+    elif collection_floor != minimum_confidence:
+        raise ValueError("Comparable size audits require collection confidence 0.10.")
     val_dir = (run_dir / parameters["3LC/val_url"]).resolve()
+    if require_original:
+        original = run_dir.parent.parent / "datasets" / "exdark_val" / "tables" / "initial"
+        train_dir = (run_dir / parameters["3LC/train_url"]).resolve()
+        if val_dir != original.resolve() or train_dir == val_dir:
+            raise ValueError("Expected the original validation table and a distinct training table.")
     val_meta = metadata(val_dir)
     row_schema = val_meta["schema"]["values"]["rows"]["values"]
     bbox_schema = row_schema["bbs"]["values"]["instances_additional_data"]["values"]
@@ -46,11 +58,13 @@ def load_validation(run_dir):
 
     if len(truth) != 733:
         raise ValueError("Unexpected number of validation rows.")
+    if require_original and sum(len(group["instances"] or []) for group in truth) != 2725:
+        raise ValueError("Expected 2,725 original validation boxes.")
     return truth, load_saved_validation_predictions(run_dir, run, val_dir, len(truth))
 
 
 def load_saved_validation_predictions(run_dir, run, val_dir, row_count):
-    candidates = []
+    predictions = []
     for entry in run["metrics"]:
         if entry["stream_name"] != "default_stream":
             continue
@@ -60,16 +74,21 @@ def load_saved_validation_predictions(run_dir, run, val_dir, row_count):
         input_map = schema["input_table_id"]["value"]["map"]
         if len(input_map) != 1 or (metrics_dir / input_map["0.0"]["url"]).resolve() != val_dir:
             continue
+        phase_map = schema["Training Phase"]["value"]["map"]
+        if phase_map["1.0"]["internal_name"] != "After":
+            raise ValueError("Unrecognized final validation phase.")
         parquet = metrics_dir / metric_meta["input_url"]
-        columns = ["example_id", "bbs_predicted", "Training Phase"]
+        columns = ["example_id", "bbs_predicted", "Training Phase", "epoch"]
+        if "input_table_id" in pq.ParquetFile(parquet).schema_arrow.names:
+            columns.append("input_table_id")
         rows = pq.read_table(parquet, columns=columns, filters=[("Training Phase", "=", 1)]).to_pylist()
-        if rows:
-            candidates.append(rows)
-    if len(candidates) != 1:
-        raise ValueError(f"Expected one final validation prediction table, found {len(candidates)}.")
-    (predictions,) = candidates
+        if any(row.get("input_table_id", 0) != 0 for row in rows):
+            raise ValueError("Unexpected input table ID in final validation predictions.")
+        predictions.extend(rows)
     if sorted(row["example_id"] for row in predictions) != list(range(row_count)):
         raise ValueError("Predictions must reference each validation row exactly once.")
+    if len({row["epoch"] for row in predictions}) != 1:
+        raise ValueError("Final validation chunks must refer to the same epoch.")
     return predictions
 
 
@@ -91,38 +110,46 @@ def unpack_boxes(group):
     return boxes, labels, lengths.prod(axis=1), info
 
 
+def validation_geometry(expected, proposed):
+    dimensions = np.array([expected["x_max"], expected["y_max"]], dtype=float)
+    if not (dimensions > 0).all() or not np.allclose(dimensions, [proposed["x_max"], proposed["y_max"]]):
+        raise ValueError("Validation and prediction image dimensions disagree.")
+    boxes, labels, areas, _ = unpack_boxes(expected)
+    candidates, categories, predicted_areas, info = unpack_boxes(proposed)
+    bands = np.digitize(np.sqrt(areas) * 640 / dimensions.max(), (32, 96))
+    predicted_bands = np.digitize(np.sqrt(predicted_areas) * 640 / dimensions.max(), (32, 96))
+    sides = np.minimum(boxes[:, None, 2:], candidates[None, :, 2:]) - np.maximum(
+        boxes[:, None, :2], candidates[None, :, :2]
+    )
+    intersection = np.maximum(sides, 0).prod(axis=2)
+    overlaps = intersection / (areas[:, None] + predicted_areas[None, :] - intersection)
+    return labels, bands, categories, predicted_bands, info.get("confidence") or [], overlaps
+
+
+def claim_matches(labels, categories, scores, overlaps):
+    claimed = np.zeros(len(labels), dtype=bool)
+    for index in np.argsort(-scores, kind="stable"):
+        iou = overlaps[:, index]
+        eligible = np.flatnonzero(~claimed & (labels == categories[index]) & (iou >= 0.5))
+        if len(eligible):
+            claimed[eligible[np.argmax(iou[eligible])]] = True
+    return claimed
+
+
 def count_matches(truth, predictions):
     labeled, matched, any_class = Counter(), Counter(), Counter()
     for row in predictions:
         expected = truth[row["example_id"]]
         proposed = row["bbs_predicted"]
-        dimensions = np.array([expected["x_max"], expected["y_max"]], dtype=float)
-        if not (dimensions > 0).all() or not np.allclose(dimensions, [proposed["x_max"], proposed["y_max"]]):
-            raise ValueError("Validation and prediction image dimensions disagree.")
-        boxes, labels, areas, _ = unpack_boxes(expected)
-        candidates, categories, predicted_areas, info = unpack_boxes(proposed)
-        scores = np.array(info.get("confidence") or [], dtype=float)
+        labels, bands, categories, _, confidence, overlaps = validation_geometry(expected, proposed)
+        scores = np.array(confidence, dtype=float)
         if len(scores) != len(categories) or not ((scores >= 0.1 - 1e-6) & (scores <= 1)).all():
             raise ValueError("Missing or invalid prediction confidences.")
-        bands = np.digitize(np.sqrt(areas) * 640 / dimensions.max(), (32, 96))
         labeled.update(zip(labels, bands))
-
-        sides = np.minimum(boxes[:, None, 2:], candidates[None, :, 2:]) - np.maximum(
-            boxes[:, None, :2], candidates[None, :, :2]
-        )
-        intersection = np.maximum(sides, 0).prod(axis=2)
-        overlaps = intersection / (areas[:, None] + predicted_areas[None, :] - intersection)
         has_overlap = (overlaps >= 0.5).any(axis=1)
         any_class.update(zip(labels[has_overlap], bands[has_overlap]))
-
-        claimed = np.zeros(len(labels), dtype=bool)
-        for index in np.argsort(-scores, kind="stable"):
-            iou = overlaps[:, index]
-            eligible = np.flatnonzero(~claimed & (labels == categories[index]) & (iou >= 0.5))
-            if len(eligible):
-                best = eligible[np.argmax(iou[eligible])]
-                claimed[best] = True
-                matched[labels[best], bands[best]] += 1
+        claimed = claim_matches(labels, categories, scores, overlaps)
+        matched.update(zip(labels[claimed], bands[claimed]))
     return labeled, matched, any_class
 
 

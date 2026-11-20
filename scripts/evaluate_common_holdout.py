@@ -73,8 +73,9 @@ def holdout_reference(initial_dir, holdout_dir):
 def run_detections(run_dir, image_ids, images):
     run = metadata(run_dir)
     params = run["constants"]["parameters"]
-    if (run["status"], params["imgsz"], params["3LC/conf_thres"], params["3LC/max_det"]) != (1, 640, 0.1, 300):
-        raise ValueError(f"{run_dir.name} must be complete with 640px, confidence 0.10 and max detections 300")
+    collection_floor = params["3LC/conf_thres"]
+    if (run["status"], params["imgsz"], params["3LC/max_det"]) != (1, 640, 300) or not 0 <= collection_floor <= 0.1:
+        raise ValueError(f"{run_dir.name} must be complete with 640px, collection confidence ≤0.10 and max detections 300")
     training_dir = (run_dir / params["3LC/train_url"]).resolve()
     training = tlc.Table.from_url(str(training_dir))
     if image_ids.keys() & set(image_paths(training, training_dir)):
@@ -97,9 +98,11 @@ def run_detections(run_dir, image_ids, images):
             raise ValueError("Prediction and annotation image dimensions differ")
         boxes, labels, _, info = unpack_boxes(predicted)
         scores = info.get("confidence") or []
-        if not all(0.10 - 1e-6 <= score <= 1 for score in scores):
+        if not all(collection_floor - 1e-6 <= score <= 1 for score in scores):
             raise ValueError("Invalid or mismatched saved prediction confidence")
         for bbox, label, score in zip(coco_boxes(boxes), labels.tolist(), scores, strict=True):
+            if score < 0.10 - 1e-6:
+                continue
             detections.append({
                 "image_id": image_id, "category_id": label + 1, "score": score, "bbox": bbox,
             })

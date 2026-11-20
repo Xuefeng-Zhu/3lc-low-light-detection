@@ -1,6 +1,6 @@
 {
   "experiment_id": "L01",
-  "status": "running",
+  "status": "completed",
   "control_experiment": "E01",
   "job_id": "1c4790fae5b64872b4652a4e8233b8ca",
   "run_name": "L01_lr0p00045_e30_b8_w0",
@@ -22,5 +22,17 @@
     "validation_AP50_95": 0.44408613443374634,
     "common_holdout_COCO_AP50": 0.6246494472957067
   },
-  "verification": "Full native job parameter comparison found only the run name and the initial learning rate."
+  "verification": "Full native job parameter comparison found only the run name and the initial learning rate.",
+  "finished_at_pst": "2026-11-19T21:44:40.669240-08:00",
+  "duration_minutes": 229.72315259377163,
+  "result": {
+    "selected_epoch": 27,
+    "validation_AP50": 0.6988572478294373,
+    "validation_AP50_95": 0.4491175711154938,
+    "common_holdout_COCO_AP50": 0.6187709082018248,
+    "full_validation_COCO_AP50": 0.6551067042149789
+  },
+  "prediction_job_id": "a602eb4566bf489eb6eb051a27c38859",
+  "submission_csv_sha256": "5e9b67e4b30cf1a0bef5b667295d3870d2dd04d09d96164ce3f27027db22fee3",
+  "kaggle_status": "awaiting_participant_submit"
 }

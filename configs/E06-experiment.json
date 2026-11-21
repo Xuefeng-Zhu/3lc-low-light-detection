@@ -46,5 +46,7 @@
   },
   "prediction_job_id": "b83e1adf574b45688f2ced3af686b741",
   "submission_csv_sha256": "f91c2a9693f44e3cb41520c32cc82b60a0babeae742d0dbb695da88fcdab15bd",
-  "kaggle_status": "backup_prepared"
+  "kaggle_status": "scored",
+  "public_score": 0.62775,
+  "kaggle_score_verified_date_pst": "2026-11-21"
 }

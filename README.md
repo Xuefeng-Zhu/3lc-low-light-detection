@@ -2,7 +2,7 @@
 
 Private working repository for the [Kaggle competition](https://www.kaggle.com/competitions/the-3lc-low-light-detection-challenge). The objective is to improve the measured score within the competition rules; no top-rank result is claimed.
 
-C01 is the project's best Kaggle submission at **0.63866 public AP50**, verified November 20, 2026 Pacific time. It adds 0.10 CutMix to E01's training settings and improves on E01-LC's 0.63844 at the same inference threshold of 0.0001. [Kaggle score evidence](results/C01/kaggle-score.jpg) · [Submission history](https://www.kaggle.com/competitions/the-3lc-low-light-detection-challenge/submissions)
+L02 is the project's best Kaggle submission at **0.64076 public AP50**, verified November 21, 2026 Pacific time at public rank 81. It lowers the initial learning rate from 0.000625 to 0.00045 on C01's 0.10 CutMix recipe. C01 is second at 0.63866. Both use an inference threshold of 0.0001. [L02 Kaggle score evidence](results/L02/kaggle-score.jpg) · [Submission history](https://www.kaggle.com/competitions/the-3lc-low-light-detection-challenge/submissions)
 
 | Result | E00 | E11 | W01 | W02 | E01 | W03 | S01 | E03 | H01 | W04 | E04 |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -48,12 +48,12 @@ W01 increased sampling weight for images with a Chair or Table label and improve
 - [E01-LC prediction audit](results/E01/low-threshold-prediction.json), [submitted CSV](results/E01/submission-conf0001.csv), and [Kaggle score](results/E01/low-threshold-kaggle-score.jpg)
 - [L01 learning-rate results](results/L01/RESULTS.md), [submitted CSV](results/L01/submission.csv), and [Kaggle score](results/L01/kaggle-score.jpg)
 - [C01 CutMix results](results/C01/RESULTS.md), [configuration](configs/C01-experiment.json), and [submitted prediction CSV](results/C01/submission.csv)
-- [E06 participant-review results](results/E06/RESULTS.md), [label audit](results/E06/verification.json), [confidence sweep](results/E06/validation-confidence-audit.csv), and [validated backup CSV](results/E06/submission.csv)
+- [E06 participant-review results](results/E06/RESULTS.md), [label audit](results/E06/verification.json), [submitted CSV](results/E06/submission.csv), and [Kaggle score evidence](results/E06/kaggle-score.jpg)
 - [C02 higher-probability CutMix results](results/C02/RESULTS.md) and [configuration](configs/C02-experiment.json)
 - [D01 classification-loss results](results/D01/RESULTS.md) and [configuration](configs/D01-experiment.json)
 - [N01 gradient-accumulation results](results/N01/RESULTS.md) and [configuration](configs/N01-experiment.json)
 - [C03 lower-probability CutMix results](results/C03/RESULTS.md) and [configuration](configs/C03-experiment.json)
-- [L02 learning-rate results](results/L02/RESULTS.md), [configuration](configs/L02-experiment.json), and [validated prediction CSV](results/L02/submission.csv)
+- [L02 learning-rate results](results/L02/RESULTS.md), [configuration](configs/L02-experiment.json), [submitted CSV](results/L02/submission.csv), and [Kaggle score evidence](results/L02/kaggle-score.jpg)
 - [C04 repeat training results](results/C04/RESULTS.md) and [configuration](configs/C04-experiment.json)
 - [Per-class validation metrics](results/E00/final-validation-per-class.csv), [epoch metrics](results/E00/epoch-results.csv), and [native training curves](results/E00/training-curves.png)
 - [Provenance, settings and SHA256 hashes](results/E00/provenance.json)

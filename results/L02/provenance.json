@@ -111,11 +111,19 @@
     "images_at_saved_detection_cap": 39
   },
   "kaggle": {
-    "status": "awaiting_participant_submit",
-    "public_score": null,
+    "status": "scored",
+    "public_score": 0.64076,
     "prediction_generated": true,
     "browser_upload_status": "file_attached_and_submit_enabled",
-    "attempts_shown_before_submit": 2
+    "attempts_shown_before_submit": 2,
+    "verified_date_pst": "2026-11-21",
+    "description": "L02 | Official 3LC YOLOv11n | 30 epochs | CutMix 0.10 | AdamW lr0=0.00045 | Predict conf=0.0001",
+    "source": "https://www.kaggle.com/competitions/the-3lc-low-light-detection-challenge/submissions",
+    "score_evidence": "kaggle-score.jpg",
+    "previous_best": "C01",
+    "previous_best_public_score": 0.63866,
+    "improvement": 0.0021,
+    "public_rank_at_verification": 81
   },
   "prediction": {
     "job_id": "58c34ce64f614547a209fe6156bce018",

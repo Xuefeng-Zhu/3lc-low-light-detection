@@ -1,6 +1,6 @@
 {
   "experiment_id": "C03",
-  "status": "running",
+  "status": "completed",
   "control_experiment": "C01",
   "secondary_references": [
     "E01",
@@ -34,5 +34,15 @@
     "run_name",
     "extra_args",
     "conf_thres"
-  ]
+  ],
+  "finished_at_pst": "2026-11-20T21:12:11.211133-08:00",
+  "duration_minutes": 233.05643460353215,
+  "result": {
+    "selected_epoch": 29,
+    "validation_AP50": 0.6951475739479065,
+    "validation_AP50_95": 0.442002534866333,
+    "common_holdout_COCO_AP50": 0.61651526277498,
+    "full_validation_COCO_AP50": 0.6482209901735273,
+    "kaggle_prediction_generated": false
+  }
 }

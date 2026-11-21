@@ -42,6 +42,9 @@
     "validation_AP50_95": 0.4409940242767334,
     "common_holdout_COCO_AP50": 0.6271313677457495,
     "full_validation_COCO_AP50": 0.6494458569461673,
-    "kaggle_prediction_generated": false
-  }
+    "kaggle_prediction_generated": true
+  },
+  "prediction_job_id": "b83e1adf574b45688f2ced3af686b741",
+  "submission_csv_sha256": "f91c2a9693f44e3cb41520c32cc82b60a0babeae742d0dbb695da88fcdab15bd",
+  "kaggle_status": "backup_prepared"
 }

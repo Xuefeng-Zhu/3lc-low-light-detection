@@ -1,0 +1,35 @@
+{
+  "experiment_id": "L02",
+  "status": "running",
+  "control_experiment": "C01",
+  "secondary_reference": "L01",
+  "job_id": "338554396b694de18137675de668a6f3",
+  "run_name": "L02_lr0p00045_cutmix010_e30_b8_w0",
+  "started_at_pst": "2026-11-20T21:14:01.170036-08:00",
+  "train_revision": "E01_reviewed_chair_table",
+  "val_revision": "initial",
+  "epochs": 30,
+  "batch": 8,
+  "imgsz": 640,
+  "checkpoint_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+  "requested_settings": "optimizer=AdamW;lr0=0.00045;lrf=0.01;patience=8;workers=0;device=0;cos_lr=true;close_mosaic=10;mosaic=1.0;warmup_epochs=3.0;warmup_bias_lr=0.0;momentum=0.9;cache=false;seed=0;deterministic=true;amp=true;collection_conf=0.001;max_det=300;embeddings=off;sampling_weights=false;use_latest=false;cutmix=0.10",
+  "change": {
+    "parameter": "lr0",
+    "control": 0.000625,
+    "trial": 0.00045
+  },
+  "hypothesis": "Test the interaction between lower initial learning rate and C01's CutMix setting. The same learning-rate change on E01 lifted full validation but scored lower on the common cohort and Kaggle.",
+  "collection_confidence_scope": "Post-NMS saved predictions for diagnostics. Native validation settings are comparable to C01.",
+  "reference": {
+    "selected_epoch": 28,
+    "validation_AP50": 0.7046083211898804,
+    "validation_AP50_95": 0.4509185254573822,
+    "common_holdout_COCO_AP50": 0.6311696685798924,
+    "full_validation_COCO_AP50": 0.6569479434564114
+  },
+  "native_job_differences_from_C01": [
+    "run_name",
+    "lr0",
+    "conf_thres"
+  ]
+}

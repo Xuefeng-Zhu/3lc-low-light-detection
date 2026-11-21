@@ -82,7 +82,45 @@
     }
   },
   "kaggle": {
-    "status": "not_submitted",
+    "status": "backup_prepared",
     "public_score": null
+  },
+  "prediction": {
+    "job_id": "b83e1adf574b45688f2ced3af686b741",
+    "status": "completed",
+    "duration_seconds": 17.500113248825073,
+    "source_csv": "${KAGGLE_PLUGIN_ROOT}/runs/E06_consensus_e30_b8_w0/submissions/submission_20261120_211331.csv",
+    "csv_sha256": "f91c2a9693f44e3cb41520c32cc82b60a0babeae742d0dbb695da88fcdab15bd",
+    "test_table": "${THREE_LC_ROOT}/projects/exdark-competition/datasets/exdark_test/tables/initial",
+    "confidence": 0.0001,
+    "rows": 715,
+    "boxes": 162875,
+    "format_checks": [
+      {
+        "label": "columns are id, image_id, prediction_string",
+        "ok": true,
+        "detail": "got ['id', 'image_id', 'prediction_string']"
+      },
+      {
+        "label": "exactly 715 rows (one per test image)",
+        "ok": true,
+        "detail": "got 715"
+      },
+      {
+        "label": "no duplicated image_id rows",
+        "ok": true,
+        "detail": "0 duplicates"
+      },
+      {
+        "label": "id column is 0..N-1 aligned to sorted image_id",
+        "ok": true,
+        "detail": "aligned"
+      },
+      {
+        "label": "all prediction_strings parse under the metric's strict rules",
+        "ok": true,
+        "detail": "162875 boxes total"
+      }
+    ]
   }
 }

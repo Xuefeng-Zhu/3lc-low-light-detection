@@ -1,0 +1,33 @@
+{
+  "experiment_id": "C04",
+  "status": "running",
+  "control_experiment": "C01",
+  "job_id": "e402980c8dea4c37917d36b60c070f6c",
+  "run_name": "C04_cutmix010_seed1_e30_b8_w0",
+  "started_at_pst": "2026-11-21T01:09:09.517782-08:00",
+  "train_revision": "E01_reviewed_chair_table",
+  "val_revision": "initial",
+  "epochs": 30,
+  "batch": 8,
+  "imgsz": 640,
+  "checkpoint_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+  "requested_settings": "optimizer=AdamW;lr0=0.000625;lrf=0.01;patience=8;workers=0;device=0;cos_lr=true;close_mosaic=10;mosaic=1.0;warmup_epochs=3.0;warmup_bias_lr=0.0;momentum=0.9;cache=false;seed=1;deterministic=true;amp=true;collection_conf=0.10;max_det=300;embeddings=off;sampling_weights=false;use_latest=false;cutmix=0.10",
+  "change": {
+    "parameter": "seed",
+    "control": 0,
+    "trial": 1
+  },
+  "hypothesis": "Measure whether the strongest completed training recipe retains its validation lead with a different training random seed. The pinned initialization and all other model, data, and run settings match C01.",
+  "reference": {
+    "selected_epoch": 28,
+    "validation_AP50": 0.7046083211898804,
+    "validation_AP50_95": 0.4509185254573822,
+    "common_holdout_COCO_AP50": 0.6311696685798924,
+    "full_validation_COCO_AP50": 0.6569479434564114,
+    "kaggle_public_AP50": 0.63866
+  },
+  "native_job_differences_from_C01": [
+    "run_name",
+    "extra_args.seed"
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "experiment_id": "C04",
-  "status": "running",
+  "status": "completed",
   "control_experiment": "C01",
   "job_id": "e402980c8dea4c37917d36b60c070f6c",
   "run_name": "C04_cutmix010_seed1_e30_b8_w0",
@@ -29,5 +29,15 @@
   "native_job_differences_from_C01": [
     "run_name",
     "extra_args.seed"
-  ]
+  ],
+  "finished_at_pst": "2026-11-21T04:58:44.702804-08:00",
+  "duration_minutes": 229.58641703128814,
+  "result": {
+    "selected_epoch": 29,
+    "validation_AP50": 0.6934924721717834,
+    "validation_AP50_95": 0.44426819682121277,
+    "common_holdout_COCO_AP50": 0.6192528993107949,
+    "full_validation_COCO_AP50": 0.6474739791984034,
+    "kaggle_prediction_generated": false
+  }
 }

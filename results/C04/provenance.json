@@ -1,0 +1,127 @@
+{
+  "experiment": "C04",
+  "status": "completed",
+  "plugin_version": "1.2.15",
+  "run_url": "${THREE_LC_ROOT}/projects/exdark-competition/runs/C04_cutmix010_seed1_e30_b8_w0",
+  "training": {
+    "job_id": "e402980c8dea4c37917d36b60c070f6c",
+    "started_at_pst": "2026-11-21T01:09:09.517782-08:00",
+    "finished_at_pst": "2026-11-21T04:58:44.702804-08:00",
+    "duration_minutes": 229.58641703128814,
+    "epochs_completed": 30,
+    "train_table": "${THREE_LC_ROOT}/projects/exdark-competition/datasets/exdark_train/tables/E01_reviewed_chair_table",
+    "validation_table": "${THREE_LC_ROOT}/projects/exdark-competition/datasets/exdark_val/tables/initial",
+    "checkpoint_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+    "best_weights_path": "${KAGGLE_PLUGIN_ROOT}/runs/C04_cutmix010_seed1_e30_b8_w0/weights/best.pt",
+    "best_weights_sha256": "2c92f3af5bad7938d297bbce1ffd94fe7947a94620c479a50114c7ed50e5760f",
+    "provenance_checks": [
+      {
+        "label": "run records model == yolo11n.pt (official checkpoint)",
+        "ok": true,
+        "detail": "model='${KAGGLE_PLUGIN_ROOT}/checkpoints/yolo11n.pt'"
+      },
+      {
+        "label": "run records imgsz == 640",
+        "ok": true,
+        "detail": "imgsz=640"
+      },
+      {
+        "label": "run records pretrained == True (official init)",
+        "ok": true,
+        "detail": "pretrained=True"
+      },
+      {
+        "label": "run records the official checkpoint sha256",
+        "ok": true,
+        "detail": "checkpoint_sha256=0ebbc80d4a76..."
+      }
+    ],
+    "participant_label_edits": true,
+    "sampling_weights": false,
+    "cutmix": 0.1,
+    "seed": 1,
+    "post_nms_collection_confidence": 0.1
+  },
+  "final_validation": {
+    "source": "Native final selected-checkpoint validation (Training Phase=After)",
+    "AP50": 0.6934924721717834,
+    "AP50_95": 0.44426819682121277,
+    "precision": 0.7376421689987183,
+    "recall": 0.605912983417511,
+    "images": 733,
+    "instances": 2725,
+    "best_epoch": 29,
+    "AP50_at_best_epoch": 0.69344,
+    "AP50_95_at_best_epoch": 0.44452,
+    "AP50_by_focus_class": {
+      "Chair": 0.5534786581993103,
+      "Table": 0.5450801849365234
+    }
+  },
+  "common_holdout": {
+    "metric": "COCO AP50 at saved confidence >= 0.10 and maxDets=100",
+    "holdout": "R01_holdout",
+    "images": 293,
+    "instances": 1207,
+    "E01_AP50": 0.6246494472957067,
+    "E01_Chair_AP50": 0.5393490708621465,
+    "E01_Table_AP50": 0.5300184766174597,
+    "C01_AP50": 0.6311696685798924,
+    "C01_Chair_AP50": 0.5295406324187965,
+    "C01_Table_AP50": 0.5470441322607265,
+    "L02_AP50": 0.627379332242376,
+    "L02_Chair_AP50": 0.5159708240892702,
+    "L02_Table_AP50": 0.5424392336852414,
+    "C04_AP50": 0.6192528993107949,
+    "C04_Chair_AP50": 0.5007461217078648,
+    "C04_Table_AP50": 0.47815377195250175,
+    "delta_vs_E01": -0.005396547984911848,
+    "delta_vs_C01": -0.011916769269097571,
+    "delta_vs_L02": -0.008126432931581107
+  },
+  "cohort_comparisons": {
+    "full_original_validation": {
+      "metric": "COCO AP50 at saved confidence >= 0.10 and maxDets=100",
+      "holdout": "initial",
+      "images": 733,
+      "instances": 2725,
+      "E01_AP50": 0.6510518489016136,
+      "E01_Chair_AP50": 0.5292153100951186,
+      "E01_Table_AP50": 0.5221076463761022,
+      "C01_AP50": 0.6569479434564114,
+      "C01_Chair_AP50": 0.5232114373370162,
+      "C01_Table_AP50": 0.5382588471933744,
+      "L02_AP50": 0.6559793110254303,
+      "L02_Chair_AP50": 0.5179244407784288,
+      "L02_Table_AP50": 0.5342996038183185,
+      "C04_AP50": 0.6474739791984034,
+      "C04_Chair_AP50": 0.5010308011068253,
+      "C04_Table_AP50": 0.48916784364479277,
+      "delta_vs_E01": -0.003577869703210168,
+      "delta_vs_C01": -0.00947396425800795,
+      "delta_vs_L02": -0.00850533182702684
+    }
+  },
+  "validation_size_audit": {
+    "source": "validation-size-audit.csv",
+    "confidence": 0.1,
+    "iou": 0.5,
+    "same_class_matches": {
+      "C01": {
+        "under_32": 99,
+        "32_to_under_96": 679,
+        "96_or_larger": 1171
+      },
+      "C04": {
+        "under_32": 103,
+        "32_to_under_96": 689,
+        "96_or_larger": 1154
+      }
+    }
+  },
+  "kaggle": {
+    "status": "not_submitted",
+    "public_score": null,
+    "prediction_generated": false
+  }
+}

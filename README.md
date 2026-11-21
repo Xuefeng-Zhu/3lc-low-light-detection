@@ -54,7 +54,7 @@ W01 increased sampling weight for images with a Chair or Table label and improve
 - [N01 gradient-accumulation results](results/N01/RESULTS.md) and [configuration](configs/N01-experiment.json)
 - [C03 lower-probability CutMix results](results/C03/RESULTS.md) and [configuration](configs/C03-experiment.json)
 - [L02 learning-rate results](results/L02/RESULTS.md), [configuration](configs/L02-experiment.json), and [validated prediction CSV](results/L02/submission.csv)
-- [C04 repeat training configuration](configs/C04-experiment.json)
+- [C04 repeat training results](results/C04/RESULTS.md) and [configuration](configs/C04-experiment.json)
 - [Per-class validation metrics](results/E00/final-validation-per-class.csv), [epoch metrics](results/E00/epoch-results.csv), and [native training curves](results/E00/training-curves.png)
 - [Provenance, settings and SHA256 hashes](results/E00/provenance.json)
 - [Unmodified submitted CSV](results/E00/submission.csv) and [Kaggle score evidence](results/E00/kaggle-baseline-score.jpg)

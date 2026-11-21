@@ -119,6 +119,7 @@
   "kaggle": {
     "status": "awaiting_participant_submit",
     "public_score": null,
-    "submission_blocker": "daily quota reset"
+    "browser_upload_status": "file_attached_and_submit_enabled",
+    "attempts_shown_before_submit": 3
   }
 }

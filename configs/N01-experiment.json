@@ -1,6 +1,6 @@
 {
   "experiment_id": "N01",
-  "status": "running",
+  "status": "completed",
   "control_experiment": "C01",
   "job_id": "4dcceb8e7841408ba4383b0d4e981a92",
   "run_name": "N01_nbs32_cutmix010_e30_b8_w0",
@@ -26,9 +26,25 @@
     "common_holdout_COCO_AP50": 0.6311696685798924,
     "full_validation_COCO_AP50": 0.6569479434564114
   },
+  "first_epoch_checkpoint": {
+    "completed_epochs": 1,
+    "ema_updates_observed": 554,
+    "ema_updates_expected_for_nbs_32": 554,
+    "ema_updates_expected_for_nbs_64": 405
+  },
   "native_job_differences_from_C01": [
     "run_name",
     "extra_args",
     "conf_thres"
-  ]
+  ],
+  "finished_at_pst": "2026-11-20T17:18:38.075456-08:00",
+  "duration_minutes": 234.3244894226392,
+  "result": {
+    "selected_epoch": 27,
+    "validation_AP50": 0.6856690049171448,
+    "validation_AP50_95": 0.43655720353126526,
+    "common_holdout_COCO_AP50": 0.6189537057039859,
+    "full_validation_COCO_AP50": 0.6393285544573639,
+    "kaggle_prediction_generated": false
+  }
 }

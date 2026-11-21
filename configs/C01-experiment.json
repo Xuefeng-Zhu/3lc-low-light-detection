@@ -36,6 +36,6 @@
   "prediction_job_id": "0ba1640c759442a7a3460668e695a275",
   "prediction_confidence": 0.0001,
   "submission_csv_sha256": "1edfa8dccd6c22ccb7fbdace365dbbaf0a35d7cbfe1cd92eaee964154e33be04",
-  "kaggle_status": "awaiting_daily_quota_reset",
-  "next_submission_window_pst": "2026-11-20T16:00:00-08:00"
+  "kaggle_status": "awaiting_participant_submit",
+  "submission_window_opened_pst": "2026-11-20T16:00:00-08:00"
 }

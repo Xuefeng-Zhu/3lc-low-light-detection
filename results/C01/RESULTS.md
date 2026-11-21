@@ -21,4 +21,4 @@ On all 733 original validation images, COCO AP50 rose from 0.651052 to 0.656948.
 
 In 2,000 paired image resamples, the 95% interval for C01 minus E01 was −1.78 to +2.98 AP50 percentage points on the 293-image cohort and −0.90 to +1.87 points on the full 733 images. Both observed gains were positive and both intervals included zero. The resampling uses fixed checkpoints and reflects variation across these validation images. [Bootstrap results](paired-bootstrap.json)
 
-The official plugin exported [submission.csv](submission.csv) at confidence 0.0001. It contains 715 rows and 159,923 predicted boxes. All five native format checks passed. The submission file is ready. Participant submission is pending the daily quota reset.
+The official plugin exported [submission.csv](submission.csv) at confidence 0.0001. It contains 715 rows and 159,923 predicted boxes. All five native format checks passed. Kaggle restored the daily quota, accepted the file upload, and enabled the Submit button. Participant submission is pending.

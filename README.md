@@ -2,7 +2,7 @@
 
 Private working repository for the [Kaggle competition](https://www.kaggle.com/competitions/the-3lc-low-light-detection-challenge). The objective is to improve the measured score within the competition rules; no top-rank result is claimed.
 
-E01-LC is the project's best Kaggle submission at **0.63844 public AP50**, verified November 19, 2026 Pacific time. It uses the E01 checkpoint with an inference threshold of 0.0001 and improves on E01's 0.63733. [Kaggle submission history](https://www.kaggle.com/competitions/the-3lc-low-light-detection-challenge/submissions)
+C01 is the project's best Kaggle submission at **0.63866 public AP50**, verified November 20, 2026 Pacific time. It adds 0.10 CutMix to E01's training settings and improves on E01-LC's 0.63844 at the same inference threshold of 0.0001. [Kaggle score evidence](results/C01/kaggle-score.jpg) · [Submission history](https://www.kaggle.com/competitions/the-3lc-low-light-detection-challenge/submissions)
 
 | Result | E00 | E11 | W01 | W02 | E01 | W03 | S01 | E03 | H01 | W04 | E04 |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -45,9 +45,9 @@ W01 increased sampling weight for images with a Chair or Table label and improve
 - [R01 re-split results](results/R01/RESULTS.md), [split manifest](results/R01/split-manifest.json), and [Kaggle score](results/R01/kaggle-score.jpg)
 - [B01 box regression results](results/B01/RESULTS.md) and [configuration](configs/B01-experiment.json)
 - [M01 partial-mosaic results](results/M01/RESULTS.md) and [configuration](configs/M01-experiment.json)
-- [E01-LC prediction audit](results/E01/low-threshold-prediction.json), [submitted CSV](results/E01/submission-conf0001.csv), and [best Kaggle score](results/E01/low-threshold-kaggle-score.jpg)
+- [E01-LC prediction audit](results/E01/low-threshold-prediction.json), [submitted CSV](results/E01/submission-conf0001.csv), and [Kaggle score](results/E01/low-threshold-kaggle-score.jpg)
 - [L01 learning-rate results](results/L01/RESULTS.md), [submitted CSV](results/L01/submission.csv), and [Kaggle score](results/L01/kaggle-score.jpg)
-- [C01 CutMix results](results/C01/RESULTS.md), [configuration](configs/C01-experiment.json), and [validated prediction CSV](results/C01/submission.csv)
+- [C01 CutMix results](results/C01/RESULTS.md), [configuration](configs/C01-experiment.json), and [submitted prediction CSV](results/C01/submission.csv)
 - [E06 participant-review results](results/E06/RESULTS.md), [label audit](results/E06/verification.json), [confidence sweep](results/E06/validation-confidence-audit.csv), and [validated backup CSV](results/E06/submission.csv)
 - [C02 higher-probability CutMix results](results/C02/RESULTS.md) and [configuration](configs/C02-experiment.json)
 - [D01 classification-loss results](results/D01/RESULTS.md) and [configuration](configs/D01-experiment.json)

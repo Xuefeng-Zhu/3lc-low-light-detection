@@ -117,9 +117,16 @@
     ]
   },
   "kaggle": {
-    "status": "awaiting_participant_submit",
-    "public_score": null,
+    "status": "scored",
+    "public_score": 0.63866,
     "browser_upload_status": "file_attached_and_submit_enabled",
-    "attempts_shown_before_submit": 3
+    "attempts_shown_before_submit": 3,
+    "verified_date_pst": "2026-11-20",
+    "description": "C01 | Official 3LC YOLOv11n | 30 epochs | CutMix 0.10 | Predict conf=0.0001",
+    "source": "https://www.kaggle.com/competitions/the-3lc-low-light-detection-challenge/submissions",
+    "score_evidence": "kaggle-score.jpg",
+    "previous_best": "E01-LC",
+    "previous_best_public_score": 0.63844,
+    "improvement": 0.00022
   }
 }

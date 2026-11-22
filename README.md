@@ -1,8 +1,16 @@
 # 3LC Low-Light Detection Challenge
 
-Private working repository for the [Kaggle competition](https://www.kaggle.com/competitions/the-3lc-low-light-detection-challenge). The objective is to improve the measured score within the competition rules; no top-rank result is claimed.
+Private working repository for the 3LC Low-Light Detection Challenge on Kaggle.
 
-L02 is the project's best Kaggle submission at **0.64076 public AP50**, verified November 21, 2026 Pacific time at public rank 81. It lowers the initial learning rate from 0.000625 to 0.00045 on C01's 0.10 CutMix recipe. C01 is second at 0.63866. Both use an inference threshold of 0.0001. [L02 Kaggle score evidence](results/L02/kaggle-score.jpg) · [Submission history](https://www.kaggle.com/competitions/the-3lc-low-light-detection-challenge/submissions)
+Xuefeng Zhu finished **53rd** with **0.68685 private AP50**. Kaggle automatically evaluated L02 and C01, the two highest public-scoring submissions. L02 set the final score and improved private AP50 by 0.05524 over the 10-epoch E00 baseline. [Final leaderboard](https://www.kaggle.com/competitions/the-3lc-low-light-detection-challenge/leaderboard) · [Recorded scores](results/kaggle-final.json) · [Leaderboard evidence](results/final-kaggle-leaderboard.jpg) · [Submission evidence](results/final-kaggle-submissions.jpg)
+
+| Submission | Public AP50 | Private AP50 |
+| --- | ---: | ---: |
+| L02 | **0.64076** | **0.68685** |
+| C01 | 0.63866 | 0.68504 |
+| E00 baseline | 0.56515 | 0.63161 |
+
+The final 3LC run, `L02_lr0p00045_cutmix010_e30_b8_w0`, used 30 epochs on the E01 reviewed labels, CutMix probability 0.10, and AdamW with an initial learning rate of 0.00045. The official plugin exported its selected checkpoint at confidence 0.0001. [L02 configuration](configs/L02-experiment.json) · [L02 results](results/L02/RESULTS.md)
 
 | Result | E00 | E11 | W01 | W02 | E01 | W03 | S01 | E03 | H01 | W04 | E04 |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -12,7 +20,7 @@ L02 is the project's best Kaggle submission at **0.64076 public AP50**, verified
 | Kaggle public score | 0.56515 | 0.62263 | 0.63189 | — | **0.63733** | 0.62555 | — | — | — | — | — |
 | Training job duration, including final evaluation | 121.04 min | 244.26 min | 254.59 min | 387.55 min | 227.64 min | 226.34 min | 240.90 min | 232.34 min | 229.29 min | 234.10 min | 230.81 min |
 
-The public score covers the competition's public test subset. The private score is not available. Validation and Kaggle scores use different data and metric settings and are not interchangeable.
+The public and private scores use disjoint test subsets. Training validation uses the separately supplied validation images.
 
 R01 used a disjoint 293-image holdout derived from the original validation set. On the common holdout, COCO AP50 at saved confidence ≥ 0.10 was **0.622201** for R01, **0.614679** for E04, and **0.624649** for E01. R01's 715-row prediction file passed the plugin's five format checks. [R01 results](results/R01/RESULTS.md)
 

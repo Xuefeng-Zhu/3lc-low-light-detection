@@ -23,3 +23,5 @@ C01 led both paired COCO cohorts at saved confidence ≥ 0.10 and maxDets 100. L
 Lowering L02's analysis cutoff from 0.10 to 0.001 increased correct small-object matches at IoU ≥ 0.50 from 98 to 217 of 302. Across all sizes, correct matches rose from 1,956 to 2,510 of 2,725, and valid detections rose from 4,122 to 60,699. The audit recorded 143 clipped zero-area predictions at 0.001, none at 0.10, and 39 saved rows at the detection cap. [Confidence sweep](validation-confidence-audit.csv)
 
 The official plugin exported 715 test rows and 184,830 boxes at confidence 0.0001. All five format checks passed. Kaggle scored the participant submission **0.64076 public AP50** on November 21, 2026 Pacific time, improving on C01 by 0.00210. The team's public rank was 81 at verification. [Submission CSV](submission.csv) · [Prediction provenance](provenance.json) · [Kaggle score evidence](kaggle-score.jpg)
+
+Kaggle automatically evaluated L02 and C01. L02 scored **0.68685 private AP50** and set the final private rank of **53**. [Final standings](../kaggle-final.json)

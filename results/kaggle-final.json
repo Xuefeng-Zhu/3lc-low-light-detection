@@ -1,0 +1,90 @@
+{
+  "status": "competition_completed",
+  "competition_deadline_utc": "2026-11-21T23:59:00Z",
+  "verified_date_pacific": "2026-11-21",
+  "metric": "COCO AP50",
+  "team": "Xuefeng Zhu",
+  "final_private_rank": 53,
+  "final_private_score": 0.68685,
+  "winning_private_score": 0.85606,
+  "team_scoring_submission": "L02",
+  "team_scoring_run": "L02_lr0p00045_cutmix010_e30_b8_w0",
+  "manual_final_selections": 0,
+  "selection_method": "Kaggle automatically evaluated the two highest public-scoring submissions",
+  "evaluated_submissions": [
+    "L02",
+    "C01"
+  ],
+  "leaderboard": "https://www.kaggle.com/competitions/the-3lc-low-light-detection-challenge/leaderboard",
+  "submission_history": "https://www.kaggle.com/competitions/the-3lc-low-light-detection-challenge/submissions",
+  "leaderboard_evidence": "final-kaggle-leaderboard.jpg",
+  "submission_evidence": "final-kaggle-submissions.jpg",
+  "submissions": [
+    {
+      "experiment": "L02",
+      "public_AP50": 0.64076,
+      "private_AP50": 0.68685,
+      "evaluated_for_final": true
+    },
+    {
+      "experiment": "C01",
+      "public_AP50": 0.63866,
+      "private_AP50": 0.68504,
+      "evaluated_for_final": true
+    },
+    {
+      "experiment": "E01-LC",
+      "public_AP50": 0.63844,
+      "private_AP50": 0.67666,
+      "evaluated_for_final": false
+    },
+    {
+      "experiment": "E01",
+      "public_AP50": 0.63733,
+      "private_AP50": 0.67577,
+      "evaluated_for_final": false
+    },
+    {
+      "experiment": "L01",
+      "public_AP50": 0.63453,
+      "private_AP50": 0.68368,
+      "evaluated_for_final": false
+    },
+    {
+      "experiment": "W01",
+      "public_AP50": 0.63189,
+      "private_AP50": 0.67169,
+      "evaluated_for_final": false
+    },
+    {
+      "experiment": "E06",
+      "public_AP50": 0.62775,
+      "private_AP50": 0.67787,
+      "evaluated_for_final": false
+    },
+    {
+      "experiment": "W03",
+      "public_AP50": 0.62555,
+      "private_AP50": 0.68069,
+      "evaluated_for_final": false
+    },
+    {
+      "experiment": "E11",
+      "public_AP50": 0.62263,
+      "private_AP50": 0.6762,
+      "evaluated_for_final": false
+    },
+    {
+      "experiment": "R01",
+      "public_AP50": 0.61772,
+      "private_AP50": 0.68108,
+      "evaluated_for_final": false
+    },
+    {
+      "experiment": "E00",
+      "public_AP50": 0.56515,
+      "private_AP50": 0.63161,
+      "evaluated_for_final": false
+    }
+  ]
+}

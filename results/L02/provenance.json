@@ -123,7 +123,9 @@
     "previous_best": "C01",
     "previous_best_public_score": 0.63866,
     "improvement": 0.0021,
-    "public_rank_at_verification": 81
+    "public_rank_at_verification": 81,
+    "private_score": 0.68685,
+    "evaluated_for_final": true
   },
   "prediction": {
     "job_id": "58c34ce64f614547a209fe6156bce018",

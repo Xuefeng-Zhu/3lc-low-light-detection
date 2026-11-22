@@ -22,3 +22,5 @@ On all 733 original validation images, COCO AP50 rose from 0.651052 to 0.656948.
 In 2,000 paired image resamples, the 95% interval for C01 minus E01 was −1.78 to +2.98 AP50 percentage points on the 293-image cohort and −0.90 to +1.87 points on the full 733 images. Both observed gains were positive and both intervals included zero. The resampling uses fixed checkpoints and reflects variation across these validation images. [Bootstrap results](paired-bootstrap.json)
 
 The official plugin exported [submission.csv](submission.csv) at confidence 0.0001. It contains 715 rows and 159,923 predicted boxes. All five native format checks passed. Kaggle scored the participant submission **0.63866 public AP50** on November 20, 2026 Pacific time. It improved on E01-LC's 0.63844 by 0.00022 at the same inference cutoff. [Kaggle score evidence](kaggle-score.jpg)
+
+Kaggle automatically evaluated C01 alongside L02. C01 scored **0.68504 private AP50** and L02 set the final private score of **0.68685**. [Final standings](../kaggle-final.json)

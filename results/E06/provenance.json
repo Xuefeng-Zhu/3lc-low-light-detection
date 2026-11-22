@@ -87,7 +87,9 @@
     "verified_date_pst": "2026-11-21",
     "description": "E06 | Official 3LC YOLOv11n | 30 epochs | participant-reviewed consensus labels | Predict conf=0.0001",
     "source": "https://www.kaggle.com/competitions/the-3lc-low-light-detection-challenge/submissions",
-    "score_evidence": "kaggle-score.jpg"
+    "score_evidence": "kaggle-score.jpg",
+    "private_score": 0.67787,
+    "evaluated_for_final": false
   },
   "prediction": {
     "job_id": "b83e1adf574b45688f2ced3af686b741",

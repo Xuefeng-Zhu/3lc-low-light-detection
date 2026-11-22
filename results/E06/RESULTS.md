@@ -24,3 +24,5 @@ On all 733 original validation images, COCO AP50 fell from 0.651052 to 0.649446.
 On the same E06 validation outputs, lowering the cutoff from 0.10 to 0.001 increased correct small-box matches from **96 to 222 of 302** and overall matches from 1,942 to 2,524 of 2,725. Retained predictions rose from 4,064 to 61,859. The lower cutoff includes 78 clipped zero-area detections, which contribute to counts and cannot match a positive-area box. With COCO maxDets 100, AP50 rose from **0.649446 to 0.691548**. These are two cutoffs applied to one run's saved validation predictions. [Confidence sweep](validation-confidence-audit.csv) · [COCO at 0.001](full-validation-low-confidence-coco.json)
 
 The official plugin generated a [prediction CSV](submission.csv) at confidence 0.0001. It has 715 rows and 162,875 detections, and passed all five format checks. Kaggle scored the participant submission **0.62775 public AP50** on November 21, 2026 Pacific time, below C01 and L02. [Prediction provenance](provenance.json) · [Kaggle score evidence](kaggle-score.jpg)
+
+E06 scored **0.67787 private AP50**. [Final standings](../kaggle-final.json)

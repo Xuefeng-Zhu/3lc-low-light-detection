@@ -127,6 +127,8 @@
     "score_evidence": "kaggle-score.jpg",
     "previous_best": "E01-LC",
     "previous_best_public_score": 0.63844,
-    "improvement": 0.00022
+    "improvement": 0.00022,
+    "private_score": 0.68504,
+    "evaluated_for_final": true
   }
 }

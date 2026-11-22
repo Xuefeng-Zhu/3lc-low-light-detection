@@ -1,6 +1,6 @@
 # 3LC Low-Light Detection Challenge
 
-Private working repository for the 3LC Low-Light Detection Challenge on Kaggle.
+Training workflow, experiment results, and submission records for the 3LC Low-Light Detection Challenge on Kaggle.
 
 Xuefeng Zhu finished **53rd** with **0.68685 private AP50**. Kaggle automatically evaluated L02 and C01, the two highest public-scoring submissions. L02 set the final score and improved private AP50 by 0.05524 over the 10-epoch E00 baseline. [Final leaderboard](https://www.kaggle.com/competitions/the-3lc-low-light-detection-challenge/leaderboard) · [Recorded scores](results/kaggle-final.json) · [Leaderboard evidence](results/final-kaggle-leaderboard.jpg) · [Submission evidence](results/final-kaggle-submissions.jpg)
 
@@ -76,8 +76,10 @@ All experiments use YOLOv11n, 640-pixel images, and the official SHA256-pinned C
 
 Annotation proposals come from our own plugin Runs and built-in 3LC tools. The participant visually reviews and accepts changes in the Dashboard. E01 is the first participant-saved label revision in this project. [Rules](https://www.kaggle.com/competitions/the-3lc-low-light-detection-challenge/rules) · [Host clarification](https://www.kaggle.com/competitions/the-3lc-low-light-detection-challenge/discussion/744551)
 
-## Project export and attribution
+## License and attribution
 
-The final native `exdark-competition` project export must still be created as a **separate prize-deliverable artifact**. It is not included in this repository snapshot. Before the competition's prize-deliverable deadline, export the final project and complete the required approach summary with the selected Run and team details. The repository currently has no collaborator invitations configured.
+The repository's original code and project documentation are available under the [MIT License](LICENSE). The competition data and third-party software are governed by their own terms. The organizers specify a separate private repository for judging materials, including the native project export. [Kaggle competition rules](https://www.kaggle.com/competitions/the-3lc-low-light-detection-challenge/rules)
 
-Source images derive from ExDark; acquire them through the official plugin and retain its bundled license and attribution. This repository does not redistribute raw images, model weights, or the installed 3LC/Ultralytics packages. Upstream tools retain their own licenses, including Ultralytics' AGPL-3.0/commercial terms.
+The starter kit derives from the Exclusively Dark (ExDark) dataset. Get the kit through the official 3LC plugin and follow the bundled ExDark notice and the competition's data-use rules. The organizers credit 3LC for their competition-specific labeling guidance, revisions, and splits under CC BY 4.0. [Bundled ExDark notice](LICENSE-ExDark.txt) · [Competition data terms](https://www.kaggle.com/competitions/the-3lc-low-light-detection-challenge/rules)
+
+Cite Yuen Peng Loh and Chee Seng Chan, “Getting to know low-light images with the Exclusively Dark dataset,” *Computer Vision and Image Understanding* 178 (2019), 30–42. [Paper](https://doi.org/10.1016/j.cviu.2018.10.010)
